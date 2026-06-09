@@ -7,7 +7,7 @@ Copy into your project as `.agents/skills/ai-optimization/references/<repo>-type
 
 ## Project snapshot (~4 lines, always include)
 
-Next.js 16 App Router **single app** under `src/`. `@/*` → `./src/*`. **Client components for interactive UI** — no async RSC for UI state ([react-client-expert](../../react-client-expert/SKILL.md)). Marketing shell: `src/components/site/*`, `src/styles/marketing.css`. E2E at repo root: `playwright.config.ts`, host-browser helper; specs in `tests/e2e/`. Verify: `pnpm type-check`, `pnpm lint` (Biome, errors only).
+Next.js 16 App Router **single app** under `src/`. `@/*` → `./src/*`. **Client components for interactive UI** — no async RSC for UI state ([react-client-expert](../../react-client-expert/SKILL.md)). Domains: CV/PDF, X post search picker, xAI API (Profile Q&A), xAI collections as embedded datasets. E2E: host-browser Playwright at repo root. Verify: `pnpm type-check`, `pnpm lint` (Biome).
 
 ## Relevance scoring
 

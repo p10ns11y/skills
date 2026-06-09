@@ -20,7 +20,7 @@ Overlays extend generic skills with relevance scoring, fusion targets, token pat
 
 | Project | Stack | Skills exercised | Overlay / example |
 |---------|-------|------------------|-------------------|
-| [**devprofile**](https://github.com/p10ns11y/devprofile) | Next.js 16 App Router, Biome, Tailwind v4, Playwright + host browser E2E, CV/PDF, X search | `ai-optimization`, `fusion-sage`, `semantic-markup-css`, `devcontainer-hardened`, `project-editor-profile`, `upgrade-packages`, `fix-dependency-security`, `audit-allow-builds` | [overlays/nextjs-portfolio-typescript.md](overlays/nextjs-portfolio-typescript.md), [overlays/nextjs-portfolio-fusion-playbook.md](overlays/nextjs-portfolio-fusion-playbook.md), [overlays/nextjs-portfolio-marketing-css.md](overlays/nextjs-portfolio-marketing-css.md), [devcontainers/nextjs-portfolio.*](devcontainers/) |
+| [**devprofile**](https://github.com/p10ns11y/devprofile) | Next.js 16, Biome, Tailwind v4, host-browser E2E, CV/PDF, X post search picker, xAI API, xAI collections (embedded datasets) | `ai-optimization`, `fusion-sage`, `semantic-markup-css`, `devcontainer-hardened`, `project-editor-profile`, `upgrade-packages`, `fix-dependency-security`, `audit-allow-builds` | [overlays/nextjs-portfolio-typescript.md](overlays/nextjs-portfolio-typescript.md), [overlays/nextjs-portfolio-fusion-playbook.md](overlays/nextjs-portfolio-fusion-playbook.md), [overlays/nextjs-portfolio-marketing-css.md](overlays/nextjs-portfolio-marketing-css.md), [devcontainers/nextjs-portfolio.*](devcontainers/) |
 | [**collab-finder**](https://github.com/p10ns11y/collab-finder) | Tauri 2, Rust reactor, React/TS, X API + xAI, MCP, SQLite, CV promote guard | `finder-reactor`, `agentic-reactor`, `tauri-agentic`, `tauri-ipc-debug`, `x-agent-resources`, `cv-promote-guard`, `gt-flow`, `git-worktrees`, `concurrent-cli-agents` | App docs under `docs/` in that repo; patterns are generic in skills |
 | [**premflow**](https://github.com/thecuriousts/premflow) | C, CMake, elomaxz MVU | `mvu-refactor-plan`, `explore-repo-readonly`, `subagent-explore-report`, `src-tree-reorganize` | Use skills as-is; attach your implementation plan |
 | [**sorkalam-extension**](https://github.com/p10ns11y/sorkalam-extension) | MV3 Chrome extension, vanilla JS, Tamil ↔ English dictionary | `chrome-extension-mv3` | [overlays/sorkalam-mv3-extension.md](overlays/sorkalam-mv3-extension.md) |
@@ -63,9 +63,11 @@ These notes were removed from skill bodies; keep them here when maintaining devp
 
 **E2E:** Playwright drives a **host-installed browser** (Brave Beta via `executablePath`), not `playwright install chromium`. Read full `playwright.config.ts`, browser helper, and `tests/e2e/` when touching E2E.
 
+**Domains:** CV/PDF generation and viewing; **X post search picker**; **xAI API** for Profile Q&A and related flows; **xAI collections** shipped as built-in embedded datasets (not live-fetched at runtime for core grounding).
+
 **pnpm policy:** `minimumReleaseAge: 1440`, `trustPolicy: no-downgrade`, `strictDepBuilds`, explicit `allowBuilds` whitelist (`sharp`, `onnxruntime-node`, `protobufjs`, `unrs-resolver`, `esbuild`). Installs via `sfw pnpm install` when hardened.
 
-**Key deps:** Next 16 (exact pin), React 19, TypeScript 6, Tailwind 4, `@huggingface/transformers`, `@playwright/test`.
+**Key deps:** Next 16 (exact pin), React 19, TypeScript 6, Tailwind 4, `@huggingface/transformers`, `@playwright/test`, xAI client SDK.
 
 ---
 

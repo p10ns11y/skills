@@ -188,7 +188,7 @@ Project names and repo-specific paths live in [examples/README.md](examples/READ
 
 | Project           | Stack                                                              | Primary skills                                                      |
 | ----------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------- |
-| [**devprofile**](https://github.com/p10ns11y/devprofile)    | Next.js 16, Biome, Tailwind v4, host-browser E2E, CV/PDF, X search | Context, fusion, frontend, devcontainer, supply chain               |
+| [**devprofile**](https://github.com/p10ns11y/devprofile)    | Next.js 16, Biome, Tailwind v4, host-browser E2E, CV/PDF, X post search picker, xAI API, xAI collections (embedded datasets) | Context, fusion, frontend, devcontainer, supply chain               |
 | [**collab-finder**](https://github.com/p10ns11y/collab-finder) | Tauri 2, Rust reactor, React, X API + LLM, MCP, SQLite             | Finder reactor, Tauri agentic, X resources, CV guard, git worktrees |
 | [**premflow**](https://github.com/thecuriousts/premflow)      | C, CMake, elomaxz MVU                                              | MVU refactor, readonly explore, src reorganize                      |
 | [**sorkalam-extension**](https://github.com/p10ns11y/sorkalam-extension) | MV3 Chrome extension, vanilla JS, Wiktionary + Tamil VU glossary   | chrome-extension-mv3                                                |

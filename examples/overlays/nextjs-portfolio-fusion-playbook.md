@@ -5,7 +5,7 @@ Load with [fusion-playbooks.md](../../fusion-sage/fusion-playbooks.md) and fissi
 
 ## Project snapshot (fusion context)
 
-Next.js 16 portfolio: **client UI for interactivity** (no async RSC for state). Example domains: **CV/PDF**, **Profile Q&A**, **content hub**, **X search**, **certificates**, **E2E (host browser)**. Agent tooling: **ai-optimization** (fission) + **fusion-sage** (this playbook).
+Next.js 16 portfolio: **client UI for interactivity** (no async RSC for state). Domains: **CV/PDF**, **Profile Q&A** (xAI API + embedded collections), **X post search picker**, **certificates**, **E2E (host browser)**. Agent tooling: **ai-optimization** (fission) + **fusion-sage** (this playbook).
 
 ## High-stability fusion targets (iron-peak candidates)
 
@@ -13,7 +13,7 @@ Next.js 16 portfolio: **client UI for interactivity** (no async RSC for state). 
 |---|---|---|
 | **CV Q&A** | generator + API route + UI component | `CvQaReactor` — retrieve → route → generate |
 | **Document viewing** | viewer components + API routes | `DocumentViewReactor` — PDF + sidebar + download |
-| **X search** | lib + components + page | `XSearchReactor` — dates, sections, filter links |
+| **X post search picker** | lib + components + page | `XSearchReactor` — dates, sections, filter links, post picker |
 | **E2E host browser** | playwright config + global setup + helper | `HostBrowserE2eReactor` — IDE-safe launch options |
 | **Agent skills** | ai-optimization + fusion-sage | `ConnectedReactor` — fission route + fusion surplus |
 
@@ -39,8 +39,8 @@ Persist in fusion-state.json so agents stop re-discovering Playwright type misma
 
 | Trigger | Surplus suggestion |
 |---|---|
-| Third CV/Q&A change | Extract `useCvQa()` hook wrapping cache + API |
-| Multiple X search UI edits | Single `useXSearchWindow()` for dates + URL sync |
+| Third CV/Q&A change | Extract `useCvQa()` hook wrapping cache + xAI API + embedded collections |
+| Multiple X picker UI edits | Single `useXSearchWindow()` for dates + URL sync + post selection |
 | Repeated E2E + config questions | Seed `fusion-state.json` with E2E reactor node |
 
 ## Knowledge graph path
