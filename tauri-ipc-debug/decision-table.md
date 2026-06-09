@@ -10,4 +10,4 @@ Use with [SKILL.md](./SKILL.md). Your app should maintain a fuller table in `doc
 | Rust panic in terminal | ipc-rust | Fix handler; check serde types |
 | 401 after invoke succeeds | HTTP client | Token expired or wrong scopes — see [x-agent-resources](../x-agent-resources/SKILL.md) |
 
-**Example provenance:** collab-finder layer map — adapt paths to your app's data dir and command names.
+**Example provenance:** [collab-finder](https://github.com/p10ns11y/collab-finder) layer map — adapt paths to your app's data dir and command names.

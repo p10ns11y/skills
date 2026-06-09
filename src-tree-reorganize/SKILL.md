@@ -29,4 +29,4 @@ description: Reorganize scattered C/C++ sources into src/ with CMake updates. Us
 
 Tree matches agreed layout and build passes.
 
-**Example provenance:** [premflow](../examples/README.md).
+**Example provenance:** [premflow](https://github.com/thecuriousts/premflow).

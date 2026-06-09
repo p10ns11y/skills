@@ -1,6 +1,6 @@
 # Next.js portfolio — semantic markup & CSS overlay
 
-**Example provenance:** devprofile marketing UI.  
+**Example provenance:** [devprofile](https://github.com/p10ns11y/devprofile) marketing UI.  
 Load with [semantic-markup-css](../../semantic-markup-css/SKILL.md) when editing this repo's landing/marketing pages.
 
 ## Token files (example layout)

@@ -84,4 +84,4 @@ Debug top-down: confirm intent fired → ipc request/response → Rust handler e
 - Assuming Network tab shows Tauri or X API traffic
 - Patching bearer in frontend instead of secrets module
 
-**Example provenance:** [collab-finder](../examples/README.md) — see [decision-table.md](decision-table.md) for a sample layer map.
+**Example provenance:** [collab-finder](https://github.com/p10ns11y/collab-finder) — see [decision-table.md](decision-table.md) for a sample layer map.

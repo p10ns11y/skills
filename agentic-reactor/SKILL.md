@@ -37,4 +37,4 @@ After reactor-related work, document Q-factor wins and suggested follow-ups. Tra
 
 High-level design: load agentic-reactor + finder-reactor + tauri-agentic + fusion-sage.
 
-**Example provenance:** [collab-finder](../examples/README.md).
+**Example provenance:** [collab-finder](https://github.com/p10ns11y/collab-finder).

@@ -83,6 +83,7 @@ Pick a pack, symlink those skills, add more as needed.
 | **React / Next frontend**       | `react-client-expert`, `semantic-markup-css`, `project-editor-profile`                        | App Router, a11y, editor sync      |
 | **Opportunity finder platform** | `finder-reactor`, `agentic-reactor`, `x-agent-resources`, `cv-promote-guard`, `tauri-agentic` | Tauri + X + LLM autonomous loops   |
 | **C / CMake / MVU**             | `explore-repo-readonly`, `mvu-refactor-plan`, `src-tree-reorganize`                           | elomaxz-style refactors            |
+| **Chrome MV3 extension**        | `chrome-extension-mv3`                                                                        | Popup + service worker + content script |
 
 
 ---
@@ -123,6 +124,7 @@ Pick a pack, symlink those skills, add more as needed.
 | [tauri-ipc-debug](tauri-ipc-debug/SKILL.md)               | Systematic Tauri IPC triage (MVU → invoke → Rust → storage/API)                |
 | [devcontainer-hardened](devcontainer-hardened/SKILL.md)   | Minimal hardened `.devcontainer` configs (pinned digests, non-root, cap drops) |
 | [project-editor-profile](project-editor-profile/SKILL.md) | Generate VS Code/Cursor settings from `.editor/profile.json`                   |
+| [chrome-extension-mv3](chrome-extension-mv3/SKILL.md)     | MV3 extensions: service worker, message passing, content scripts, permissions |
 
 
 ### Frontend & UI
@@ -179,16 +181,18 @@ Pick a pack, symlink those skills, add more as needed.
 
 ## Where these were forged
 
-These skills weren't designed in a vacuum. They were **extracted from real projects after the fighting stopped** — devprofile, collab-finder, premflow — each with its own stack, its own failures, its own fixes that held up under pressure.
+These skills weren't designed in a vacuum. They were **extracted from real projects after the fighting stopped** — [devprofile](https://github.com/p10ns11y/devprofile), [collab-finder](https://github.com/p10ns11y/collab-finder), [premflow](https://github.com/thecuriousts/premflow), [sorkalam-extension](https://github.com/p10ns11y/sorkalam-extension), and the harvest pipeline in [agent-prompt-tuning-lab](https://github.com/p10ns11y/agent-prompt-tuning-lab) — each with its own stack, its own failures, its own fixes that held up under pressure.
 
 Project names and repo-specific paths live in [examples/README.md](examples/README.md), not in skill bodies. You get the portable lesson; the war stories stay in the footnotes.
 
 
 | Project           | Stack                                                              | Primary skills                                                      |
 | ----------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------- |
-| **devprofile**    | Next.js 16, Biome, Tailwind v4, host-browser E2E, CV/PDF, X search | Context, fusion, frontend, devcontainer, supply chain               |
-| **collab-finder** | Tauri 2, Rust reactor, React, X API + LLM, MCP, SQLite             | Finder reactor, Tauri agentic, X resources, CV guard, git worktrees |
-| **premflow**      | C, CMake, elomaxz MVU                                              | MVU refactor, readonly explore, src reorganize                      |
+| [**devprofile**](https://github.com/p10ns11y/devprofile)    | Next.js 16, Biome, Tailwind v4, host-browser E2E, CV/PDF, X search | Context, fusion, frontend, devcontainer, supply chain               |
+| [**collab-finder**](https://github.com/p10ns11y/collab-finder) | Tauri 2, Rust reactor, React, X API + LLM, MCP, SQLite             | Finder reactor, Tauri agentic, X resources, CV guard, git worktrees |
+| [**premflow**](https://github.com/thecuriousts/premflow)      | C, CMake, elomaxz MVU                                              | MVU refactor, readonly explore, src reorganize                      |
+| [**sorkalam-extension**](https://github.com/p10ns11y/sorkalam-extension) | MV3 Chrome extension, vanilla JS, Wiktionary + Tamil VU glossary   | chrome-extension-mv3                                                |
+| [**agent-prompt-tuning-lab**](https://github.com/p10ns11y/agent-prompt-tuning-lab) | Local Cursor transcript harvest → normalize → split → distill rules/skills | cursor-transcript-harvest, author-workflow-skill |
 
 
 Copy overlays from [examples/overlays/](examples/overlays/) when adapting skills to a similar stack.

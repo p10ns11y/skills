@@ -1,6 +1,6 @@
 # Next.js portfolio — Fusion Playbook
 
-**Example provenance:** devprofile (Next.js 16 portfolio).  
+**Example provenance:** [devprofile](https://github.com/p10ns11y/devprofile) (Next.js 16 portfolio).  
 Load with [fusion-playbooks.md](../../fusion-sage/fusion-playbooks.md) and fission overlay [nextjs-portfolio-typescript.md](nextjs-portfolio-typescript.md).
 
 ## Project snapshot (fusion context)

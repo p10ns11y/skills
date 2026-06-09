@@ -45,4 +45,4 @@ In finder-reactor loop:
 
 [finder-reactor](../finder-reactor/SKILL.md), [x-agent-resources](../x-agent-resources/SKILL.md), [tauri-agentic](../tauri-agentic/SKILL.md), [ai-optimization](../ai-optimization/SKILL.md), [fusion-sage](../fusion-sage/SKILL.md).
 
-**Example provenance:** [collab-finder](../examples/README.md) + [devprofile](../examples/README.md) CV repo pattern.
+**Example provenance:** [collab-finder](https://github.com/p10ns11y/collab-finder) + [devprofile](https://github.com/p10ns11y/devprofile) CV repo pattern.

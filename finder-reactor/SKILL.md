@@ -79,4 +79,4 @@ Track in `.agents/skills/finder-reactor/surplus-log.md` or fusion-state.
 
 [x-agent-resources](../x-agent-resources/SKILL.md), [cv-promote-guard](../cv-promote-guard/SKILL.md), [tauri-agentic](../tauri-agentic/SKILL.md), [ai-optimization](../ai-optimization/SKILL.md), [fusion-sage](../fusion-sage/SKILL.md), [agentic-reactor](../agentic-reactor/SKILL.md).
 
-**Example provenance:** battle-tested on [collab-finder](../examples/README.md) — see [examples/README.md](../examples/README.md).
+**Example provenance:** battle-tested on [collab-finder](https://github.com/p10ns11y/collab-finder).

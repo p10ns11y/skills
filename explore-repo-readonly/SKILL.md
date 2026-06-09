@@ -29,4 +29,4 @@ Keep paths relative; use `{REPO_ROOT}` in exported notes.
 
 Parent session uses this report to drive [mvu-refactor-plan](../mvu-refactor-plan/SKILL.md).
 
-**Example provenance:** [premflow](../examples/README.md).
+**Example provenance:** [premflow](https://github.com/thecuriousts/premflow).

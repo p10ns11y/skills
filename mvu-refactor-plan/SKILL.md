@@ -29,4 +29,4 @@ description: Plan and implement CMake + elomaxz MVU refactors in C codebases. Us
 
 Build succeeds and plan checklist items are addressed or explicitly deferred with reason.
 
-**Example provenance:** [premflow](../examples/README.md). Pair with [explore-repo-readonly](../explore-repo-readonly/SKILL.md) when structure is unknown.
+**Example provenance:** [premflow](https://github.com/thecuriousts/premflow). Pair with [explore-repo-readonly](../explore-repo-readonly/SKILL.md) when structure is unknown.

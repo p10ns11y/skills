@@ -30,4 +30,4 @@ Use numbered sections; no full file dumps. End with **Return:** one paragraph fo
 
 Readonly — no refactors in explore subagents unless user explicitly asks to implement.
 
-**Example provenance:** [premflow](../examples/README.md).
+**Example provenance:** [premflow](https://github.com/thecuriousts/premflow).

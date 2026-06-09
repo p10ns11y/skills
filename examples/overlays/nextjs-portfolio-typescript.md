@@ -1,6 +1,6 @@
 # Next.js portfolio — TypeScript / JavaScript overlay
 
-**Example provenance:** devprofile — Next.js 16 App Router portfolio.  
+**Example provenance:** [devprofile](https://github.com/p10ns11y/devprofile) — Next.js 16 App Router portfolio.  
 **Generic rules:** [typescript-optimizer.md](../../ai-optimization/references/typescript-optimizer.md).
 
 Copy into your project as `.agents/skills/ai-optimization/references/<repo>-typescript.md` and reference from `AGENTS.md` or a Cursor rule.

@@ -30,4 +30,4 @@ description: Patterns for building agentic, MCP-exposed, self-guarded desktop ap
 
 [finder-reactor](../finder-reactor/SKILL.md), [x-agent-resources](../x-agent-resources/SKILL.md), [cv-promote-guard](../cv-promote-guard/SKILL.md), [react-client-expert](../react-client-expert/SKILL.md), [fusion-sage](../fusion-sage/SKILL.md).
 
-**Example provenance:** [collab-finder](../examples/README.md).
+**Example provenance:** [collab-finder](https://github.com/p10ns11y/collab-finder).

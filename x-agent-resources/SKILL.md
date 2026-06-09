@@ -51,4 +51,4 @@ description: Integration and usage of official X Developer Platform agent resour
 
 Official: https://docs.x.com/tools/ai
 
-**Example provenance:** [collab-finder](../examples/README.md).
+**Example provenance:** [collab-finder](https://github.com/p10ns11y/collab-finder).

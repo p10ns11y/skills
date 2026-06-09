@@ -20,21 +20,29 @@ Overlays extend generic skills with relevance scoring, fusion targets, token pat
 
 | Project | Stack | Skills exercised | Overlay / example |
 |---------|-------|------------------|-------------------|
-| **devprofile** | Next.js 16 App Router, Biome, Tailwind v4, Playwright + host browser E2E, CV/PDF, X search | `ai-optimization`, `fusion-sage`, `semantic-markup-css`, `devcontainer-hardened`, `project-editor-profile`, `upgrade-packages`, `fix-dependency-security`, `audit-allow-builds` | [overlays/nextjs-portfolio-typescript.md](overlays/nextjs-portfolio-typescript.md), [overlays/nextjs-portfolio-fusion-playbook.md](overlays/nextjs-portfolio-fusion-playbook.md), [overlays/nextjs-portfolio-marketing-css.md](overlays/nextjs-portfolio-marketing-css.md), [devcontainers/nextjs-portfolio.*](devcontainers/) |
-| **collab-finder** | Tauri 2, Rust reactor, React/TS, X API + xAI, MCP, SQLite, CV promote guard | `finder-reactor`, `agentic-reactor`, `tauri-agentic`, `tauri-ipc-debug`, `x-agent-resources`, `cv-promote-guard`, `gt-flow`, `git-worktrees`, `concurrent-cli-agents` | App docs under `docs/` in that repo; patterns are generic in skills |
-| **premflow** | C, CMake, elomaxz MVU | `mvu-refactor-plan`, `explore-repo-readonly`, `subagent-explore-report`, `src-tree-reorganize` | Use skills as-is; attach your implementation plan |
+| [**devprofile**](https://github.com/p10ns11y/devprofile) | Next.js 16 App Router, Biome, Tailwind v4, Playwright + host browser E2E, CV/PDF, X search | `ai-optimization`, `fusion-sage`, `semantic-markup-css`, `devcontainer-hardened`, `project-editor-profile`, `upgrade-packages`, `fix-dependency-security`, `audit-allow-builds` | [overlays/nextjs-portfolio-typescript.md](overlays/nextjs-portfolio-typescript.md), [overlays/nextjs-portfolio-fusion-playbook.md](overlays/nextjs-portfolio-fusion-playbook.md), [overlays/nextjs-portfolio-marketing-css.md](overlays/nextjs-portfolio-marketing-css.md), [devcontainers/nextjs-portfolio.*](devcontainers/) |
+| [**collab-finder**](https://github.com/p10ns11y/collab-finder) | Tauri 2, Rust reactor, React/TS, X API + xAI, MCP, SQLite, CV promote guard | `finder-reactor`, `agentic-reactor`, `tauri-agentic`, `tauri-ipc-debug`, `x-agent-resources`, `cv-promote-guard`, `gt-flow`, `git-worktrees`, `concurrent-cli-agents` | App docs under `docs/` in that repo; patterns are generic in skills |
+| [**premflow**](https://github.com/thecuriousts/premflow) | C, CMake, elomaxz MVU | `mvu-refactor-plan`, `explore-repo-readonly`, `subagent-explore-report`, `src-tree-reorganize` | Use skills as-is; attach your implementation plan |
+| [**sorkalam-extension**](https://github.com/p10ns11y/sorkalam-extension) | MV3 Chrome extension, vanilla JS, Tamil ↔ English dictionary | `chrome-extension-mv3` | [overlays/sorkalam-mv3-extension.md](overlays/sorkalam-mv3-extension.md) |
+| [**agent-prompt-tuning-lab**](https://github.com/p10ns11y/agent-prompt-tuning-lab) | Cursor transcript harvest, normalize, split, artifact distillation | `cursor-transcript-harvest`, `author-workflow-skill` | Run pipeline in that repo; see its [docs/PIPELINE.md](https://github.com/p10ns11y/agent-prompt-tuning-lab/blob/master/docs/PIPELINE.md) |
 
 ---
 
 ## Overlay catalog
 
-### Next.js portfolio (devprofile-derived)
+### Next.js portfolio ([devprofile](https://github.com/p10ns11y/devprofile)-derived)
 
 | File | Pairs with | Purpose |
 |------|------------|---------|
 | [nextjs-portfolio-typescript.md](overlays/nextjs-portfolio-typescript.md) | [ai-optimization](../ai-optimization/SKILL.md) | Relevance scoring, compression rules, E2E/host-browser patterns |
 | [nextjs-portfolio-fusion-playbook.md](overlays/nextjs-portfolio-fusion-playbook.md) | [fusion-sage](../fusion-sage/SKILL.md) | Domain fusion targets, surplus ideas, `fusion-state.json` seeds |
 | [nextjs-portfolio-marketing-css.md](overlays/nextjs-portfolio-marketing-css.md) | [semantic-markup-css](../semantic-markup-css/SKILL.md) | Token files, landmarks, native `<dialog>` / form patterns |
+
+### Chrome MV3 extension ([sorkalam-extension](https://github.com/p10ns11y/sorkalam-extension)-derived)
+
+| File | Pairs with | Purpose |
+|------|------------|---------|
+| [sorkalam-mv3-extension.md](overlays/sorkalam-mv3-extension.md) | [chrome-extension-mv3](../chrome-extension-mv3/SKILL.md) | File map, message actions, Tamil VU fetch rules |
 
 ### Devcontainers
 
@@ -47,7 +55,7 @@ Before use: resolve Node LTS major, pin image digest, align `packageManager` wit
 
 ---
 
-## devprofile — quick reference (for overlay authors)
+## [devprofile](https://github.com/p10ns11y/devprofile) — quick reference (for overlay authors)
 
 These notes were removed from skill bodies; keep them here when maintaining devprofile overlays.
 
@@ -61,7 +69,7 @@ These notes were removed from skill bodies; keep them here when maintaining devp
 
 ---
 
-## collab-finder — quick reference
+## [collab-finder](https://github.com/p10ns11y/collab-finder) — quick reference
 
 **Reactor stack:** Rust `FinderReactor` + Tauri invoke + optional MCP server; React dashboard with command palette.
 
@@ -73,11 +81,35 @@ These notes were removed from skill bodies; keep them here when maintaining devp
 
 ---
 
-## premflow — quick reference
+## [premflow](https://github.com/thecuriousts/premflow) — quick reference
 
 **MVU library:** [elomaxz](https://github.com/elomaxz/elomaxz) patterns via CMake `FetchContent`.
 
 **Workflow:** Readonly explore ([explore-repo-readonly](../explore-repo-readonly/SKILL.md)) → plan ([mvu-refactor-plan](../mvu-refactor-plan/SKILL.md)) → small CMake/build steps.
+
+---
+
+## [sorkalam-extension](https://github.com/p10ns11y/sorkalam-extension) — quick reference
+
+**Stack:** MV3, vanilla JS — popup + `event.js` service worker + `content.js` on `<all_urls>`.
+
+**Fetch rule:** Tamil VU (`tamilvu.org`) only from service worker with `host_permissions`; popup uses `sendMessage`.
+
+**Message actions:** `getSelectedWordFromPage`, `getSelectedWord`, `fetchTamilVUGlossary` — keep names in sync across layers.
+
+**Docs:** `TECH_DETAILS_V6.md` in the sorkalam repo for full architecture.
+
+---
+
+## agent-prompt-tuning-lab — quick reference
+
+**Repo:** [github.com/p10ns11y/agent-prompt-tuning-lab](https://github.com/p10ns11y/agent-prompt-tuning-lab) — privacy-first local pipeline to harvest Cursor agent transcripts and distill rules, skills, and gold exemplars.
+
+**Quick start:** `pnpm harvest:all && pnpm seed-manifest && pnpm normalize && pnpm split` (run in that repo on the host with `~/.cursor/projects`).
+
+**Skills here:** [cursor-transcript-harvest](../cursor-transcript-harvest/SKILL.md) (harvest commands), [author-workflow-skill](../author-workflow-skill/SKILL.md) (SKILL.md authoring).
+
+**Do not commit:** raw transcripts, processed turns, or `data/manifest.jsonl` from the lab.
 
 ---
 
