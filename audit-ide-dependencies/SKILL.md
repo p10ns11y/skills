@@ -34,7 +34,7 @@ Pair with [fix-dependency-security](../fix-dependency-security/SKILL.md) (CVE fi
 - [ ] 4. Triage: runtime extension vs dev-only plugin monorepo
 - [ ] 5. Optional: npm view scripts on flagged packages; incident intel
 - [ ] 6. Report + recommend disable/update/extension pin
-- [ ] 7. Re-audit project repo separately (devprofile root)
+- [ ] 7. Re-audit project repo separately (application root, not IDE extensions dir)
 ```
 
 ---
@@ -152,7 +152,7 @@ Also state **project repo** audit result if run in the same session.
 
 ## Anti-patterns
 
-- Assuming the devprofile `pnpm audit` covers Cursor extensions
+- Assuming the application repo's `pnpm audit` covers Cursor extensions
 - Running `pnpm install` in every plugin cache “to fix” audit noise without user approval
 - Auditing `test/fixtures/**` lockfiles inside plugin monorepos as if they were IDE runtime
 - Treating MCP JSON descriptors under `projects/*/mcps/` as npm packages

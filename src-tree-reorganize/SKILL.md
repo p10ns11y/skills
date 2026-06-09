@@ -1,6 +1,6 @@
 ---
 name: src-tree-reorganize
-description: Reorganize scattered premflow sources into src/ with CMake updates. Use when user asks to tidy layout, move files to src, or clean root-level clutter.
+description: Reorganize scattered C/C++ sources into src/ with CMake updates. Use when user asks to tidy layout, move files to src, or clean root-level clutter.
 ---
 
 # Src tree reorganize
@@ -28,3 +28,5 @@ description: Reorganize scattered premflow sources into src/ with CMake updates.
 ## Done when
 
 Tree matches agreed layout and build passes.
+
+**Example provenance:** [premflow](../examples/README.md).

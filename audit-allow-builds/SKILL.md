@@ -181,19 +181,9 @@ Summarize for the user:
 
 ---
 
-## Project-specific notes (devprofile)
+## Project-specific notes
 
-Current `allowBuilds: true` in `pnpm-workspace.yaml`:
-
-| Package | Typical role here | Re-audit when |
-|---------|-------------------|---------------|
-| `sharp` | `next`, `@huggingface/transformers` | Next or transformers bump |
-| `onnxruntime-node` | `@huggingface/transformers` | transformers / ONNX override changes |
-| `protobufjs` | transitive via `onnxruntime-web` | transformers bump |
-| `unrs-resolver` | ESLint import resolver chain | `eslint-config-next` / ESLint upgrade |
-| `esbuild` | Whitelisted; verify still in tree | Any tool adding esbuild |
-
-Workspace already enforces `strictDepBuilds`, `trustPolicy: no-downgrade`, and `minimumReleaseAge: 1440` (strict). Installs use [fix-dependency-security](../fix-dependency-security/SKILL.md) SFW prefix.
+See [examples/README.md](../examples/README.md) for example `allowBuilds` whitelists (e.g. Next.js + ML native deps).
 
 ---
 

@@ -1,12 +1,12 @@
 {
-  "name": "devprofile",
+  "name": "nextjs-portfolio",
   "build": {
     "dockerfile": "Dockerfile",
     "context": ".."
   },
   "remoteUser": "node",
   "containerUser": "node",
-  "workspaceFolder": "/workspaces/devprofile",
+  "workspaceFolder": "/workspaces/app",
   "forwardPorts": [3000],
   "portsAttributes": {
     "3000": {

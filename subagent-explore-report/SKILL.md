@@ -1,14 +1,13 @@
 ---
 name: subagent-explore-report
-description: Run readonly subagent exploration of premflow or elomaxz and return a structured report. Use when delegating explore/map before CMake or MVU work.
+description: Run readonly subagent exploration of a CMake/C repo and return a structured report. Use when delegating explore/map before CMake or MVU work.
 ---
 
 # Subagent explore report
 
 ## When to use
 
-- Parent session delegates "Explore premflow / elomaxz at {REPO_ROOT}"
-- Subagent turn pattern: **UpdateCurrentStep → Glob → Grep → Read** (corpus subagent turns)
+- Parent session delegates "Explore {REPO} at {REPO_ROOT}"
 - Need structure, CMake/Makefile, MVU entry points before parent implements
 
 ## Steps
@@ -30,3 +29,5 @@ Use numbered sections; no full file dumps. End with **Return:** one paragraph fo
 ## Constraints
 
 Readonly — no refactors in explore subagents unless user explicitly asks to implement.
+
+**Example provenance:** [premflow](../examples/README.md).

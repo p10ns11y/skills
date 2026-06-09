@@ -1,6 +1,6 @@
 # Fusion Playbooks — Language-Specific Synthesis Rules
 
-Portable defaults. **devprofile** overlay: [references/devprofile-fusion-playbook.md](references/devprofile-fusion-playbook.md).
+Portable defaults. **Project overlay:** [examples/overlays/nextjs-portfolio-fusion-playbook.md](../../examples/overlays/nextjs-portfolio-fusion-playbook.md).
 
 These extend the original language compression rules with **active fusion/synthesis** logic.
 
@@ -58,7 +58,7 @@ class UserAggregate:
    - Detect REST/GraphQL calls + local state + loading/error → fuse into `useQueryReactor` with optimistic updates + cache invalidation built-in
 
 3. **Component + Logic Fusion**
-   - Client component + hook + shared types → propose **client** `FeatureReactor` (not Server Components for UI state in devprofile)
+   - Client component + hook + shared types → propose **client** `FeatureReactor` (respect repo RSC vs client conventions)
 
 ### Example Synthesis Output
 ```tsx

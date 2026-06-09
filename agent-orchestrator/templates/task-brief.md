@@ -32,8 +32,8 @@ Observable results when correct — bullet list. Example:
 
 ## Standards (read before coding)
 
-- [ ] [`AGENTS.md`](../../../AGENTS.md)
-- [ ] [`.agents/skills/<skill>/SKILL.md`](../../../.agents/skills/) — _list applicable_
+- [ ] Repo agent docs (`AGENTS.md` or README verification section)
+- [ ] Applicable skill `SKILL.md` files — _list paths_
 
 ## Files
 

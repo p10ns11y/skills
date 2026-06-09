@@ -1,15 +1,15 @@
 ---
 name: mvu-refactor-plan
-description: Plan and implement CMake + elomaxz MVU refactors in premflow. Use when user references elomaxz, MVU, CMake refactor plan, or attached implementation plan.
+description: Plan and implement CMake + elomaxz MVU refactors in C codebases. Use when user references elomaxz, MVU, CMake refactor plan, or attached implementation plan.
 ---
 
-# MVU refactor (premflow)
+# MVU refactor (CMake + elomaxz)
 
 ## When to use
 
 - User attaches or references an implementation plan for CMake + elomaxz MVU
-- Refactoring premflow model/view/update structure
-- Integrating patterns from elomaxz repo
+- Refactoring model/view/update structure in a C project
+- Integrating patterns from the [elomaxz](https://github.com/elomaxz/elomaxz) library
 
 ## Steps
 
@@ -28,3 +28,5 @@ description: Plan and implement CMake + elomaxz MVU refactors in premflow. Use w
 ## Done when
 
 Build succeeds and plan checklist items are addressed or explicitly deferred with reason.
+
+**Example provenance:** [premflow](../examples/README.md). Pair with [explore-repo-readonly](../explore-repo-readonly/SKILL.md) when structure is unknown.

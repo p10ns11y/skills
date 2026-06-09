@@ -142,7 +142,7 @@ Before writing a worker prompt:
 
 1. **Goal in one sentence** — what changes for the user when this is done?
 2. **Base ref** — branch and commit (`git log -3`, `git diff main...HEAD`).
-3. **Constraints** — no new deps, no push, files to avoid, E2E on host Brave, etc. ([`AGENTS.md`](../../../AGENTS.md)).
+3. **Constraints** — no new deps, no push, files to avoid, verification commands from repo docs (`AGENTS.md`, README, CI config).
 4. **Resume inventory** — if continuing prior work: what is already merged vs only on agent branch vs uncommitted?
 5. **Risk** — unknown API, flaky test, cross-cutting refactor → **spike first**.
 
@@ -188,7 +188,7 @@ Workers must **commit in their workspace** before claiming done ([git-worktrees]
 ## Step 4: Delegate
 
 - One prompt per worker; include the full brief.
-- Reference repo root `AGENTS.md` and applicable `.agents/skills/*/SKILL.md`.
+- Reference repo root agent docs (`AGENTS.md`, README) and applicable skill `SKILL.md` files.
 - Prefer **non-interactive** commands ([cli-for-agents](https://cursor.com/docs/agent/skills) patterns).
 - Do not ask worker to merge into integration branch unless brief explicitly includes it.
 
@@ -236,7 +236,7 @@ When picking up stale work:
 
 ## Quality bar (this repo defaults)
 
-Pull from [`AGENTS.md`](../../../AGENTS.md) unless brief overrides:
+Pull verification commands from the target repo's `AGENTS.md` or README unless the brief overrides:
 
 - `pnpm` + frozen lockfile policy when deps change
 - `pnpm type-check`, `pnpm lint` (Biome errors only)

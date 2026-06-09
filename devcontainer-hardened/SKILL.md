@@ -89,7 +89,7 @@ Record the chosen major in `ARG NODE_VERSION` / `build.args.NODE_VERSION` and in
 | `packageManager`: `pnpm@…` | `corepack enable` + `corepack prepare pnpm@<version> --activate` in `postCreateCommand` |
 | `pnpm-lock.yaml` + `verifyDepsBeforeRun` | Always `--frozen-lockfile` on install |
 | `biome.json` | Recommend `biomejs.biome` only — not ESLint/Prettier |
-| `@playwright/test` | **Do not** `playwright install chromium` by default in devprofile; E2E uses **host Brave Beta** ([tests/e2e/README.md](../../../tests/e2e/README.md)) |
+| `@playwright/test` | **Do not** `playwright install chromium` by default when E2E uses a **host browser**; document host workflow in `.devcontainer/README.md` |
 | `bun` in scripts (`generate-pdf`) | Optional `bun` feature; default **omit** (run PDF on host CI) |
 | `pnpm-workspace.yaml` hardening | Mention in README: install must respect `allowBuilds` / `strictDepBuilds` |
 
@@ -180,7 +180,7 @@ USER node
 | `"privileged": true` / `--privileged` | Full host kernel exposure |
 | `postStartCommand` / `updateContentCommand` with network fetches | Repeat supply-chain risk |
 | Global `npm install -g` toolchains | Unpinned binaries |
-| Installing Playwright browsers in devprofile default | Conflicts with Brave Beta workflow; bloat |
+| Installing Playwright browsers when project uses host browser E2E | Conflicts with host workflow; image bloat |
 | Copying full `.cursor` plugin caches | Shadow tooling, huge context |
 | `remoteUser: "root"` | Writable system inside container |
 
@@ -229,15 +229,17 @@ Document Cursor steps in `.devcontainer/README.md`.
 
 ---
 
-## Step 7: devprofile defaults
+## Step 7: Example starter configs
 
-For this repository, start from [templates/devprofile.devcontainer.json](templates/devprofile.devcontainer.json) and [templates/devprofile.Dockerfile](templates/devprofile.Dockerfile).
+Copy and adapt from [examples/devcontainers/](../examples/devcontainers/) (see [examples/README.md](../examples/README.md) for provenance):
 
-- **Node major:** run [scripts/resolve-node-lts-major.mjs](scripts/resolve-node-lts-major.mjs) unless `engines.node` / `.nvmrc` already pins the repo; set `ARG NODE_VERSION` and re-pin digest
-- Extensions: mirror `.editor/profile.json` → `biomejs.biome`, `bradlc.vscode-tailwindcss`, `ms-playwright.playwright` (tests authoring only), `EditorConfig.EditorConfig`
-- **Do not** add ESLint, Prettier, Python, Rust extensions
-- `postCreateCommand`: corepack + pnpm from `package.json` `packageManager` field + `pnpm install --frozen-lockfile`
-- No Playwright browser download in `postCreateCommand`
+- [nextjs-portfolio.devcontainer.json](../examples/devcontainers/nextjs-portfolio.devcontainer.json)
+- [nextjs-portfolio.Dockerfile](../examples/devcontainers/nextjs-portfolio.Dockerfile)
+
+- **Node major:** run [scripts/resolve-node-lts-major.mjs](scripts/resolve-node-lts-major.mjs) unless `engines.node` / `.nvmrc` already pins the repo
+- Extensions: mirror `.editor/profile.json` ([project-editor-profile](../project-editor-profile/SKILL.md))
+- `postCreateCommand`: corepack + pnpm from `packageManager` + `pnpm install --frozen-lockfile`
+- No Playwright browser download in `postCreateCommand` when using host-browser E2E
 
 ---
 

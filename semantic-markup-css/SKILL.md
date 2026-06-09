@@ -7,7 +7,7 @@ description: Guides modern HTML semantics, WAI-ARIA, WCAG contrast, data-* state
 
 **Load first** on marketing UI, layout refactors, or any task touching TSX + styles. Pair with [react-client-expert](../react-client-expert/SKILL.md) for client state; this skill owns **HTML, ARIA, tokens, and CSS architecture**.
 
-**devprofile overlay:** [references/devprofile-marketing-css.md](references/devprofile-marketing-css.md)
+**Optional project overlay:** see [examples/overlays/](../examples/overlays/) (e.g. Next.js portfolio marketing CSS).
 
 ---
 
@@ -170,4 +170,4 @@ Example CSS (few lines, high leverage):
 ## Related
 
 - Client state/fetch: [react-client-expert](../react-client-expert/SKILL.md)
-- devprofile tokens/paths: [references/devprofile-marketing-css.md](references/devprofile-marketing-css.md)
+- Optional overlay: [examples/overlays/nextjs-portfolio-marketing-css.md](../examples/overlays/nextjs-portfolio-marketing-css.md)

@@ -107,9 +107,9 @@ This used ~Xk tokens. Expand any fused concept with "expand <name>".
 5. **Self-amplification > One-shot help**
 
 ## Language-Specific Fusion Playbooks (Additions)
-- **devprofile repo:** load [references/devprofile-fusion-playbook.md](references/devprofile-fusion-playbook.md) + fission overlay [../ai-optimization/references/devprofile-typescript.md](../ai-optimization/references/devprofile-typescript.md).
+- **Project overlay (optional):** load repo-specific playbooks from `.agents/skills/fusion-sage/references/` or [examples/overlays/](../examples/overlays/) ([examples/README.md](../examples/README.md)).
 - **Python/ML**: After AST extraction, fuse related classes into “Domain Aggregates” and detect implicit event-driven patterns.
-- **TypeScript**: Merge React hooks + context providers + services into unified “Feature Reactor” abstractions — **client components only** in devprofile (no RSC for UI state).
+- **TypeScript**: Merge React hooks + context providers + services into unified feature-reactor abstractions; respect the repo's RSC vs client-component conventions.
 - **Rust**: Identify ownership patterns that can be fused into newtype + trait object hierarchies for zero-cost abstraction.
 
 ## Accuracy Guardrails (Unchanged + New)
@@ -119,9 +119,9 @@ This used ~Xk tokens. Expand any fused concept with "expand <name>".
 - **Commit / Git Attribution**: Never inject boilerplate from other LLMs ("Generated with Claude Code", "Co-Authored-By: Claude", etc.) into commit messages or suggestions unless the user has explicitly confirmed they are using that LLM on this machine. Default to clean factual messages. Record this as a permanent guardrail (see also `docs/agent-workflow-lessons.md` Lesson 6).
 
 ## IDE Integration (Enhanced)
-- **Cursor (devprofile)**: `.cursor/rules/fusion-sage.mdc` (`alwaysApply: true`) routes fission + fusion; `.cursor/rules/ai-optimization.mdc` is fission-only fallback (`alwaysApply: false`).
-- Grok Build / Continue.dev: Prefix with `/fusion-sage` or just let it load
-- After 5 interactions, auto-suggest seeding `.agents/skills/fusion-sage/fusion-state.json` (see `fusion-state.schema.json`)
+- **Cursor**: symlink skill; optional `.cursor/rules/fusion-sage.mdc` with `alwaysApply: true` to route fission + fusion together.
+- **Other agents**: install skill directory per agent docs; invoke by name or description routing.
+- After 5 interactions, auto-suggest seeding `.agents/skills/fusion-sage/fusion-state.json` (see `fusion-state.schema.json`).
 
 ---
 

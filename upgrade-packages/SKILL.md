@@ -15,7 +15,7 @@ Safe, incremental dependency upgrades for pnpm projects. Pair with [fix-dependen
 
 1. **Prefer non-breaking upgrades** — stay within semver ranges in `package.json` (`^`, `~`) before jumping majors.
 2. **One logical change per commit** — e.g. “bump patch/minors” vs “Next 15 → 16 + codemods”.
-3. **Framework libs are worth major upgrades** — `next`, `react`, `react-dom`, `typescript`, `tailwindcss`, and the active linter (`@biomejs/biome` in devprofile; `eslint` in ESLint-based repos) — but require changelog review, codemods, and code fixes; never bump only the version pin.
+3. **Framework libs are worth major upgrades** — `next`, `react`, `react-dom`, `typescript`, `tailwindcss`, and the active linter (`@biomejs/biome` or `eslint`) — but require changelog review, codemods, and code fixes; never bump only the version pin.
 4. **Keep related packages aligned** — React + types + DOM; Next + `@next/env` override; linter + its plugins (Biome or ESLint ecosystem).
 5. **Install with SFW** when supply-chain hardening is enabled: `sfw pnpm install` / `sfw pnpm update`.
 
@@ -137,10 +137,10 @@ Run from repo root. Prefer **official** codemods first; then community.
 | **React 19** | `npx codemod@latest react/19/migration-recipe` | [React 19 upgrade](https://react.dev/blog/2024/04/25/react-19-upgrade-guide) |
 | **React 18→19** | `npx react-codemod@latest rename-unsafe-lifecycles` | Legacy patterns if needed |
 | **TypeScript** | `npx typescript-go` / manual | TS 6+ — follow [TS release notes](https://www.typescriptlang.org/docs/handbook/release-notes.html); fix `tsc` errors |
-| **Biome** | Bump `@biomejs/biome`; read [Biome release notes](https://biomejs.dev/internals/changelog/) | **devprofile** uses Biome only (no ESLint) |
+| **Biome** | Bump `@biomejs/biome`; read [Biome release notes](https://biomejs.dev/internals/changelog/) | Biome-only repos |
 | **ESLint 9+** | `npx @eslint/migrate-config` | Other repos; flat config from `.eslintrc` |
 | **Tailwind 3→4** | `npx @tailwindcss/upgrade` | [Upgrade guide](https://tailwindcss.com/docs/upgrade-guide) |
-| **Playwright** | Bump `@playwright/test` only; **do not** `playwright install chromium` | This repo uses **Brave Beta** via `executablePath` ([tests/e2e/README.md](../../../tests/e2e/README.md)) |
+| **Playwright** | Bump `@playwright/test` only; **do not** `playwright install chromium` when using host browser | See project E2E docs |
 
 **Community / general:**
 
@@ -151,7 +151,7 @@ Always read codemod output and **review the git diff** — codemods are incomple
 
 ### 4.4 Manual follow-up
 
-- Fix remaining `tsc` and linter errors (`pnpm lint` — Biome in devprofile, ESLint elsewhere).
+- Fix remaining `tsc` and linter errors (`pnpm lint` — Biome or ESLint per project).
 - Update `next.config.*`, `postcss.config.*`, and linter config (`biome.json` or `eslint.config.*`) per migration guides.
 - Run `pnpm build` and critical **e2e** paths (`pnpm test:e2e`).
 
@@ -213,19 +213,9 @@ Report to the user:
 
 ---
 
-## Project-specific notes (devprofile)
+## Project-specific notes
 
-| Package | Notes |
-|---------|--------|
-| `next` | Pinned exact version (`16.2.6`); bump with `@next/codemod` + align `@next/env` override |
-| `react` / `react-dom` | Keep on same major; types packages must match |
-| `typescript` | `^6.0.x` — major bumps need full `tsc` pass |
-| `@biomejs/biome` | **Lint + format** via `biome.json`; `pnpm lint` / `lint:fix` / `format` — ESLint was removed in PR #42 |
-| `tailwindcss` | v4 + `@tailwindcss/postcss` — use `@tailwindcss/upgrade` for major migrations |
-| `motion` | Successor to Framer Motion — [motion.dev](https://motion.dev/) on major bumps |
-| `@playwright/test` | Bump package only; tests use **Brave Beta** — do not `playwright install chromium` |
-| `@huggingface/transformers` | Heavy native deps — run [audit-allow-builds](../audit-allow-builds/SKILL.md) after upgrades |
-| Overrides | Security + trust pins in `pnpm-workspace.yaml` (ONNX, `@next/env`, `semver`, etc.) — `pnpm why` before adding |
+See [examples/README.md](../examples/README.md) for battle-tested upgrade notes (e.g. Next.js portfolio / devprofile overlay).
 
 ---
 

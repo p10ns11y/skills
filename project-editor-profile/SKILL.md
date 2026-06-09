@@ -54,9 +54,7 @@ scripts/
 | React | `react`, `react-dom` | ESLint | — |
 | TypeScript | `typescript`, `tsconfig.json` | Biome; use workspace `typescript.tsdk` | — |
 | Tailwind | `tailwindcss`, `@tailwindcss/postcss` | Tailwind CSS IntelliSense | — |
-| Playwright | `@playwright/test`, `playwright.config.*` | Playwright | — |
-
-**E2E browser (this repo):** Playwright drives **system Brave Beta** (`playwright.brave.ts`), not `playwright install chromium`. See [tests/e2e/README.md](../../../tests/e2e/README.md) and root `AGENTS.md`.
+| Playwright | `@playwright/test`, `playwright.config.*` | Playwright | Prefer host browser when project documents that pattern |
 | pnpm | `pnpm-lock.yaml`, `packageManager` | — | npm-only tooling |
 | Python | `pyproject.toml`, `requirements.txt` | Python, Pylance | (if absent, unwanted Python) |
 | Rust | `Cargo.toml` | rust-analyzer | (if absent, unwanted Rust) |
@@ -112,7 +110,7 @@ Cursor validates `editor.defaultFormatter` against **installed** extensions only
 - `vscode.typescript-language-features` — TS/JS format
 - `vscode.json-language-features` — JSON
 
-Put extension-only keys in `.editor/profile.extensions.json` (merged by `editor:sync` only when that extension exists under `~/.cursor/extensions/`). **devprofile** uses [Biome](https://biomejs.dev) (`biomejs.biome`) for lint + format — not ESLint.
+Put extension-only keys in `.editor/profile.extensions.json` (merged by `editor:sync` only when that extension exists under `~/.cursor/extensions/`). Example: [Biome](https://biomejs.dev) (`biomejs.biome`) for lint + format instead of ESLint.
 
 ---
 
@@ -127,7 +125,7 @@ Put extension-only keys in `.editor/profile.extensions.json` (merged by `editor:
 
 Override per project in `profile.settings` only when needed (e.g. `eslint.useFlatConfig`, Tailwind v4 `experimental.configFile`, Playwright reuse browser).
 
-**devprofile** baseline: Biome formatter/linter, workspace TypeScript SDK, `.next` / test output excludes. Tailwind/Playwright extension keys merge from `profile.extensions.json` when installed.
+Override per project in `profile.settings` (e.g. Biome formatter, workspace TypeScript SDK, `.next` excludes, Tailwind v4 config path).
 
 ---
 
@@ -140,7 +138,7 @@ Override per project in `profile.settings` only when needed (e.g. `eslint.useFla
 | Cursor marketplace plugins | `.cursor/hooks.json` + `load-workspace-plugins.mjs` | Requires plugin installed in Cursor once; hook loads cache path per workspace |
 | User settings | `~/.config/Cursor/User/settings.json` | Global — do not duplicate project overrides here |
 
-Optional: symlink agent skills per [AGENTS.md](../../../AGENTS.md); unrelated to `profile.json`.
+Optional: symlink agent skills into `.cursor/skills/` or `.agents/skills/` per your project's agent docs.
 
 ---
 

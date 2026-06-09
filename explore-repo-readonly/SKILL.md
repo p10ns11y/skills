@@ -1,15 +1,15 @@
 ---
 name: explore-repo-readonly
-description: Readonly exploration of premflow or a referenced repo before CMake/MVU changes. Use when user asks to explore and report structure, CMake support, or elomaxz integration points.
+description: Readonly exploration of a C/C++ or CMake repo before MVU or structural changes. Use when user asks to explore and report structure, CMake support, or elomaxz integration points.
 ---
 
 # Explore repo (readonly)
 
 ## When to use
 
-- Subagent or parent turn: "Explore premflow / elomaxz and report …"
 - Before CMake + MVU refactor when structure is unknown
 - User wants report only, not implementation yet
+- Parent delegates readonly survey to a subagent
 
 ## Return format
 
@@ -21,10 +21,12 @@ description: Readonly exploration of premflow or a referenced repo before CMake/
 
 ## Procedure
 
-UpdateCurrentStep → Glob → Grep → Read — **no Write** unless user escalates to implement.
+Glob → Grep → Read — **no Write** unless user escalates to implement.
 
 Keep paths relative; use `{REPO_ROOT}` in exported notes.
 
 ## Handoff
 
-Parent session uses this report to drive `mvu-refactor-plan` skill implementation steps.
+Parent session uses this report to drive [mvu-refactor-plan](../mvu-refactor-plan/SKILL.md).
+
+**Example provenance:** [premflow](../examples/README.md).

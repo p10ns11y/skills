@@ -131,7 +131,7 @@ Trade-off: You do the restacking yourself. This gets painful with deep stacks.
 
 ### Summary Recommendation (this repo context)
 
-| Your situation                                      | Best choice                              | Notes for collab-finder / agentic work |
+| Your situation                                      | Best choice                              | Notes for agentic / multi-worktree work |
 |-----------------------------------------------------|------------------------------------------|----------------------------------------|
 | Mostly independent PRs or high coupling on core files | Plain Git or "do work then `gt split`" at end | Coupling diagnosis in this skill often wins here. |
 | Regular stacked PRs, mostly one thing at a time, human in primary checkout | `gt` in **single worktree** (primary)   | Sweet spot for clean functional/iterative stacks. |

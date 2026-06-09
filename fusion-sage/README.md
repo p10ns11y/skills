@@ -1,23 +1,20 @@
-# Fusion Sage — Context Sage Evolved
+# Fusion Sage — companion files
 
-Fusion reactor built on [ai-optimization](../ai-optimization/SKILL.md) (fission). Router: [`.agents/rules/fusion-sage.mdc`](../../rules/fusion-sage.mdc).
+See [SKILL.md](SKILL.md) for the full fusion reactor workflow.
 
-## Quick Start (devprofile)
-1. Symlink `.agents/rules/fusion-sage.mdc` → `.cursor/rules/fusion-sage.mdc` (`alwaysApply: true`)
-2. Symlink both skills into `.cursor/skills/`
-3. Optional seed: `fusion-state.json` (preloaded with BraveE2e + ConnectedReactor nodes)
+## Quick start
 
-## Files
+1. Install this skill (see root [README.md](../README.md)).
+2. Pair with [ai-optimization](../ai-optimization/SKILL.md) — fission is the containment field.
+3. Optional: copy a project overlay from [examples/overlays/](../examples/overlays/) (e.g. Next.js portfolio playbook).
+
+## Files in this directory
+
 | File | Purpose |
-|---|---|
-| `SKILL.md` | Fusion reactor definition |
-| `fusion-playbooks.md` | Portable synthesis rules |
-| `references/devprofile-fusion-playbook.md` | **devprofile** domain fusion map |
-| `fusion-surplus-examples.md` | Q calculations (includes devprofile E2E) |
-| `fusion-state.schema.json` | Knowledge graph schema |
-| `fusion-state.json` | Seeded graph (optional, git-tracked) |
+|------|---------|
+| `fusion-playbooks.md` | Generic language fusion patterns |
+| `fusion-state.schema.json` | Schema for persisted knowledge graph |
+| `fusion-surplus-examples.md` | Q-factor calculation examples |
+| `fusion-state.json` | Example seed state (copy to your project) |
 
-## Philosophy
-> Fission keeps you fast. Fusion makes you unstoppable.
-
-See root [AGENTS.md](../../../AGENTS.md#agent-skills--connected-system) for the connected system setup.
+Project-specific playbooks live in [examples/](../examples/README.md), not here.

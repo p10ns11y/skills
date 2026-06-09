@@ -65,7 +65,7 @@ description: Fission engine for token-efficient coding (JS, TS, Node.js, Rust, P
 - Training loops → "Standard PyTorch training: optimizer.step(), scheduler, mixed precision, gradient clipping=1.0, 10 epochs, early stopping patience=3"
 
 ### TypeScript / JavaScript (including Node.js, React, Next.js)
-- **devprofile repo:** also load [references/devprofile-typescript.md](references/devprofile-typescript.md).
+- **Project overlay (optional):** if the repo ships one under `.agents/skills/ai-optimization/references/` or [examples/overlays/](../examples/overlays/), load it alongside [references/typescript-optimizer.md](references/typescript-optimizer.md).
 - Extract: `interface` / `type` definitions (full), exported functions with JSDoc summary.
 - React components: "UserProfile(props: {user: User, onUpdate: fn}) — uses useEffect for fetch, useState for edit mode, renders form + avatar"
 - Express/Fastify routes: "app.post('/api/users', validateBody, async (req, res) => { ... calls UserService } (full handler body omitted — business logic in service layer)"
@@ -91,7 +91,7 @@ description: Fission engine for token-efficient coding (JS, TS, Node.js, Rust, P
    ```
 
 2. **Project Snapshot** (2-4 lines max):
-   "Next.js 16 portfolio under `src/`. Client components for interactive UI. CV/Q&A via embeddings, content hub, X search. E2E: Brave Beta at repo root (`playwright.brave.ts`). Verify: `pnpm type-check`, `pnpm lint`."
+   Infer from repo: stack, key dirs, verify commands (`type-check`, `lint`, test runner). Use a project overlay when present ([examples/README.md](../examples/README.md)).
 
 3. **Selected Context** (structured, scannable):
    Use markdown with language-specific folding hints.
@@ -120,12 +120,12 @@ description: Fission engine for token-efficient coding (JS, TS, Node.js, Rust, P
 ## IDE Integration Recipes
 
 **Cursor**:
-- Primary router: copy or symlink [`.agents/rules/fusion-sage.mdc`](../../rules/fusion-sage.mdc) → `.cursor/rules/fusion-sage.mdc` (`alwaysApply: true`).
-- Fission-only fallback: [assets/cursorrules-template.md](assets/cursorrules-template.md) → `.cursor/rules/ai-optimization.mdc` (`alwaysApply: false`).
-- Symlink skills: `.cursor/skills/ai-optimization`, `.cursor/skills/fusion-sage` → `.agents/skills/…`.
+- Symlink or copy skills into `.cursor/skills/` (or use global `~/.cursor/skills/`).
+- Optional fission-only rule: [assets/cursorrules-template.md](assets/cursorrules-template.md) → `.cursor/rules/ai-optimization.mdc`.
+- Pair with [fusion-sage](../fusion-sage/SKILL.md) when synthesis/surplus is needed.
 
-**Grok Build**:
-- Prefix messages with `/context-sage` or just rely on the loaded skill.
+**Other agents** (Grok, Continue, etc.):
+- Install skill dir where the agent discovers skills; invoke by name or let description-based routing load it.
 
 **Continue.dev / Windsurf**:
 - Use custom slash command `/sage` that invokes this workflow.
