@@ -231,6 +231,8 @@ If you've lost a battle worth documenting, contribute the win:
 
 ## License
 
-See repository license. Skills are meant to be copied, forked, and adapted — attribution appreciated.
+[MIT](LICENSE) — use, copy, modify, and ship these skills however you want. Keep the copyright notice if you redistribute the files.
+
+If a skill saves you a battle, a post on [X (@peramanathan)](https://x.com/peramanathan) helps others find it. No obligation — just good karma if you're inclined.
 
 **You don't need to lose the same battles we did.**
