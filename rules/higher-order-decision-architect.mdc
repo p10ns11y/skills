@@ -1,0 +1,16 @@
+---
+description: Before material coding decisions, apply the higher-order-decision-architect skill — first principles, multi-order consequences, inversion, systems, probability, antifragility.
+alwaysApply: true
+---
+
+# Higher-Order Decision Architect (router)
+
+Before **material coding decisions** (architecture, dependencies, public API, security, data contracts, multi-module refactors, or anything hard to revert):
+
+1. Load and follow [higher-order-decision-architect/SKILL.md](../higher-order-decision-architect/SKILL.md).
+2. Run the mental-model sequence **internally** on every such decision.
+3. For **non-trivial** choices, surface **Executive Verdict**, **risks**, **confidence**, and **next actions** (full template in the skill — do not paste the entire block on trivial edits).
+
+Project-specific hooks (e.g. WASM/metre contracts) live in [examples/overlays/thepulimaangani-decision-hooks.md](../examples/overlays/thepulimaangani-decision-hooks.md) when working in that repo.
+
+This rule governs **how** to decide; it does not replace language, test commands, or verification steps in project `AGENTS.md`.

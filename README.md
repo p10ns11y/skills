@@ -83,7 +83,7 @@ Pick a pack, symlink those skills, add more as needed.
 | **React / Next frontend**       | `react-client-expert`, `semantic-markup-css`, `project-editor-profile`                        | App Router, a11y, editor sync      |
 | **Opportunity finder platform** | `finder-reactor`, `agentic-reactor`, `x-agent-resources`, `cv-promote-guard`, `tauri-agentic` | Tauri + X + LLM autonomous loops   |
 | **C / CMake / MVU**             | `explore-repo-readonly`, `mvu-refactor-plan`, `src-tree-reorganize`                           | elomaxz-style refactors            |
-| **Chrome MV3 extension**        | `chrome-extension-mv3`                                                                        | Popup + service worker + content script |
+| **Strategy & decisions**        | `higher-order-decision-architect`, `bdd-strategizer`                                          | Architecture tradeoffs, pre-mortem, test-first refactors |
 
 
 ---
@@ -164,6 +164,7 @@ Pick a pack, symlink those skills, add more as needed.
 | ------------------------------------------------------- | ---------------------------------------------------- |
 | [bdd-strategizer](bdd-strategizer/SKILL.md)             | Core-first BDD/TDD decomposition for large refactors |
 | [author-workflow-skill](author-workflow-skill/SKILL.md) | Author new well-formed `SKILL.md` files              |
+| [higher-order-decision-architect](higher-order-decision-architect/SKILL.md) | First-principles decision framework before material architecture/API/security choices |
 
 
 ### Specialized
@@ -192,6 +193,7 @@ Project names and repo-specific paths live in [examples/README.md](examples/READ
 | [**collab-finder**](https://github.com/p10ns11y/collab-finder) | Tauri 2, Rust reactor, React, X API + LLM, MCP, SQLite             | Finder reactor, Tauri agentic, X resources, CV guard, git worktrees |
 | [**premflow**](https://github.com/thecuriousts/premflow)      | C, CMake, elomaxz MVU                                              | MVU refactor, readonly explore, src reorganize                      |
 | [**sorkalam-extension**](https://github.com/p10ns11y/sorkalam-extension) | MV3 Chrome extension, vanilla JS, Wiktionary + Tamil VU glossary   | chrome-extension-mv3                                                |
+| [**thepulimaangani**](https://github.com/p10ns11y/thepulimaangani) | Tamil prosody, WASM parser, metre prediction | higher-order-decision-architect |
 | [**agent-prompt-tuning-lab**](https://github.com/p10ns11y/agent-prompt-tuning-lab) | Local Cursor transcript harvest → normalize → split → distill rules/skills | cursor-transcript-harvest, author-workflow-skill |
 
 
@@ -219,6 +221,10 @@ my-skill/
 Descriptions must be **third-person**, **specific**, and include **trigger terms** — agents route on `description`, not the title.
 
 Author new skills with [author-workflow-skill](author-workflow-skill/SKILL.md).
+
+### Optional Cursor rules (`rules/`)
+
+Some skills ship a thin **`.mdc` router** in [`rules/`](rules/) for `alwaysApply: true` behavior — e.g. [higher-order-decision-architect.mdc](rules/higher-order-decision-architect.mdc) loads the full skill on material decisions without duplicating the framework in every project. Symlink into `.cursor/rules/` alongside skills.
 
 ---
 

@@ -25,6 +25,7 @@ Overlays extend generic skills with relevance scoring, fusion targets, token pat
 | [**premflow**](https://github.com/thecuriousts/premflow) | C, CMake, elomaxz MVU | `mvu-refactor-plan`, `explore-repo-readonly`, `subagent-explore-report`, `src-tree-reorganize` | Use skills as-is; attach your implementation plan |
 | [**sorkalam-extension**](https://github.com/p10ns11y/sorkalam-extension) | MV3 Chrome extension, vanilla JS, Tamil ↔ English dictionary | `chrome-extension-mv3` | [overlays/sorkalam-mv3-extension.md](overlays/sorkalam-mv3-extension.md) |
 | [**agent-prompt-tuning-lab**](https://github.com/p10ns11y/agent-prompt-tuning-lab) | Cursor transcript harvest, normalize, split, artifact distillation | `cursor-transcript-harvest`, `author-workflow-skill` | Run pipeline in that repo; see its [docs/PIPELINE.md](https://github.com/p10ns11y/agent-prompt-tuning-lab/blob/master/docs/PIPELINE.md) |
+| [**thepulimaangani**](https://github.com/p10ns11y/thepulimaangani) | Tamil prosody, WASM parser, metre prediction | `higher-order-decision-architect` | [overlays/thepulimaangani-decision-hooks.md](overlays/thepulimaangani-decision-hooks.md) |
 
 ---
 
@@ -43,6 +44,12 @@ Overlays extend generic skills with relevance scoring, fusion targets, token pat
 | File | Pairs with | Purpose |
 |------|------------|---------|
 | [sorkalam-mv3-extension.md](overlays/sorkalam-mv3-extension.md) | [chrome-extension-mv3](../chrome-extension-mv3/SKILL.md) | File map, message actions, Tamil VU fetch rules |
+
+### Decision architect ([thepulimaangani](https://github.com/p10ns11y/thepulimaangani)-derived)
+
+| File | Pairs with | Purpose |
+|------|------------|---------|
+| [thepulimaangani-decision-hooks.md](overlays/thepulimaangani-decision-hooks.md) | [higher-order-decision-architect](../higher-order-decision-architect/SKILL.md) | WASM/metre contract hooks, branch sync |
 
 ### Devcontainers
 
