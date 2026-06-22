@@ -83,7 +83,8 @@ Pick a pack, symlink those skills, add more as needed.
 | **React / Next frontend**       | `react-client-expert`, `semantic-markup-css`, `project-editor-profile`                        | App Router, a11y, editor sync      |
 | **Opportunity finder platform** | `finder-reactor`, `agentic-reactor`, `x-agent-resources`, `cv-promote-guard`, `tauri-agentic` | Tauri + X + LLM autonomous loops   |
 | **C / CMake / MVU**             | `explore-repo-readonly`, `mvu-refactor-plan`, `src-tree-reorganize`                           | elomaxz-style refactors            |
-| **Strategy & decisions**        | `higher-order-decision-architect`, `bdd-strategizer`                                          | Architecture tradeoffs, pre-mortem, test-first refactors |
+| **Strategy & decisions**        | `higher-order-decision-architect`, `bdd-strategizer`, `stellar-roadmap`                       | Architecture tradeoffs, backlog docs, blueprint cards |
+| **Shell verify workflow**       | `verification-cockpit`, `shell-kernel-ontology`, `stellar-roadmap`, `ai-optimization`, `fusion-sage` | `av` tmux cockpits, kernel ontology graph, `coming-next.md` roadmaps |
 
 
 ---
@@ -165,6 +166,16 @@ Pick a pack, symlink those skills, add more as needed.
 | [bdd-strategizer](bdd-strategizer/SKILL.md)             | Core-first BDD/TDD decomposition for large refactors |
 | [author-workflow-skill](author-workflow-skill/SKILL.md) | Author new well-formed `SKILL.md` files              |
 | [higher-order-decision-architect](higher-order-decision-architect/SKILL.md) | First-principles decision framework before material architecture/API/security choices |
+| [stellar-roadmap](stellar-roadmap/SKILL.md) | Evidence-driven architecture backlog docs: scorecards, SN-* blueprint cards, gantt order |
+
+
+### Shell workflow & verification
+
+
+| Skill                                                       | One-liner                                                                                          |
+| ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| [verification-cockpit](verification-cockpit/SKILL.md)       | Generate per-project `.agents/verification/` tmux cockpits for `av`-style verify workflows       |
+| [shell-kernel-ontology](shell-kernel-ontology/SKILL.md)       | Route edits across shellyxz kernel ontology subgraphs (PATH, boundary, verify bridge, drift gate) |
 
 
 ### Specialized

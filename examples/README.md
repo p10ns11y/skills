@@ -26,6 +26,7 @@ Overlays extend generic skills with relevance scoring, fusion targets, token pat
 | [**sorkalam-extension**](https://github.com/p10ns11y/sorkalam-extension) | MV3 Chrome extension, vanilla JS, Tamil ↔ English dictionary | `chrome-extension-mv3` | [overlays/sorkalam-mv3-extension.md](overlays/sorkalam-mv3-extension.md) |
 | [**agent-prompt-tuning-lab**](https://github.com/p10ns11y/agent-prompt-tuning-lab) | Cursor transcript harvest, normalize, split, artifact distillation | `cursor-transcript-harvest`, `author-workflow-skill` | Run pipeline in that repo; see its [docs/PIPELINE.md](https://github.com/p10ns11y/agent-prompt-tuning-lab/blob/master/docs/PIPELINE.md) |
 | [**thepulimaangani**](https://github.com/p10ns11y/thepulimaangani) | Tamil prosody, WASM parser, metre prediction | `higher-order-decision-architect` | [overlays/thepulimaangani-decision-hooks.md](overlays/thepulimaangani-decision-hooks.md) |
+| [**shellyxz/shell**](https://github.com/p10ns11y/shell) | Portable PATH kernel, `av`/`ab` verify bridge, PLUGIN boundary, ontology graph | `verification-cockpit`, `shell-kernel-ontology`, `stellar-roadmap`, `ai-optimization`, `fusion-sage` | [overlays/shell-av-workflow.md](overlays/shell-av-workflow.md), [overlays/shellyxz-shell-kernel.md](overlays/shellyxz-shell-kernel.md) |
 
 ---
 
@@ -50,6 +51,13 @@ Overlays extend generic skills with relevance scoring, fusion targets, token pat
 | File | Pairs with | Purpose |
 |------|------------|---------|
 | [thepulimaangani-decision-hooks.md](overlays/thepulimaangani-decision-hooks.md) | [higher-order-decision-architect](../higher-order-decision-architect/SKILL.md) | WASM/metre contract hooks, branch sync |
+
+### Shell kernel ([shellyxz/shell](https://github.com/p10ns11y/shell)-derived)
+
+| File | Pairs with | Purpose |
+|------|------------|---------|
+| [shell-av-workflow.md](overlays/shell-av-workflow.md) | [verification-cockpit](../verification-cockpit/SKILL.md) | `av`/`ab` runtime, verify-launch.sh, per-project delegation |
+| [shellyxz-shell-kernel.md](overlays/shellyxz-shell-kernel.md) | [stellar-roadmap](../stellar-roadmap/SKILL.md) | Live scorecard + SN priorities for shell config dogfood |
 
 ### Devcontainers
 
