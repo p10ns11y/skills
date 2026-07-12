@@ -40,9 +40,11 @@ cd ~/skills
 
 ```bash
 mkdir -p ~/.cursor/skills
-for skill in ai-optimization fusion-sage agent-orchestrator git-worktrees; do
+for skill in ai-optimization fusion-sage agent-orchestrator looper git-worktrees; do
   ln -sf "$(pwd)/$skill" ~/.cursor/skills/$skill
 done
+# optional loop-control rule (alwaysApply: false)
+ln -sf "$(pwd)/rules/looper.mdc" ~/.cursor/rules/looper.mdc 2>/dev/null || true
 ```
 
 **Per-project** (share with teammates via repo):
@@ -78,7 +80,7 @@ Pick a pack, symlink those skills, add more as needed.
 | Pack                            | Skills                                                                                        | Best for                           |
 | ------------------------------- | --------------------------------------------------------------------------------------------- | ---------------------------------- |
 | **Context & speed**             | `ai-optimization`, `fusion-sage`                                                              | Large codebases, expensive context |
-| **Multi-agent delivery**        | `agent-orchestrator`, `git-worktrees`, `concurrent-cli-agents`, `split-to-prs`                | Parallel agents, PR hygiene        |
+| **Multi-agent delivery**        | `agent-orchestrator`, `looper`, `git-worktrees`, `concurrent-cli-agents`, `split-to-prs`      | Parallel agents, structured loops, PR hygiene |
 | **Node supply chain**           | `fix-dependency-security`, `upgrade-packages`, `audit-allow-builds`, `supply-chain-harden`    | pnpm monorepos, CI hardening       |
 | **React / Next frontend**       | `react-client-expert`, `semantic-markup-css`, `project-editor-profile`                        | App Router, a11y, editor sync      |
 | **Opportunity finder platform** | `finder-reactor`, `agentic-reactor`, `x-agent-resources`, `cv-promote-guard`, `tauri-agentic` | Tauri + X + LLM autonomous loops   |
@@ -97,6 +99,7 @@ Pick a pack, symlink those skills, add more as needed.
 | Skill                                                       | One-liner                                                                                          |
 | ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
 | [agent-orchestrator](agent-orchestrator/SKILL.md)           | Triage single-shot vs full orchestration; briefs, worktrees, independent verification, clean merge |
+| [looper](looper/SKILL.md)                                   | Structured agent loops: outer state machine, budgets, HITL gates, multi-model routing over raw ReAct |
 | [concurrent-cli-agents](concurrent-cli-agents/SKILL.md)     | Run multiple CLI agents safely on isolated worktrees or sandboxes                                  |
 | [git-worktrees](git-worktrees/SKILL.md)                     | Safe git worktree usage for agents; commit-then-merge; disk hygiene                                |
 | [gt-flow](gt-flow/SKILL.md)                                 | When to use Graphite (`gt`) vs plain branches with agent worktrees                                 |
