@@ -12,6 +12,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const skillDir = join(__dirname, "..");
 const repoRoot = join(skillDir, "..");
 const skillMd = join(skillDir, "SKILL.md");
+const skillReadme = join(skillDir, "README.md");
 const loopCard = join(skillDir, "references", "loop-card.md");
 const ruleMd = join(repoRoot, "rules", "looper.mdc");
 const readmeMd = join(repoRoot, "README.md");
@@ -84,6 +85,13 @@ must(body.includes("fusion-sage") || body.includes("ai-optimization"), "composes
 must(existsSync(loopCard), "references/loop-card.md exists");
 const card = read(loopCard);
 must(card.toLowerCase().includes("phase"), "loop-card mentions phase");
+
+const skillReadmeBody = read(skillReadme);
+must(skillReadmeBody.includes("SKILL.md"), "skill README points at SKILL.md");
+must(
+  skillReadmeBody.includes("Peramanathan") || skillReadmeBody.includes("2067890630345494578"),
+  "skill README cites X thesis post",
+);
 
 const rule = read(ruleMd);
 must(rule.includes("---"), "looper.mdc has frontmatter");
