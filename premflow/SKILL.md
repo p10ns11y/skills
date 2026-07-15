@@ -1,5 +1,5 @@
 ---
-name: premflow-flow
+name: premflow
 description: >-
   Capture notes, wins, tasks, and focus into premflow without leaving the agent
   session. Use when the user dumps a thought, wants a note, win, todo, pomo, or
@@ -7,7 +7,7 @@ description: >-
   remember this, task add, win, journal, review my day.
 ---
 
-# premflow-flow — stay in session, write the ledger
+# premflow — stay in session, write the ledger
 
 **Mission:** While coding with Grok, capture signal into **premflow** via the real CLI so you never context-switch to another app. Premflow owns the ledger; you own judgment.
 
@@ -96,11 +96,11 @@ After capture or on “review my day”:
 
 ## Install / discovery (Grok)
 
-This skill lives at `~/Work/personal/skills/premflow-flow/`.
+This skill lives at `~/Work/personal/skills/premflow/`.
 
 ```bash
 mkdir -p ~/.grok/skills
-ln -sfn ~/Work/personal/skills/premflow-flow ~/.grok/skills/premflow-flow
+ln -sfn ~/Work/personal/skills/premflow ~/.grok/skills/premflow
 ```
 
 Or add to `~/.grok/config.toml`:
