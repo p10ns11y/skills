@@ -20,7 +20,7 @@ Most agent failures are not model failures. They are **context**, **coordination
 | Parallel agents overwriting each other | Merged garbage, lost work, `cp` disasters | [git-worktrees](git-worktrees/SKILL.md) + [agent-orchestrator](agent-orchestrator/SKILL.md) |
 | Unsafe autonomous actions | Near-misses on CV writes, runaway API spend | [finder-reactor](finder-reactor/SKILL.md) + [cv-promote-guard](cv-promote-guard/SKILL.md) |
 | npm supply-chain risk | "Audit clean" installs that still weren't safe | [fix-dependency-security](fix-dependency-security/SKILL.md) + [supply-chain-harden](supply-chain-harden/SKILL.md) |
-| Leaving the agent to jot a note | Broken flow, forgotten captures | [premflow](premflow/SKILL.md) — note/win/task/pomo via real `premflow` CLI |
+| Leaving the agent to jot a note | Broken flow, forgotten captures | [premflow](premflow/SKILL.md) skill → full plugin at `../plugins/premflow` (`/note` `/focus` `/journal`) |
 
 **Philosophy:** Fission keeps you fast. Fusion makes you unstoppable. Guards are what you add after you almost didn't need them.
 
