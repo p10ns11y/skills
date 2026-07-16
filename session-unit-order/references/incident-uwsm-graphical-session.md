@@ -8,6 +8,8 @@
 `modules/productivity/eye-comfort/docs/REGRESSION-UWSM-SESSION.md`  
 Repo: https://github.com/p10ns11y/arch-machine
 
+**Omarchy hosts:** also load the **`omarchy`** skill (`~/.local/share/omarchy/default/omarchy-skill/SKILL.md`). Never edit `~/.local/share/omarchy/`; use `~/.config/omarchy/` + hooks; set `OMARCHY_PATH` on timer oneshots.
+
 **Fingerprint:**
 
 ```text
