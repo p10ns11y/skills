@@ -15,9 +15,15 @@ description: >-
 
 Agents **must** apply this skill before shipping changes to **user** systemd units that interact with Wayland sessions, theme apply, or autostart.
 
-**Portable skill** — install from the [agent skills library](https://github.com/p10ns11y/skills) (`session-unit-order/`).
+**Locations (keep both; do not drop the project copy):**
 
-**Incident writeup (arch-machine):** when that repo is present, see  
+| Install | Path |
+|---------|------|
+| **arch-machine (canonical for this project)** | `.agents/skills/session-unit-order/` (git-tracked) |
+| **User** | `~/skills/session-unit-order` → project tree (or a local copy) |
+| **Library mirror** | [p10ns11y/skills](https://github.com/p10ns11y/skills) `session-unit-order/` |
+
+**Incident writeup (arch-machine):**  
 `modules/productivity/eye-comfort/docs/REGRESSION-UWSM-SESSION.md`.  
 Short pointer: [references/incident-uwsm-graphical-session.md](references/incident-uwsm-graphical-session.md).
 
