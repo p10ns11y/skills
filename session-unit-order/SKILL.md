@@ -15,13 +15,15 @@ description: >-
 
 Agents **must** apply this skill before shipping changes to **user** systemd units that interact with Wayland sessions, theme apply, or autostart.
 
-**Locations (keep both; do not drop the project copy):**
+**Locations (two independent copies — project first, then general):**
 
-| Install | Path |
-|---------|------|
-| **arch-machine (canonical for this project)** | `.agents/skills/session-unit-order/` (git-tracked) |
-| **User** | `~/skills/session-unit-order` → project tree (or a local copy) |
-| **Library mirror** | [p10ns11y/skills](https://github.com/p10ns11y/skills) `session-unit-order/` |
+| Install | Path | Role |
+|---------|------|------|
+| **This project (keep)** | `arch-machine/.agents/skills/session-unit-order/` | Born from this repo’s incident; always keep a full copy in-tree |
+| **User general** | `~/skills/session-unit-order/` | Independent **copy** (not a symlink to the project) for everyday agents |
+| **Skills library remote** | [p10ns11y/skills](https://github.com/p10ns11y/skills) via `~/Work/personal/skills/` | Sync `~/skills` (or the library clone) when generalizing for others |
+
+Workflow: fix/create in **project** → copy into **`~/skills`** → commit/push **skills** remote when ready for general use.
 
 **Incident writeup (arch-machine):**  
 `modules/productivity/eye-comfort/docs/REGRESSION-UWSM-SESSION.md`.  
@@ -64,18 +66,21 @@ From the omarchy skill — non-negotiable when the host is Omarchy:
 
 Timer-driven theme tools (eye-comfort, custom oneshots) must obey **both** unit-order rules below **and** Omarchy path safety above.
 
-## Adopt in a project
+## Adopt / keep in sync
+
+**arch-machine:** keep the skill **in-tree** under `.agents/skills/session-unit-order/` (do not replace with an external-only symlink that removes project files from git).
 
 ```bash
-# Clone or update the library
-git clone https://github.com/p10ns11y/skills.git ~/Work/personal/skills   # or pull
-# User-global (Grok / multi-tool)
+# User-global → this project's skill
 mkdir -p ~/skills
-ln -sfn ~/Work/personal/skills/session-unit-order ~/skills/session-unit-order
-# Project (arch-machine pattern)
-ln -sfn ~/Work/personal/skills/session-unit-order /path/to/repo/.agents/skills/session-unit-order
-# Omarchy skill (host install — not this repo)
+ln -sfn /path/to/arch-machine/.agents/skills/session-unit-order ~/skills/session-unit-order
+
+# Optional: also publish/sync a copy to the skills library for other agents
+# cp -a .agents/skills/session-unit-order ~/Work/personal/skills/session-unit-order
+
+# Omarchy skill (host Omarchy install — separate from this skill)
 # ~/.agents/skills/omarchy → ~/.local/share/omarchy/default/omarchy-skill
+# Load /omarchy (or the omarchy skill) whenever customizing Omarchy desktop config.
 ```
 
 ## Forbidden patterns (refuse or rewrite)
