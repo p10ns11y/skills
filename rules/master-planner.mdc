@@ -1,0 +1,13 @@
+---
+description: Router — load master-planner when pulling/tweaking project skill packs or authoring master plans as friction-removing automation webs.
+alwaysApply: false
+---
+
+# Master Planner (router)
+
+When the user asks for a **master plan**, **skill pack**, **pull/tweak skills** for the cwd, or **project ontology**:
+
+1. Load and follow [master-planner/SKILL.md](../master-planner/SKILL.md).
+2. Core thesis (verbatim): *A true master plan, to me, is only one thing: an interconnected, inter-related web of friction-removing automations aimed at impossible missions that great vision makes real.*
+3. Prefer overlays + ontology over forking portable skills.
+4. Surface: pack chosen · friction removed · verify result · next automation.

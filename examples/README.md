@@ -27,6 +27,7 @@ Overlays extend generic skills with relevance scoring, fusion targets, token pat
 | [**agent-prompt-tuning-lab**](https://github.com/p10ns11y/agent-prompt-tuning-lab) | Cursor transcript harvest, normalize, split, artifact distillation | `cursor-transcript-harvest`, `author-workflow-skill` | Run pipeline in that repo; see its [docs/PIPELINE.md](https://github.com/p10ns11y/agent-prompt-tuning-lab/blob/master/docs/PIPELINE.md) |
 | [**thepulimaangani**](https://github.com/p10ns11y/thepulimaangani) | Tamil prosody, WASM parser, metre prediction | `higher-order-decision-architect` | [overlays/thepulimaangani-decision-hooks.md](overlays/thepulimaangani-decision-hooks.md) |
 | [**shellyxz/shell**](https://github.com/p10ns11y/shell) | Portable PATH kernel, `av`/`ab` verify bridge, PLUGIN boundary, ontology graph | `verification-cockpit`, `shell-kernel-ontology`, `stellar-roadmap`, `ai-optimization`, `fusion-sage` | [overlays/shell-av-workflow.md](overlays/shell-av-workflow.md), [overlays/shellyxz-shell-kernel.md](overlays/shellyxz-shell-kernel.md) |
+| [**arch-machine**](https://github.com/p10ns11y/arch-machine) | Arch bootstrap + archy Eagle/TEA + evidence loop + groxy/keeper | `master-planner` pack `arch-guardian`, eagle (in-repo), fusion, HODA, stellar, verification | [overlays/arch-machine-master-planner.md](overlays/arch-machine-master-planner.md); live `.agents/ontology/` in that repo |
 
 ---
 

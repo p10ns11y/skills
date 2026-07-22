@@ -41,11 +41,12 @@ cd ~/skills
 
 ```bash
 mkdir -p ~/.cursor/skills
-for skill in ai-optimization fusion-sage agent-orchestrator looper git-worktrees; do
+for skill in ai-optimization fusion-sage agent-orchestrator looper git-worktrees master-planner; do
   ln -sf "$(pwd)/$skill" ~/.cursor/skills/$skill
 done
-# optional loop-control rule (alwaysApply: false)
+# optional rules (alwaysApply: false)
 ln -sf "$(pwd)/rules/looper.mdc" ~/.cursor/rules/looper.mdc 2>/dev/null || true
+ln -sf "$(pwd)/rules/master-planner.mdc" ~/.cursor/rules/master-planner.mdc 2>/dev/null || true
 ```
 
 **Per-project** (share with teammates via repo):
@@ -87,6 +88,7 @@ Pick a pack, symlink those skills, add more as needed.
 | **Opportunity finder platform** | `finder-reactor`, `agentic-reactor`, `x-agent-resources`, `cv-promote-guard`, `tauri-agentic` | Tauri + X + LLM autonomous loops   |
 | **C / CMake / MVU**             | `explore-repo-readonly`, `mvu-refactor-plan`, `src-tree-reorganize`                           | elomaxz-style refactors            |
 | **Strategy & decisions**        | `higher-order-decision-architect`, `bdd-strategizer`, `stellar-roadmap`                       | Architecture tradeoffs, backlog docs, blueprint cards |
+| **Master plan / skill packs**   | `master-planner` (+ pack it selects)                                                          | Pull/tweak skills for cwd; Orwell overlays; project ontology |
 | **Shell verify workflow**       | `verification-cockpit`, `shell-kernel-ontology`, `stellar-roadmap`, `ai-optimization`, `fusion-sage` | `av` tmux cockpits, kernel ontology graph, `coming-next.md` roadmaps |
 
 
@@ -167,6 +169,7 @@ Pick a pack, symlink those skills, add more as needed.
 
 | Skill                                                   | One-liner                                            |
 | ------------------------------------------------------- | ---------------------------------------------------- |
+| [master-planner](master-planner/SKILL.md)               | Master plan = friction-removing automation web; scan library, pull pack, Orwell-tweak overlays, ontology for complex repos |
 | [bdd-strategizer](bdd-strategizer/SKILL.md)             | Core-first BDD/TDD decomposition for large refactors |
 | [author-workflow-skill](author-workflow-skill/SKILL.md) | Author new well-formed `SKILL.md` files              |
 | [higher-order-decision-architect](higher-order-decision-architect/SKILL.md) | First-principles decision framework before material architecture/API/security choices |
@@ -209,6 +212,7 @@ Project names and repo-specific paths live in [examples/README.md](examples/READ
 | [**premflow**](https://github.com/thecuriousts/premflow)      | C, CMake, elomaxz MVU                                              | MVU refactor, readonly explore, src reorganize                      |
 | [**sorkalam-extension**](https://github.com/p10ns11y/sorkalam-extension) | MV3 Chrome extension, vanilla JS, Wiktionary + Tamil VU glossary   | chrome-extension-mv3                                                |
 | [**thepulimaangani**](https://github.com/p10ns11y/thepulimaangani) | Tamil prosody, WASM parser, metre prediction | higher-order-decision-architect |
+| [**arch-machine**](https://github.com/p10ns11y/arch-machine) | Arch bootstrap, archy Eagle/TEA, evidence, groxy/keeper | master-planner (`arch-guardian`), eagle (in-repo), fusion, stellar, verification |
 | [**agent-prompt-tuning-lab**](https://github.com/p10ns11y/agent-prompt-tuning-lab) | Local Cursor transcript harvest → normalize → split → distill rules/skills | cursor-transcript-harvest, author-workflow-skill |
 
 
