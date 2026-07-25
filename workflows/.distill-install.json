@@ -1,6 +1,6 @@
 {
   "profile": "personal-skills",
-  "source_drafts": "/home/sustainableabundance/Work/personal/agent-prompt-tuning-lab/data/distill/20260725-153622/drafts",
+  "source_drafts": "~/Work/personal/agent-prompt-tuning-lab/data/distill/<run>/drafts",
   "installed_at": "2026-07-25T16:36:10.783Z",
   "workflows": [
     "looper-skill-lifecycle",
@@ -10,12 +10,8 @@
     "parallel-epic-to-pr-cycle",
     "docs-maintenance-and-pr",
     "verification-cockpit-extension",
-    "prompt-artifact-ingest",
     "roadmap-sprint-execution",
-    "plan-to-sentinel-wave-prioritization",
-    "eye-comfort-maintenance-cycle",
-    "theme-maintenance-and-planning",
-    "tmux-cockpit-layout-refactor"
+    "plan-to-sentinel-wave-prioritization"
   ],
   "skills": [
     "looper",
@@ -30,22 +26,14 @@
     "goal-to-todo-seed",
     "apply-plan-review",
     "adversarial-audit",
-    "session-unit-order",
-    "harvest-conversations",
-    "install-artifacts",
-    "suggest-artifacts",
-    "theme-contrast-inspect",
-    "inspect-theme-config",
-    "waybar-tooltip-light-fix"
+    "session-unit-order"
   ],
   "rules": [
     "looper-composition.mdc",
     "trust-policy-resolution.mdc",
     "rename-skill-artifacts.mdc",
     "logical-commit-after-phase.mdc",
-    "plan-mode-before-large-feature.mdc",
-    "single-timer-mutex.mdc",
-    "defer-large-cultural-overlay.mdc",
-    "remove-redundant-cd-prefix.mdc"
-  ]
+    "plan-mode-before-large-feature.mdc"
+  ],
+  "note": "cross-cutting skill lifecycle/process only; lab+desktop dumps removed"
 }
