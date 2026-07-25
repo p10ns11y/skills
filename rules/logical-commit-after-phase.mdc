@@ -1,0 +1,17 @@
+---
+description: Commit after each coherent phase (implementation, fixes, doc updates) rather than at end
+alwaysApply: false
+---
+
+# logical-commit-after-phase
+
+Commit after each coherent phase (implementation, fixes, doc updates) rather than at end
+
+## Constraints
+
+- Implement
+- Test/fix
+- Commit
+- Amend if needed
+
+Evidence: turn 10, turn 18, turn 19: multiple logical commits and amend after PR triage

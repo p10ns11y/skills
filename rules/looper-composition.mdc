@@ -1,0 +1,16 @@
+---
+description: load /looper before any multi-phase agent task and reference the X thesis post for control-plane design
+alwaysApply: false
+---
+
+# looper-composition
+
+load /looper before any multi-phase agent task and reference the X thesis post for control-plane design
+
+## Constraints
+
+- update_goal with looper
+- load SKILL.md
+- drive phases/checkpoints
+
+Evidence: turns 8,11: user messages invoke /looper, assistant loads and applies it
