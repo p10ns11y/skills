@@ -15,7 +15,7 @@
 | stellar-roadmap | symlink | SN-* backlog |
 | verification-cockpit | symlink | `av` cockpit |
 | agent-orchestrator | symlink | Multi-step delivery |
-| looper | symlink | Budgeted agent loops |
+| control-graph | symlink | Outer SM/loop + inner DAG (formerly looper) |
 | git-worktrees | symlink | Isolated workers |
 
 **Overlays:** `.agents/overlays/arch-machine-*.md`  

@@ -8,6 +8,8 @@ This is a library of [Cursor Agent Skills](https://cursor.com/docs/context/skill
 
 Each directory is a self-contained skill with a `SKILL.md` frontmatter (`name`, `description`) that agents use for discovery and routing.
 
+**Quality bar:** [QUALITY.md](QUALITY.md) · **Formal dialect kernel:** [formal/AppGenMathPhyLang.kernel.md](formal/AppGenMathPhyLang.kernel.md) · **Portable workflows:** [workflows/](workflows/) · **Archived distill stubs:** [archive/distill/](archive/distill/README.md)
+
 ## Why these skills exist
 
 Most agent failures are not model failures. They are **context**, **coordination**, and **guardrail** failures — the kind you only recognize after you've paid for them once.
@@ -41,12 +43,13 @@ cd ~/skills
 
 ```bash
 mkdir -p ~/.cursor/skills
-for skill in ai-optimization fusion-sage agent-orchestrator looper git-worktrees master-planner; do
+for skill in ai-optimization fusion-sage agent-orchestrator control-graph git-worktrees master-planner; do
   ln -sf "$(pwd)/$skill" ~/.cursor/skills/$skill
 done
 # optional rules (alwaysApply: false)
-ln -sf "$(pwd)/rules/looper.mdc" ~/.cursor/rules/looper.mdc 2>/dev/null || true
+ln -sf "$(pwd)/rules/control-graph.mdc" ~/.cursor/rules/control-graph.mdc 2>/dev/null || true
 ln -sf "$(pwd)/rules/master-planner.mdc" ~/.cursor/rules/master-planner.mdc 2>/dev/null || true
+# legacy alias (optional): ln -sf "$(pwd)/looper" ~/.cursor/skills/looper
 ```
 
 **Per-project** (share with teammates via repo):
@@ -82,7 +85,7 @@ Pick a pack, symlink those skills, add more as needed.
 | Pack                            | Skills                                                                                        | Best for                           |
 | ------------------------------- | --------------------------------------------------------------------------------------------- | ---------------------------------- |
 | **Context & speed**             | `ai-optimization`, `fusion-sage`                                                              | Large codebases, expensive context |
-| **Multi-agent delivery**        | `agent-orchestrator`, `looper`, `git-worktrees`, `concurrent-cli-agents`, `split-to-prs`      | Parallel agents, structured loops, PR hygiene |
+| **Multi-agent delivery**        | `agent-orchestrator`, `control-graph`, `git-worktrees`, `concurrent-cli-agents`, `split-to-prs` | Parallel agents, SM+DAG control, PR hygiene |
 | **Node supply chain**           | `fix-dependency-security`, `upgrade-packages`, `audit-allow-builds`, `supply-chain-harden`    | pnpm monorepos, CI hardening       |
 | **React / Next frontend**       | `react-client-expert`, `semantic-markup-css`, `project-editor-profile`                        | App Router, a11y, editor sync      |
 | **Opportunity finder platform** | `finder-reactor`, `agentic-reactor`, `x-agent-resources`, `cv-promote-guard`, `tauri-agentic` | Tauri + X + LLM autonomous loops   |
@@ -102,7 +105,8 @@ Pick a pack, symlink those skills, add more as needed.
 | Skill                                                       | One-liner                                                                                          |
 | ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
 | [agent-orchestrator](agent-orchestrator/SKILL.md)           | Triage single-shot vs full orchestration; briefs, worktrees, independent verification, clean merge |
-| [looper](looper/SKILL.md)                                   | Structured agent loops: outer state machine, budgets, HITL gates, multi-model routing over raw ReAct |
+| [control-graph](control-graph/SKILL.md)                     | Outer state machine/loop + inner DAG or nested loops; budgets, HITL, multi-model routing (was `looper`) |
+| [looper](looper/SKILL.md)                                   | **Deprecated redirect** → `control-graph` (keeps legacy discovery) |
 | [concurrent-cli-agents](concurrent-cli-agents/SKILL.md)     | Run multiple CLI agents safely on isolated worktrees or sandboxes                                  |
 | [git-worktrees](git-worktrees/SKILL.md)                     | Safe git worktree usage for agents; commit-then-merge; disk hygiene                                |
 | [gt-flow](gt-flow/SKILL.md)                                 | When to use Graphite (`gt`) vs plain branches with agent worktrees                                 |
@@ -231,15 +235,27 @@ Copy overlays from [examples/overlays/](examples/overlays/) when adapting skills
 
 ```
 my-skill/
-├── SKILL.md          # Required — frontmatter + instructions
-├── reference.md      # Optional deep docs
+├── SKILL.md          # Required — formal-first SoT (frontmatter + procedure)
+├── references/       # English expansion / templates — load only if formal insufficient
 ├── scripts/          # Optional utilities agents can run
 └── templates/        # Optional briefs, configs
 ```
 
 Descriptions must be **third-person**, **specific**, and include **trigger terms** — agents route on `description`, not the title.
 
+**Formal-first:** prefer dense AppGenMathPhyLang-style headers + tables/diagrams in `SKILL.md`; put full plain English in `references/` and instruct agents to expand **only if** the formal spec is ambiguous. See [QUALITY.md](QUALITY.md).
+
 Author new skills with [author-workflow-skill](author-workflow-skill/SKILL.md).
+
+### Portable workflows
+
+| Workflow | Chain | For |
+|----------|-------|-----|
+| [multi-agent-delivery](workflows/multi-agent-delivery.md) | orchestrator → control-graph → worktrees → split-to-prs | Multi-worker delivery |
+| [dependency-harden](workflows/dependency-harden.md) | fix-deps → supply-chain → upgrades → allowBuilds | Node supply chain |
+| [context-ignite](workflows/context-ignite.md) | ai-optimization → fusion-sage → optional stellar | Large-repo context |
+
+Copy `workflows/*.rhai` into `.grok/workflows/` or `~/.grok/workflows/`. Session-distilled drafts with broken skill chains live under [archive/distill/workflows/](archive/distill/README.md).
 
 ### Optional Cursor rules (`rules/`)
 
@@ -251,10 +267,12 @@ Some skills ship a thin **`.mdc` router** in [`rules/`](rules/) for `alwaysApply
 
 If you've lost a battle worth documenting, contribute the win:
 
-1. Keep `SKILL.md` under ~500 lines; put depth in `reference.md` or `examples/`.
+1. Keep `SKILL.md` under ~200 lines formal-first (hard ceiling ~500); put depth in `references/` or `examples/`.
 2. **No project-specific paths in skill bodies** — use [examples/](examples/README.md) for overlays and provenance.
 3. Prefer linking between skills over duplicating guardrails.
 4. Include concrete verification steps and anti-patterns — especially the ones that cost you a day.
+5. Workflows must chain **existing** skills only; no ghost `skill_chain` names.
+6. Meet [QUALITY.md](QUALITY.md) CEE bar: Correctness, Effectiveness, Efficiency.
 
 ---
 

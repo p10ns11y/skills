@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 /**
- * Structural contract test for looper skill (skills library layout).
- * Drives the real shipped SKILL.md + README index + rules/looper.mdc.
+ * Structural contract test for control-graph skill (skills library layout).
  * Exit 0 = pass; non-zero = fail with diagnostics.
  */
 import { readFileSync, existsSync } from "node:fs";
@@ -13,8 +12,9 @@ const skillDir = join(__dirname, "..");
 const repoRoot = join(skillDir, "..");
 const skillMd = join(skillDir, "SKILL.md");
 const skillReadme = join(skillDir, "README.md");
-const loopCard = join(skillDir, "references", "loop-card.md");
-const ruleMd = join(repoRoot, "rules", "looper.mdc");
+const controlCard = join(skillDir, "references", "control-card.md");
+const englishRef = join(skillDir, "references", "english-procedure.md");
+const ruleMd = join(repoRoot, "rules", "control-graph.mdc");
 const readmeMd = join(repoRoot, "README.md");
 
 const failures = [];
@@ -39,23 +39,26 @@ must(!!fm, "YAML frontmatter present");
 const front = fm ? fm[1] : "";
 const nameVal = (front.match(/^name:\s*[\"']?([^\"'\n]+)/m) || [])[1]?.trim();
 must(!!nameVal && nameVal.length > 0, `frontmatter name non-empty (got ${JSON.stringify(nameVal)})`);
-must(nameVal === "looper", `name is looper (got ${JSON.stringify(nameVal)})`);
+must(nameVal === "control-graph", `name is control-graph (got ${JSON.stringify(nameVal)})`);
 must(front.includes("description:"), "frontmatter description key present");
 
 const descLower = front.slice(front.indexOf("description:")).toLowerCase();
-for (const term of ["loop", "state", "rout"]) {
+for (const term of ["state", "dag", "rout", "loop"]) {
   must(descLower.includes(term), `description mentions "${term}*"`);
 }
+must(descLower.includes("looper"), "description keeps looper as discovery alias");
 
 const bodyLower = body.toLowerCase();
 const requiredPhrases = [
-  { id: "outer-state", any: ["state machine", "phase contract", "transition table"] },
+  { id: "outer-state", any: ["state machine", "phase contract", "outer graph"] },
+  { id: "inner-dag", any: ["inner graph", "dag", "depends_on"] },
   { id: "bounded-steps", any: ["max_loop_iters", "max_step_retries", "done_when"] },
   { id: "cancel", any: ["cancel", "cancelled"] },
-  { id: "routing", any: ["model routing", "routing matrix"] },
+  { id: "routing", any: ["model routing", "role"] },
   { id: "roles", all: ["fast", "coding", "review"] },
   { id: "hitl", any: ["human-in-the-loop", "hitl", "pause"] },
   { id: "review-gate", any: ["review_gate", "review gate"] },
+  { id: "progressive", any: ["english-procedure", "only if"] },
 ];
 
 for (const req of requiredPhrases) {
@@ -82,9 +85,13 @@ must(body.includes("agent-orchestrator"), "composes with agent-orchestrator");
 must(body.includes("subagent-delegation"), "composes with subagent-delegation");
 must(body.includes("fusion-sage") || body.includes("ai-optimization"), "composes with fusion/fission");
 
-must(existsSync(loopCard), "references/loop-card.md exists");
-const card = read(loopCard);
-must(card.toLowerCase().includes("phase"), "loop-card mentions phase");
+must(existsSync(controlCard), "references/control-card.md exists");
+const card = read(controlCard);
+must(card.toLowerCase().includes("phase"), "control-card mentions phase");
+
+must(existsSync(englishRef), "references/english-procedure.md exists");
+const eng = read(englishRef);
+must(eng.toLowerCase().includes("only if") || eng.toLowerCase().includes("progressive"), "english ref is progressive disclosure");
 
 const skillReadmeBody = read(skillReadme);
 must(skillReadmeBody.includes("SKILL.md"), "skill README points at SKILL.md");
@@ -94,18 +101,18 @@ must(
 );
 
 const rule = read(ruleMd);
-must(rule.includes("---"), "looper.mdc has frontmatter");
+must(rule.includes("---"), "control-graph.mdc has frontmatter");
 must(/alwaysApply:\s*false/i.test(rule), "rule alwaysApply false");
-must(rule.includes("looper"), "rule points at looper skill");
+must(rule.includes("control-graph"), "rule points at control-graph skill");
 
 const readme = read(readmeMd);
-must(readme.includes("looper"), "README.md indexes looper");
+must(readme.includes("control-graph"), "README.md indexes control-graph");
 must(
-  /loop|multi-model|structured agent|state machine/i.test(readme),
-  "README routes loop/routing concerns near looper",
+  /loop|multi-model|structured agent|state machine|control-graph/i.test(readme),
+  "README routes loop/routing concerns near control-graph",
 );
 
-console.log("=== looper validate-skill (skills library) ===");
+console.log("=== control-graph validate-skill (skills library) ===");
 for (const n of notes) console.log(`  ${n}`);
 if (failures.length) {
   console.error("\nFAILURES:");

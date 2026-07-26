@@ -161,11 +161,11 @@ Update **Active skills** table: skill · path · when. Point overlays. Keep veri
 
 | Stack signals | Pack | Core skills |
 |---------------|------|-------------|
-| `install.sh` + profiles + maintenance + archy/TUI | **arch-guardian** | master-planner, eagle-*, ai-optimization, fusion-sage, HODA, stellar-roadmap, verification-cockpit, session-unit-order, agent-orchestrator, looper, git-worktrees |
+| `install.sh` + profiles + maintenance + archy/TUI | **arch-guardian** | master-planner, eagle-*, ai-optimization, fusion-sage, HODA, stellar-roadmap, verification-cockpit, session-unit-order, agent-orchestrator, control-graph, git-worktrees |
 | `~/.config/shell` / path.contract | **shell-verify** | shell-kernel-ontology, verification-cockpit, stellar-roadmap, ai-optimization, fusion-sage |
 | Next.js / React app | **web-app** | ai-optimization, fusion-sage, react-client-expert, semantic-markup-css, fix-dependency-security |
-| Tauri + agent loops | **agentic-desktop** | finder-reactor, tauri-agentic, agent-orchestrator, git-worktrees, looper |
-| Multi-agent delivery only | **multi-agent** | agent-orchestrator, looper, git-worktrees, concurrent-cli-agents, split-to-prs |
+| Tauri + agent loops | **agentic-desktop** | finder-reactor, tauri-agentic, agent-orchestrator, git-worktrees, control-graph |
+| Multi-agent delivery only | **multi-agent** | agent-orchestrator, control-graph, git-worktrees, concurrent-cli-agents, split-to-prs |
 | Strategy / backlog docs | **strategy** | HODA, stellar-roadmap, fusion-sage, master-planner |
 
 Custom: compose from catalog; document in overlay.

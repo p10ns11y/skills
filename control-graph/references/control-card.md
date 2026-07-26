@@ -1,9 +1,11 @@
-# Loop Card template
+# Control Card template
 
-Copy into the agent session (or a scratch note) at loop start. Update on every phase transition.
+Copy into the agent session (or a scratch note) at graph start. Update on every phase transition.
+
+> Formerly “Loop Card” under the `looper` name.
 
 ```markdown
-## Loop Card
+## Control Card
 
 | Field | Value |
 |-------|--------|
@@ -21,7 +23,7 @@ Copy into the agent session (or a scratch note) at loop start. Update on every p
 | max_step_retries | 2 | |
 | max_tool_calls_per_step | 25 | |
 
-### Inner steps (DAG)
+### Inner steps (DAG or nested loop)
 | id | name | depends_on | done_when | role | status |
 |----|------|------------|-----------|------|--------|
 | S1 | | | | fast\|explore\|coding\|deep\|review | pending |
