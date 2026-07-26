@@ -191,6 +191,7 @@ Pick a pack, symlink those skills, add more as needed.
 | ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
 | [verification-cockpit](verification-cockpit/SKILL.md)       | Generate per-project `.agents/verification/` tmux cockpits for `av`-style verify workflows       |
 | [shell-kernel-ontology](shell-kernel-ontology/SKILL.md)       | Route edits across shellyxz kernel ontology subgraphs (PATH, boundary, verify bridge, drift gate) |
+| [session-unit-order](session-unit-order/SKILL.md)             | UWSM / graphical-session unit-order guard (project-born; dual-copy from arch-machine) |
 
 
 ### Specialized

@@ -13,21 +13,28 @@ description: >-
 
 # Session unit order (UWSM / graphical-session guard)
 
+> **Load rule:** Formal forbid/safe tables below are SoT. Omarchy companion depth stays here (host-critical). Dual-publish of this **project-born** skill → [dual-copy-skill-publish](../dual-copy-skill-publish/SKILL.md) (not portable-symlink).
+
+```text
+// Signature
+UnitOrder ≔ user-systemd + UWSM + graphical-session safety
+Kind      ≔ project_born   // keep in project git; library via dual-copy only
+Host ∈ { generic_uwsm, omarchy }  // Omarchy → also load omarchy skill
+
+// Axioms
+A1  After=  ≇  Wants=/Requires=/BindsTo=   // order ≠ pull
+A2  Persistent timer under Linger  ⇏  pull graphical-session / compositor targets
+A3  Omarchy: never edit ~/.local/share/omarchy/  — hooks/themes under ~/.config/
+A4  Evidence ≻ hard-reboot loops   // unit tests + journal fingerprint
+A5  Project-born: dual-copy-skill-publish to library — never external-only symlink that drops project git
+A6  Evaluate(δ) ≔ (C, E, η)
+```
+
 Agents **must** apply this skill before shipping changes to **user** systemd units that interact with Wayland sessions, theme apply, or autostart.
 
-**Locations (two independent copies — project first, then general):**
+**Install:** keep full tree in-repo (e.g. `arch-machine/.agents/skills/session-unit-order/`). Publish/sync → [dual-copy-skill-publish](../dual-copy-skill-publish/SKILL.md).
 
-| Install | Path | Role |
-|---------|------|------|
-| **This project (keep)** | `arch-machine/.agents/skills/session-unit-order/` | Born from this repo’s incident; always keep a full copy in-tree |
-| **User general** | `~/skills/session-unit-order/` | Independent **copy** (not a symlink to the project) for everyday agents |
-| **Skills library remote** | [p10ns11y/skills](https://github.com/p10ns11y/skills) via `~/Work/personal/skills/` | Sync `~/skills` (or the library clone) when generalizing for others |
-
-Workflow: fix/create in **project** → copy into **`~/skills`** → commit/push **skills** remote when ready for general use.
-
-**Incident writeup (arch-machine):**  
-`modules/productivity/eye-comfort/docs/REGRESSION-UWSM-SESSION.md`.  
-Short pointer: [references/incident-uwsm-graphical-session.md](references/incident-uwsm-graphical-session.md).
+**Incident:** arch-machine `modules/productivity/eye-comfort/docs/REGRESSION-UWSM-SESSION.md` · short: [references/incident-uwsm-graphical-session.md](references/incident-uwsm-graphical-session.md).
 
 ## Omarchy-flavoured Arch (REQUIRED companion)
 
@@ -68,19 +75,14 @@ Timer-driven theme tools (eye-comfort, custom oneshots) must obey **both** unit-
 
 ## Adopt / keep in sync
 
-**arch-machine:** keep the skill **in-tree** under `.agents/skills/session-unit-order/` (do not replace with an external-only symlink that removes project files from git).
+**arch-machine:** keep skill **in-tree** under `.agents/skills/session-unit-order/`.
 
 ```bash
-# User-global → this project's skill
-mkdir -p ~/skills
-ln -sfn /path/to/arch-machine/.agents/skills/session-unit-order ~/skills/session-unit-order
+# Publish/sync → skills library (project-born dual-copy procedure)
+# follow dual-copy-skill-publish (SoT project → library; hash/diff verify; push=HITL)
 
-# Optional: also publish/sync a copy to the skills library for other agents
-# cp -a .agents/skills/session-unit-order ~/Work/personal/skills/session-unit-order
-
-# Omarchy skill (host Omarchy install — separate from this skill)
+# Omarchy skill (host install — separate)
 # ~/.agents/skills/omarchy → ~/.local/share/omarchy/default/omarchy-skill
-# Load /omarchy (or the omarchy skill) whenever customizing Omarchy desktop config.
 ```
 
 ## Forbidden patterns (refuse or rewrite)

@@ -10,9 +10,22 @@ description: >-
 
 # Stellar Roadmap — Architecture Backlog Blueprint
 
-**Mission:** Produce **high-quality, scannable backlog docs** — diagrams and tables over prose, optimism grounded in evidence, blueprint cards agents can execute.
+> **Load rule:** Formal SoT (section map + card contract). Full template → [references/document-template.md](references/document-template.md) only if drafting a new § block.
 
-**Provenance:** collab-finder blueprint style; see [examples/shell-kernel.md](examples/shell-kernel.md) for a shell-kernel overlay pattern.
+```text
+// Mission
+RoadmapDoc ≔ scorecards + mermaid + SN-* blueprint cards + thrive + gantt
+// evidence columns mandatory; thrive ≻ funeral framing
+
+// Axioms
+A1  Tables/diagrams ≻ prose walls
+A2  Every scorecard row has Evidence (file|test|metric)
+A3  Pre-mortem → guardrails (refuse vs build) — not closing defeat
+A4  SN-1 dogfood gate before feature cards
+A5  Compose: scout([ai-optimization](../ai-optimization/SKILL.md)) → decide([higher-order-decision-architect](../higher-order-decision-architect/SKILL.md)) → synthesize([fusion-sage](../fusion-sage/SKILL.md)) → write(this)
+```
+
+**Provenance pattern:** [examples/shell-kernel.md](examples/shell-kernel.md).
 
 ---
 
@@ -172,18 +185,9 @@ Full list: [references/external-sources.md](references/external-sources.md).
 
 ## Install
 
-**Global** (skills library):
-
 ```bash
-SKILLS_ROOT=~/skills   # clone path for the agent skills library
 ln -sfn "$SKILLS_ROOT/stellar-roadmap" ~/.cursor/skills/stellar-roadmap
+# or: .agents/skills/stellar-roadmap | .cursor/skills/stellar-roadmap per project
 ```
 
-**Per-project:**
-
-```bash
-ln -sfn "$SKILLS_ROOT/stellar-roadmap" /path/to/repo/.agents/skills/stellar-roadmap
-# or .cursor/skills/stellar-roadmap
-```
-
-Invoke: `/stellar-roadmap` or attach skill with companion skills for full pipeline.
+Invoke: `/stellar-roadmap` + companion skills for full pipeline.

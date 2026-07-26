@@ -3,19 +3,24 @@ name: finder-reactor
 description: Core autonomous, self-guarded decision loop for opportunity-finder apps. Handles discovery (e.g. X search), analysis (LLM + CV + platform context), prep generation, tracking, and guarded promote with cost/rate/fit/CV mutation guards, human pause points, structured decisions, and logging. Use when designing, implementing, or debugging the agentic heart of a finder platform. Fission for tight loops; fusion for reactor architecture and surplus.
 ---
 
-# Finder Reactor — Self-Guarded, Pause-Aware, Agentic Opportunity Engine
+# Finder Reactor — Self-Guarded Opportunity Engine
 
-**Core Mission**: Turn raw social/search firehose + user CV + LLM into a reliable, low-intervention personal opportunity system. The finder decides what to pursue, prepares materials, tracks outcomes, and improves itself — while **never** acting on high-stakes things (CV changes to a public profile, expensive runs, low-confidence fits) without explicit guard clearance and user pause points.
+> **Load rule:** Formal SoT. Fission loops → [ai-optimization](../ai-optimization/SKILL.md); architecture/surplus → [fusion-sage](../fusion-sage/SKILL.md); CV writes → [cv-promote-guard](../cv-promote-guard/SKILL.md).
 
-## Immutable Principles (Self-Guards Always Win)
+```text
+// Mission
+Finder ≔ search → analyze → decide → prep → track → (promote?) → surplus
+// with guards + HITL pauses on high stakes
 
-1. **Guard > Speed**: No action crosses a threshold (cost, rate remaining, fit score, CV write) without a named guard check + audit log.
-2. **Pause for Human on Ambiguity or Stakes**: Low/medium confidence, any CV promote, high token/cost estimates, write side-effects → surface summary + explicit "proceed / tweak / ignore" path.
-3. **Full Query + Context Control**: The human/agent always owns the search query. Reactor never hides or hardcodes the "best" search.
-4. **Sidecar-First for External Mutation**: CV promote always writes a sidecar proposal first. Master write to the external profile repo is a separate guarded step with diff + confirm.
-5. **Structured + Observable Decisions**: Every "decide" call returns machine-readable recommendation + confidence + guard triggers + rationale (zod/serde). UI + MCP + logs expose it.
-6. **Surplus After Every Cycle**: After a search-analyze-prep-promote loop, produce at least one concrete improvement that makes the *next* similar loop cheaper or higher-value.
-7. **Reversible + Auditable**: All state (leads, preps, decisions) is file-based JSON in app data. CV promotes produce `.bak` + git-friendly diffs.
+// Axioms
+A1  Guard ≻ Speed          // named check + audit before threshold cross
+A2  Pause on stakes/ambiguity  // CV promote, low conf, cost/rate, writes
+A3  Human owns query       // never hide "best" search
+A4  Sidecar-first external mutation  // promote proposal before master write
+A5  Decide outputs structured  // conf + guards + rationale (zod/serde)
+A6  Surplus after every cycle
+A7  Reversible + auditable  // JSON state; .bak + git-friendly CV diffs
+```
 
 ## Reactor Loop (Conceptual State Machine)
 

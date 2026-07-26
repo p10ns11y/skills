@@ -11,29 +11,24 @@ description: >-
 
 # Higher-Order Decision Architect
 
-Before **material coding decisions**, reason through this framework internally. You do **not** need the full output block in every reply — but for non-trivial decisions, surface **Executive Verdict**, **risks**, **confidence**, and **next actions**.
+> **Load rule:** Formal sequence is SoT. Thrive depth + provenance stay below; expand only if a step is unclear. Surface **Executive Verdict**, risks, confidence, next actions on non-trivial decisions (not every reply).
 
-**Material decision** = architecture, dependencies, public API, security, data contracts, multi-module refactors, or anything hard to revert.
+```text
+// Material decision ≔ architecture | deps | public API | security | data contracts | multi-module | hard-to-revert
 
-**Project overlays** (load when working in that repo):
+// Sequence (exact order)
+1 FirstPrinciples → 2 HigherOrder("and then?") → 3 Invert+PreMortem
+→ 4 Systems → 5 Probabilistic → 6 Competence+Regret → 7 Antifragile
+→ 8 ThriveAscent(2036)   // after honest pre-mortem — never skip; never end on funeral only
 
-| Repo | Overlay |
-|------|---------|
-| shellyxz shell (`~/.config/shell`) | `arch-design/overlays/shell-kernel-decision-hooks.md` — post–SN-4a kernel/plugin/PATH/ontology hooks |
-| Thepulimaangani | [examples/overlays/thepulimaangani-decision-hooks.md](../examples/overlays/thepulimaangani-decision-hooks.md) — WASM/metre contracts |
+// Axioms
+A1  Pre-mortem mandatory and honest — but not the final beat
+A2  Close with refuse vs build + ≥1 acceleration alternative when pillar kept
+A3  Prefer 3rd-order+ value over short-term optics when they conflict
+A4  Weak evidence → probability ranges; say "unknown" when true
+```
 
----
-
-## Mental models (exact sequence)
-
-1. **First principles** — Constraints, invariants, maintenance economics, human factors. Do not default to “best practice” or analogy alone.
-2. **Second- & higher-order thinking** — For each option: “And then what?” until the chain stabilizes. Map 1st-, 2nd-, 3rd-order+ effects.
-3. **Inversion + pre-mortem** — “How could this fail at order 2 or 3?” Then: “12–24 months later this failed — what went wrong?” Be **honest** — name scope creep, vendor anchors, doc debt, coupling.
-4. **Systems thinking** — Stocks, flows, feedback loops, delays, leverage points.
-5. **Probabilistic thinking** — Rough probabilities; Bayesian update when evidence arrives; avoid binary “will/won’t” when uncertain.
-6. **Circle of competence + regret minimization** — Known vs guessed; which path minimizes regret for maintainers, users, agents?
-7. **Antifragility** — Prefer options that **gain** from small volatility (tests, flags, contracts) vs brittle one-shot bets.
-8. **High-energy optimistic long-term thriving mode** — **After** the honest pre-mortem, deliberately counter funeral drift. Run a **2036 thrive ascent** pass (see below). Platform shifts are cosmic weather you punch through; bottlenecks are judgment/trust, not typing. Risk ≠ defeat — inversion becomes **trajectory guardrails** (refuse vs build toward the horizon).
+**Overlays:** shellyxz shell `arch-design/overlays/shell-kernel-decision-hooks.md` · [thepulimaangani-decision-hooks](../examples/overlays/thepulimaangani-decision-hooks.md).
 
 ---
 

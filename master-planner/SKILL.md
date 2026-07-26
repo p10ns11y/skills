@@ -11,27 +11,26 @@ description: >-
 
 # Master Planner
 
-> A true master plan, to me, is only one thing: an interconnected, inter-related web of friction-removing automations aimed at impossible missions that great vision makes real.
-
-**Job:** Turn that sentence into a **live skill web** for the current project — pull, wire, compress, verify. Not a slide deck.
+> **Load rule:** Formal SoT below. Orwell/ontology depth → [references/](references/) only if needed.
 
 ```text
-Library resolve:
-  SKILLS_ROOT → ~/Work/personal/skills → clone https://github.com/p10ns11y/skills
-        │  scan + select pack
-        ▼
-   Project cwd ──symlink──► .agents/skills/  (or .cursor/skills/)
-        │  tweak overlays only (never fork skill bodies)
-        ▼
-   Ontology? (large/complex) ──► .agents/ontology/
-        │
-        ▼
-   AGENTS.md + verify commands ──► report
+// Mission
+MasterPlan ≔ friction-removing automation web for an impossible mission (live skill web — not slides)
+
+// Resolve
+SKILLS_ROOT → ~/Work/personal/skills → clone https://github.com/p10ns11y/skills
+Project ──symlink──► .agents/skills/ | .cursor/skills/
+Portable bodies: never fork — overlays only
+Project-born skills: keep in-tree; publish via [dual-copy-skill-publish](../dual-copy-skill-publish/SKILL.md)
+
+// Axioms
+A1  Plan ⇔ removes friction (tokens | handoffs | rediscovery | unsafe defaults)
+A2  Symlink portable skills; overlay tweaks; never dual-edit portable SKILL.md
+A3  Ontology only when complex (≥2 of: multi-crate, agent contracts, wrong-file risk, cross-module invariants)
+A4  Verify pack + project checks before "done"
 ```
 
-**Remote library:** [p10ns11y/skills](https://github.com/p10ns11y/skills) — use when local checkout is absent.
-
-**Companions:** [ai-optimization](../ai-optimization/SKILL.md) · [fusion-sage](../fusion-sage/SKILL.md) · [higher-order-decision-architect](../higher-order-decision-architect/SKILL.md) · [stellar-roadmap](../stellar-roadmap/SKILL.md) · [agent-orchestrator](../agent-orchestrator/SKILL.md)
+**Remote:** [p10ns11y/skills](https://github.com/p10ns11y/skills). **Companions:** [ai-optimization](../ai-optimization/SKILL.md) · [fusion-sage](../fusion-sage/SKILL.md) · [higher-order-decision-architect](../higher-order-decision-architect/SKILL.md) · [stellar-roadmap](../stellar-roadmap/SKILL.md) · [agent-orchestrator](../agent-orchestrator/SKILL.md)
 
 ---
 
@@ -45,12 +44,6 @@ Library resolve:
 | Overlays stale vs shipped architecture | Tweak overlays only |
 
 **Skip:** one-file typo, single bugfix with known path.
-
----
-
-## Core law
-
-A plan that does not **remove friction** (tokens, handoffs, rediscovery, unsafe defaults) is not a master plan. Every skill, overlay, and ontology node must answer: **what impossible mission does this make routine?**
 
 ---
 
@@ -199,18 +192,13 @@ Pair roadmap depth with [stellar-roadmap](../stellar-roadmap/SKILL.md). Pair mat
 
 ## Anti-patterns
 
-- Prose roadmap with no skill/automation edges
-- Forking portable skills per project instead of overlays
-- Pulling the whole library “just in case”
-- Ontology that duplicates AGENTS.md without addressable IDs
-- Overlays naming dead shims as primary (update or delete)
-- Ending on funeral tone — name the acceleration automation
+| ¬ | Do |
+|---|-----|
+| prose roadmap, no automation edges | friction web table + skills |
+| fork portable `SKILL.md` per project | overlays + symlink |
+| pull whole library “just in case” | pack router |
+| ontology = AGENTS.md copy | addressable IDs + subgraphs |
+| dead shims as primary | update or delete overlays |
+| funeral close | name acceleration automation |
 
----
-
-## Extra
-
-- Orwell + compress checklist → [references/orwell-tweak.md](references/orwell-tweak.md)
-- Ontology skeleton → [references/ontology-template.md](references/ontology-template.md)
-- Arch-machine field example → [examples/arch-machine-pack.md](examples/arch-machine-pack.md)
-- Thin router rule → [../rules/master-planner.mdc](../rules/master-planner.mdc)
+**Refs:** [orwell-tweak](references/orwell-tweak.md) · [ontology-template](references/ontology-template.md) · [arch-machine-pack](examples/arch-machine-pack.md) · [master-planner.mdc](../rules/master-planner.mdc)

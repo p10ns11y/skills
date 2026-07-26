@@ -1,24 +1,29 @@
 ---
 name: tidy-commit-push
 description: >-
-  Inspect git status, remove junk/legacy secrets from the commit set, craft a
-  conventional commit message, and optionally push. Use before shipping a
-  logical unit of work; not for secret-laden dumps or force-push to shared main.
+  Inspect git status, remove junk/legacy/secrets from the commit set, craft a
+  conventional commit message, and commit locally; push only with explicit user
+  approval. Use before shipping a logical unit of work. Triggers: tidy commit,
+  conventional commit, pre-push hygiene, commit and push.
 ---
 
 # tidy-commit-push
+
+> **Load rule:** Formal SoT. Compose with [agent-orchestrator](../agent-orchestrator/SKILL.md) report and [split-to-prs](../split-to-prs/SKILL.md) for multi-PR ships.
 
 ```text
 // Axioms
 A1  Never commit .env, credentials, private keys, large binaries by accident
 A2  One logical change per commit (or explicit multi-commit plan)
-A3  Push only with user approval when shared remotes / protected branches
+A3  Push = HITL  — only with user approval on shared remotes / protected branches
 A4  Prefer HEREDOC commit messages; match repo history style (git log -5)
+A5  Never --force to main/master unless explicit disaster recovery + approval
+A6  Evaluate(δ) ≔ (C, E, η)
 ```
 
 ---
 
-## When / skip
+## Use / skip
 
 | Use | Skip |
 |-----|------|
@@ -28,43 +33,53 @@ A4  Prefer HEREDOC commit messages; match repo history style (git log -5)
 
 ---
 
-## Steps
+## Procedure
 
-1. **Inspect**
-   ```bash
-   git status
-   git diff
-   git diff --staged
-   git log -5 --oneline
-   git branch -vv
-   ```
+```text
+1 Inspect → 2 Tidy stage → 3 Message → 4 Commit → 5 Push? (HITL) → 6 PR? (HITL)
+```
 
-2. **Tidy staging set**
-   - Unstage junk: `*.log`, `node_modules`, build outs, editor swap  
-   - Remove legacy paths if intentional delete is part of the change  
-   - **Privacy:** ensure no tokens/keys; if staged, `git restore --staged` and scrub  
-   - Prefer `git add <paths>` over blind `git add .` when mixed worktrees  
+### 1. Inspect
 
-3. **Message** — conventional if repo uses it: `type(scope): summary`  
-   Types: `feat` `fix` `chore` `docs` `refactor` `test` `perf`
+```bash
+git status
+git diff
+git diff --staged
+git log -5 --oneline
+git branch -vv
+```
 
-4. **Commit**
-   ```bash
-   git commit -m "$(cat <<'EOF'
-   type(scope): short summary
+### 2. Tidy staging set
 
-   Optional body — why, not how.
-   EOF
-   )"
-   ```
+- Unstage junk: `*.log`, `node_modules`, build outs, editor swap  
+- Remove legacy paths only if intentional delete is part of the change  
+- **Privacy:** no tokens/keys; if staged → `git restore --staged` and scrub  
+- Prefer `git add <paths>` over blind `git add .` when mixed worktrees  
 
-5. **Push** only if requested:
-   ```bash
-   git push -u origin HEAD
-   # never --force to main/master unless explicit disaster recovery + approval
-   ```
+### 3. Message
 
-6. **PR** only if requested: `gh pr create …`
+Conventional if repo uses it: `type(scope): summary`  
+Types: `feat` `fix` `chore` `docs` `refactor` `test` `perf`
+
+### 4. Commit (local default)
+
+```bash
+git commit -m "$(cat <<'EOF'
+type(scope): short summary
+
+Optional body — why, not how.
+EOF
+)"
+```
+
+### 5. Push — **only if user requested**
+
+```bash
+git push -u origin HEAD
+# never --force to main/master unless explicit disaster recovery + approval
+```
+
+### 6. PR — only if requested: `gh pr create …`
 
 ---
 
@@ -72,7 +87,7 @@ A4  Prefer HEREDOC commit messages; match repo history style (git log -5)
 
 - [ ] `git status` clean or only intentional leftovers listed  
 - [ ] Commit exists with accurate message  
-- [ ] Push/PR only per user request  
+- [ ] Push/PR **only** per user request  
 
 ## Anti-patterns
 
@@ -82,5 +97,8 @@ A4  Prefer HEREDOC commit messages; match repo history style (git log -5)
 | "WIP" on main without ask | feature branch |
 | amend published commit | new commit |
 | force-push shared branch | recover with user plan |
+| silent agent push | wait for HITL |
 
-Related: [agent-orchestrator](../agent-orchestrator/SKILL.md) report phase · [split-to-prs](../split-to-prs/SKILL.md)
+Related: [agent-orchestrator](../agent-orchestrator/SKILL.md) · [split-to-prs](../split-to-prs/SKILL.md) · [git-worktrees](../git-worktrees/SKILL.md)
+
+**Done_when cmds:** `git status -sb` · `git log -1 --oneline` · (optional) `git push` only after confirm.
