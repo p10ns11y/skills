@@ -113,6 +113,8 @@ Pick a pack, symlink those skills, add more as needed.
 | [split-to-prs](split-to-prs/SKILL.md)                       | Split a body of work into small, reviewable PRs                                                    |
 | [subagent-delegation](subagent-delegation/SKILL.md)         | Delegate readonly exploration with a strict return format                                          |
 | [subagent-explore-report](subagent-explore-report/SKILL.md) | Structured readonly repo survey (CMake/MVU, etc.)                                                  |
+| [adversarial-audit](adversarial-audit/SKILL.md)             | Independent refute-first review of claimed work before merge                                       |
+| [tidy-commit-push](tidy-commit-push/SKILL.md)               | Privacy-safe staging, conventional commit, optional push                                           |
 
 
 ### Context, intelligence & reactors
@@ -176,6 +178,8 @@ Pick a pack, symlink those skills, add more as needed.
 | [master-planner](master-planner/SKILL.md)               | Master plan = friction-removing automation web; scan library, pull pack, Orwell-tweak overlays, ontology for complex repos |
 | [bdd-strategizer](bdd-strategizer/SKILL.md)             | Core-first BDD/TDD decomposition for large refactors |
 | [author-workflow-skill](author-workflow-skill/SKILL.md) | Author new well-formed `SKILL.md` files              |
+| [dual-copy-skill-publish](dual-copy-skill-publish/SKILL.md) | Sync skill trees between project and portable library (or symlink) |
+| [skill-rename-propagation](skill-rename-propagation/SKILL.md) | One-pass rename across folder, rules, packs, indexes, consumers |
 | [higher-order-decision-architect](higher-order-decision-architect/SKILL.md) | First-principles decision framework before material architecture/API/security choices |
 | [stellar-roadmap](stellar-roadmap/SKILL.md) | Evidence-driven architecture backlog docs: scorecards, SN-* blueprint cards, gantt order |
 
