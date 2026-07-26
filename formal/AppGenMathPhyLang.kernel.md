@@ -71,11 +71,12 @@ Line budget (target): SKILL.md ≲ 200 lines formal-first
 ## Diagram policy
 
 ```text
-Prefer: 1 state/flow diagram + decision tables  ≻  long narrative
-ASCII  for small graphs (always renders)
-mermaid for medium graphs
-Never: diagram + full prose copy of the same transitions
-Skip: decorative diagrams
+// See QUALITY.md § Diagram policy (canonical)
+Default: table | compact ASCII
+Mermaid: only if multi-lane/sequence/gantt OR dense topology where ASCII fails
+         AND diagram is SoT (not a second copy of a table)
+Never:   decorative · diagram + full prose of same edges
+Prefer:  1 topology + decision tables  ≻  long narrative
 ```
 
 ## When NOT to use heavy formal dialect
