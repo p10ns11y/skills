@@ -1,6 +1,6 @@
 {
   "profile": "personal-skills",
-  "source_drafts": "~/Work/personal/agent-prompt-tuning-lab/data/distill/<run>/drafts",
+  "source_drafts": "data/distill/<run>/drafts",
   "installed_at": "2026-07-25T16:36:10.783Z",
   "workflows": [
     "looper-skill-lifecycle",
