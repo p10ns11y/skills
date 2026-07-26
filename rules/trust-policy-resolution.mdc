@@ -1,0 +1,16 @@
+---
+description: never use trustPolicyExclude; instead bump direct/transitive deps or add overrides after pnpm why inspection
+alwaysApply: false
+---
+
+# trust-policy-resolution
+
+never use trustPolicyExclude; instead bump direct/transitive deps or add overrides after pnpm why inspection
+
+## Constraints
+
+- pnpm why <pkg>
+- bump or override
+- update both security and upgrade skills
+
+Evidence: turn 8: removed trustPolicyExclude and updated related skills

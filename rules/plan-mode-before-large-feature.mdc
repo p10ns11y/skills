@@ -1,0 +1,17 @@
+---
+description: enter plan mode when user pain point (failed vault recovery) triggers new system design
+alwaysApply: false
+---
+
+# plan-mode-before-large-feature
+
+enter plan mode when user pain point (failed vault recovery) triggers new system design
+
+## Constraints
+
+- enter_plan_mode
+- read_file existing keeper
+- write plan
+- exit_plan_mode
+
+Evidence: turn 21: enter_plan_mode after recovery frustration, later search_replace updates

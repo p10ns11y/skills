@@ -1,0 +1,39 @@
+{
+  "profile": "personal-skills",
+  "source_drafts": "data/distill/<run>/drafts",
+  "installed_at": "2026-07-25T16:36:10.783Z",
+  "workflows": [
+    "looper-skill-lifecycle",
+    "author-and-apply-skill",
+    "dependency-security-hardening",
+    "issue-to-preventive-skill",
+    "parallel-epic-to-pr-cycle",
+    "docs-maintenance-and-pr",
+    "verification-cockpit-extension",
+    "roadmap-sprint-execution",
+    "plan-to-sentinel-wave-prioritization"
+  ],
+  "skills": [
+    "looper",
+    "skill-rename-propagation",
+    "dependency-security",
+    "upgrade-packages",
+    "implement-structured-skill",
+    "skill-authoring",
+    "compose-skills",
+    "dual-copy-skill-publish",
+    "tidy-commit-push",
+    "goal-to-todo-seed",
+    "apply-plan-review",
+    "adversarial-audit",
+    "session-unit-order"
+  ],
+  "rules": [
+    "looper-composition.mdc",
+    "trust-policy-resolution.mdc",
+    "rename-skill-artifacts.mdc",
+    "logical-commit-after-phase.mdc",
+    "plan-mode-before-large-feature.mdc"
+  ],
+  "note": "cross-cutting skill lifecycle/process only; lab+desktop dumps removed"
+}

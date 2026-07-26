@@ -1,0 +1,16 @@
+---
+description: when renaming a skill, update folder, rule file, name fields, composition tables and validation script in one pass
+alwaysApply: false
+---
+
+# rename-skill-artifacts
+
+when renaming a skill, update folder, rule file, name fields, composition tables and validation script in one pass
+
+## Constraints
+
+- grep
+- search_replace
+- run_terminal_command
+
+Evidence: turns 6-7: grep + search_replace across .agents/skills, rules and indexes
