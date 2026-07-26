@@ -1,6 +1,6 @@
 # Overlay — shellyxz shell kernel + verification bridge
 
-**Pairs with:** [verification-cockpit](../../verification-cockpit/SKILL.md), [stellar-roadmap](../../stellar-roadmap/SKILL.md)
+**Pairs with:** [verification-cockpit](../../verification-cockpit/SKILL.md), [stellar-spacemap](../../stellar-spacemap/SKILL.md)
 
 **Repo:** [shellyxz/shell](https://github.com/p10ns11y/shell) (or `~/.config/shell` clone)
 

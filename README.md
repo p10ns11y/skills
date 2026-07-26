@@ -8,6 +8,8 @@ This is a library of [Cursor Agent Skills](https://cursor.com/docs/context/skill
 
 Each directory is a self-contained skill with a `SKILL.md` frontmatter (`name`, `description`) that agents use for discovery and routing.
 
+**Quality bar:** [QUALITY.md](QUALITY.md) · **Formal dialect kernel:** [formal/AppGenMathPhyLang.kernel.md](formal/AppGenMathPhyLang.kernel.md) · **Portable workflows:** [workflows/](workflows/) · **Archived distill stubs:** [archive/distill/](archive/distill/README.md)
+
 ## Why these skills exist
 
 Most agent failures are not model failures. They are **context**, **coordination**, and **guardrail** failures — the kind you only recognize after you've paid for them once.
@@ -41,12 +43,13 @@ cd ~/skills
 
 ```bash
 mkdir -p ~/.cursor/skills
-for skill in ai-optimization fusion-sage agent-orchestrator looper git-worktrees master-planner; do
+for skill in ai-optimization fusion-sage agent-orchestrator control-graph git-worktrees master-planner; do
   ln -sf "$(pwd)/$skill" ~/.cursor/skills/$skill
 done
 # optional rules (alwaysApply: false)
-ln -sf "$(pwd)/rules/looper.mdc" ~/.cursor/rules/looper.mdc 2>/dev/null || true
+ln -sf "$(pwd)/rules/control-graph.mdc" ~/.cursor/rules/control-graph.mdc 2>/dev/null || true
 ln -sf "$(pwd)/rules/master-planner.mdc" ~/.cursor/rules/master-planner.mdc 2>/dev/null || true
+# legacy alias (optional): ln -sf "$(pwd)/looper" ~/.cursor/skills/looper
 ```
 
 **Per-project** (share with teammates via repo):
@@ -82,14 +85,14 @@ Pick a pack, symlink those skills, add more as needed.
 | Pack                            | Skills                                                                                        | Best for                           |
 | ------------------------------- | --------------------------------------------------------------------------------------------- | ---------------------------------- |
 | **Context & speed**             | `ai-optimization`, `fusion-sage`                                                              | Large codebases, expensive context |
-| **Multi-agent delivery**        | `agent-orchestrator`, `looper`, `git-worktrees`, `concurrent-cli-agents`, `split-to-prs`      | Parallel agents, structured loops, PR hygiene |
+| **Multi-agent delivery**        | `agent-orchestrator`, `control-graph`, `git-worktrees`, `concurrent-cli-agents`, `split-to-prs` | Parallel agents, SM+DAG control, PR hygiene |
 | **Node supply chain**           | `fix-dependency-security`, `upgrade-packages`, `audit-allow-builds`, `supply-chain-harden`    | pnpm monorepos, CI hardening       |
 | **React / Next frontend**       | `react-client-expert`, `semantic-markup-css`, `project-editor-profile`                        | App Router, a11y, editor sync      |
 | **Opportunity finder platform** | `finder-reactor`, `agentic-reactor`, `x-agent-resources`, `cv-promote-guard`, `tauri-agentic` | Tauri + X + LLM autonomous loops   |
 | **C / CMake / MVU**             | `explore-repo-readonly`, `mvu-refactor-plan`, `src-tree-reorganize`                           | elomaxz-style refactors            |
-| **Strategy & decisions**        | `higher-order-decision-architect`, `bdd-strategizer`, `stellar-roadmap`                       | Architecture tradeoffs, backlog docs, blueprint cards |
+| **Strategy & decisions**        | `higher-order-decision-architect`, `bdd-strategizer`, `stellar-spacemap`                       | Architecture tradeoffs, backlog docs, blueprint cards |
 | **Master plan / skill packs**   | `master-planner` (+ pack it selects)                                                          | Pull/tweak skills for cwd; Orwell overlays; project ontology |
-| **Shell verify workflow**       | `verification-cockpit`, `shell-kernel-ontology`, `stellar-roadmap`, `ai-optimization`, `fusion-sage` | `av` tmux cockpits, kernel ontology graph, `coming-next.md` roadmaps |
+| **Shell verify workflow**       | `verification-cockpit`, `shell-kernel-ontology`, `stellar-spacemap`, `ai-optimization`, `fusion-sage` | `av` tmux cockpits, kernel ontology graph, `coming-next.md` roadmaps |
 
 
 ---
@@ -102,13 +105,16 @@ Pick a pack, symlink those skills, add more as needed.
 | Skill                                                       | One-liner                                                                                          |
 | ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
 | [agent-orchestrator](agent-orchestrator/SKILL.md)           | Triage single-shot vs full orchestration; briefs, worktrees, independent verification, clean merge |
-| [looper](looper/SKILL.md)                                   | Structured agent loops: outer state machine, budgets, HITL gates, multi-model routing over raw ReAct |
+| [control-graph](control-graph/SKILL.md)                     | Outer state machine/loop + inner DAG or nested loops; budgets, HITL, multi-model routing (was `looper`) |
+| [looper](looper/SKILL.md)                                   | **Deprecated redirect** → `control-graph` (keeps legacy discovery) |
 | [concurrent-cli-agents](concurrent-cli-agents/SKILL.md)     | Run multiple CLI agents safely on isolated worktrees or sandboxes                                  |
 | [git-worktrees](git-worktrees/SKILL.md)                     | Safe git worktree usage for agents; commit-then-merge; disk hygiene                                |
 | [gt-flow](gt-flow/SKILL.md)                                 | When to use Graphite (`gt`) vs plain branches with agent worktrees                                 |
 | [split-to-prs](split-to-prs/SKILL.md)                       | Split a body of work into small, reviewable PRs                                                    |
 | [subagent-delegation](subagent-delegation/SKILL.md)         | Delegate readonly exploration with a strict return format                                          |
 | [subagent-explore-report](subagent-explore-report/SKILL.md) | Structured readonly repo survey (CMake/MVU, etc.)                                                  |
+| [adversarial-audit](adversarial-audit/SKILL.md)             | Independent refute-first review of claimed work before merge                                       |
+| [tidy-commit-push](tidy-commit-push/SKILL.md)               | Privacy-safe staging, conventional commit, optional push                                           |
 
 
 ### Context, intelligence & reactors
@@ -172,8 +178,11 @@ Pick a pack, symlink those skills, add more as needed.
 | [master-planner](master-planner/SKILL.md)               | Master plan = friction-removing automation web; scan library, pull pack, Orwell-tweak overlays, ontology for complex repos |
 | [bdd-strategizer](bdd-strategizer/SKILL.md)             | Core-first BDD/TDD decomposition for large refactors |
 | [author-workflow-skill](author-workflow-skill/SKILL.md) | Author new well-formed `SKILL.md` files              |
+| [dual-copy-skill-publish](dual-copy-skill-publish/SKILL.md) | Sync skill trees between project and portable library (or symlink) |
+| [skill-rename-propagation](skill-rename-propagation/SKILL.md) | One-pass rename across folder, rules, packs, indexes, consumers |
 | [higher-order-decision-architect](higher-order-decision-architect/SKILL.md) | First-principles decision framework before material architecture/API/security choices |
-| [stellar-roadmap](stellar-roadmap/SKILL.md) | Evidence-driven architecture backlog docs: scorecards, SN-* blueprint cards, gantt order |
+| [stellar-spacemap](stellar-spacemap/SKILL.md) | Evidence-driven architecture backlog docs: scorecards, SN-* blueprint cards, gantt order (was `stellar-roadmap`) |
+| [stellar-roadmap](stellar-roadmap/SKILL.md) | **Deprecated redirect** → `stellar-spacemap` |
 
 
 ### Shell workflow & verification
@@ -183,6 +192,7 @@ Pick a pack, symlink those skills, add more as needed.
 | ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
 | [verification-cockpit](verification-cockpit/SKILL.md)       | Generate per-project `.agents/verification/` tmux cockpits for `av`-style verify workflows       |
 | [shell-kernel-ontology](shell-kernel-ontology/SKILL.md)       | Route edits across shellyxz kernel ontology subgraphs (PATH, boundary, verify bridge, drift gate) |
+| [session-unit-order](session-unit-order/SKILL.md)             | UWSM / graphical-session unit-order guard (project-born; dual-copy from arch-machine) |
 
 
 ### Specialized
@@ -231,15 +241,27 @@ Copy overlays from [examples/overlays/](examples/overlays/) when adapting skills
 
 ```
 my-skill/
-├── SKILL.md          # Required — frontmatter + instructions
-├── reference.md      # Optional deep docs
+├── SKILL.md          # Required — formal-first SoT (frontmatter + procedure)
+├── references/       # English expansion / templates — load only if formal insufficient
 ├── scripts/          # Optional utilities agents can run
 └── templates/        # Optional briefs, configs
 ```
 
 Descriptions must be **third-person**, **specific**, and include **trigger terms** — agents route on `description`, not the title.
 
+**Formal-first:** prefer dense AppGenMathPhyLang-style headers + tables/diagrams in `SKILL.md`; put full plain English in `references/` and instruct agents to expand **only if** the formal spec is ambiguous. See [QUALITY.md](QUALITY.md).
+
 Author new skills with [author-workflow-skill](author-workflow-skill/SKILL.md).
+
+### Portable workflows
+
+| Workflow | Chain | For |
+|----------|-------|-----|
+| [multi-agent-delivery](workflows/multi-agent-delivery.md) | orchestrator → control-graph → worktrees → split-to-prs | Multi-worker delivery |
+| [dependency-harden](workflows/dependency-harden.md) | fix-deps → supply-chain → upgrades → allowBuilds | Node supply chain |
+| [context-ignite](workflows/context-ignite.md) | ai-optimization → fusion-sage → optional stellar | Large-repo context |
+
+Copy `workflows/*.rhai` into `.grok/workflows/` or `~/.grok/workflows/`. Session-distilled drafts with broken skill chains live under [archive/distill/workflows/](archive/distill/README.md).
 
 ### Optional Cursor rules (`rules/`)
 
@@ -251,10 +273,12 @@ Some skills ship a thin **`.mdc` router** in [`rules/`](rules/) for `alwaysApply
 
 If you've lost a battle worth documenting, contribute the win:
 
-1. Keep `SKILL.md` under ~500 lines; put depth in `reference.md` or `examples/`.
+1. Keep `SKILL.md` under ~200 lines formal-first (hard ceiling ~500); put depth in `references/` or `examples/`.
 2. **No project-specific paths in skill bodies** — use [examples/](examples/README.md) for overlays and provenance.
 3. Prefer linking between skills over duplicating guardrails.
 4. Include concrete verification steps and anti-patterns — especially the ones that cost you a day.
+5. Workflows must chain **existing** skills only; no ghost `skill_chain` names.
+6. Meet [QUALITY.md](QUALITY.md) CEE bar: Correctness, Effectiveness, Efficiency.
 
 ---
 

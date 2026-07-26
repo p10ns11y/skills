@@ -1,6 +1,6 @@
 # Companion skill integration
 
-Use when `/stellar-roadmap` is invoked with architecture backlog work.
+Use when `/stellar-spacemap` is invoked with architecture backlog work.
 
 ## ai-optimization (Context Sage — fission)
 
@@ -56,15 +56,15 @@ Use when `/stellar-roadmap` is invoked with architecture backlog work.
 ## Invocation recipes
 
 ```
-/stellar-roadmap /ai-optimization /fusion-sage /higher-order-decision-architect
+/stellar-spacemap /ai-optimization /fusion-sage /higher-order-decision-architect
 Update arch-design/coming-next.md after PR #6
 ```
 
 ```
-/stellar-roadmap
+/stellar-spacemap
 Refresh roadmap for {repo}; spacecraft metaphor; include §13 references
 ```
 
 ## Cursor rules (optional)
 
-Symlink [../assets/cursorrules-template.md](../assets/cursorrules-template.md) to `.cursor/rules/stellar-roadmap.mdc` with `alwaysApply: false` — invoke on roadmap paths only.
+Symlink [../assets/cursorrules-template.md](../assets/cursorrules-template.md) to `.cursor/rules/stellar-spacemap.mdc` with `alwaysApply: false` — invoke on roadmap paths only.

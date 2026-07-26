@@ -1,4 +1,4 @@
-# Stellar roadmap — repo-type overlays
+# Stellar spacemap — repo-type overlays
 
 **Purpose:** One-page scout context so agents refresh roadmaps without re-reading full `coming-next.md` (~30% fewer tokens on similar updates).
 
@@ -11,6 +11,6 @@
 
 **Shell config dogfood:** full overlay with live paths in skills library [shellyxz-shell-kernel.md](../../examples/overlays/shellyxz-shell-kernel.md).
 
-**Usage:** Tell the agent: `Load stellar-roadmap/examples/shell-kernel.md overlay; expand full coming-next only for SN-N being edited.`
+**Usage:** Tell the agent: `Load stellar-spacemap/examples/shell-kernel.md overlay; expand full coming-next only for SN-N being edited.`
 
 **Add overlays:** Copy `eve-agent.md` as a template; keep ≤80 lines; fused abstraction + scorecard skeleton + SN priorities only.

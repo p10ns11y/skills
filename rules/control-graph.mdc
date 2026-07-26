@@ -1,0 +1,22 @@
+---
+description: >-
+  Agent control-graph: outer state machine / loop, inner DAG or nested loops,
+  budgets, HITL, multi-model routing. Load for multi-step cycles, ReAct thrash risk,
+  model roles. Formerly looper.
+alwaysApply: false
+---
+
+# control-graph
+
+When the task is a **multi-step agent cycle**, long autonomous run, model-routing choice, or risk of unbounded ReAct:
+
+1. Read [control-graph/SKILL.md](../control-graph/SKILL.md) (formal SoT).
+2. Expand [control-graph/references/english-procedure.md](../control-graph/references/english-procedure.md) **only if** the formal spec is ambiguous.
+3. Open a **Control Card** (phase, budgets, inner DAG/subloop, current model role).
+4. Prefer outer phases (ORIENT → PLAN → EXECUTE → VERIFY → REPAIR → REVIEW_GATE → INTEGRATE → DONE) over implicit “keep calling tools.”
+5. Route **fast / explore / coding / deep / review** per the skill matrix; separate review from implementer context.
+6. Honor HITL pause gates and hard exits (`max_loop_iters`, `no_progress`, cancel).
+
+Compose with `agent-orchestrator` (triage + workers), `subagent-delegation` (explore), `fusion-sage` / `ai-optimization` (synthesis / prune). Do **not** put domain finder/CV/X logic here — only control-graph shape.
+
+Activation: “control-graph”, “looper”, “structured loop”, “state machine”, “SM+DAG”, “model routing”, infinite-loop risk.

@@ -119,7 +119,7 @@ Extract-only facts file (local, gitignored): `bin/extract-ontology-facts.sh`
 | Skill | Role |
 |-------|------|
 | [verification-cockpit](../verification-cockpit/SKILL.md) | Per-project tmux layouts (not kernel ontology) |
-| [stellar-roadmap](../stellar-roadmap/SKILL.md) | Backlog cards SN-* after ontology ships |
+| [stellar-spacemap](../stellar-spacemap/SKILL.md) | Backlog cards SN-* after ontology ships |
 | [fusion-sage](../fusion-sage/SKILL.md) | Fused abstractions in `fusion-state.json` |
 
 *Plain rule: graph and tree move together — same discipline as `architecture.md`.*
