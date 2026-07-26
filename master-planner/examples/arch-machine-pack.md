@@ -12,7 +12,7 @@
 | ai-optimization | symlink | Token budget |
 | fusion-sage | symlink | Fused loop + surplus |
 | higher-order-decision-architect | symlink | Material decisions |
-| stellar-roadmap | symlink | SN-* backlog |
+| stellar-spacemap | symlink | SN-* backlog |
 | verification-cockpit | symlink | `av` cockpit |
 | agent-orchestrator | symlink | Multi-step delivery |
 | control-graph | symlink | Outer SM/loop + inner DAG (formerly looper) |

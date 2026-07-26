@@ -45,12 +45,12 @@ echo "SKILLS_ROOT=$SKILLS_ROOT"
 [[ -d "$SKILLS_ROOT" ]] || { echo "SKILLS_ROOT missing: $SKILLS_ROOT" >&2; exit 2; }
 
 declare -A PACKS=(
-  [arch-guardian]="master-planner ai-optimization fusion-sage higher-order-decision-architect stellar-roadmap verification-cockpit agent-orchestrator control-graph git-worktrees"
-  [shell-verify]="master-planner shell-kernel-ontology verification-cockpit stellar-roadmap ai-optimization fusion-sage higher-order-decision-architect"
+  [arch-guardian]="master-planner ai-optimization fusion-sage higher-order-decision-architect stellar-spacemap verification-cockpit agent-orchestrator control-graph git-worktrees"
+  [shell-verify]="master-planner shell-kernel-ontology verification-cockpit stellar-spacemap ai-optimization fusion-sage higher-order-decision-architect"
   [web-app]="master-planner ai-optimization fusion-sage react-client-expert semantic-markup-css fix-dependency-security higher-order-decision-architect"
   [agentic-desktop]="master-planner finder-reactor tauri-agentic agent-orchestrator git-worktrees control-graph fusion-sage"
   [multi-agent]="master-planner agent-orchestrator control-graph git-worktrees concurrent-cli-agents split-to-prs"
-  [strategy]="master-planner higher-order-decision-architect stellar-roadmap fusion-sage ai-optimization"
+  [strategy]="master-planner higher-order-decision-architect stellar-spacemap fusion-sage ai-optimization"
 )
 
 skills=()

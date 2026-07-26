@@ -7,13 +7,13 @@ kind: workflow
 skill_chain:
   - ai-optimization
   - fusion-sage
-  - stellar-roadmap
+  - stellar-spacemap
 ---
 
 # context-ignite
 
 1. `ai-optimization` — relevance prune, budgets  
 2. `fusion-sage` — synthesis + surplus (Q>1)  
-3. optional `stellar-roadmap` — if backlog/doc update requested  
+3. optional `stellar-spacemap` — if backlog/doc update requested  
 
 Use for large repos and expensive context, not one-line typos.

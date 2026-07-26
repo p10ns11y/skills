@@ -1,4 +1,4 @@
-# Stellar Roadmap — Document template (copy into target file)
+# Stellar Spacemap — Document template (copy into target file)
 
 Replace `{PROJECT}`, `{DATE}`, links, and bracketed placeholders.
 
@@ -8,7 +8,7 @@ Replace `{PROJECT}`, `{DATE}`, links, and bracketed placeholders.
 **Audience:** You · implementer · agents  
 **Style:** Short words. Diagrams over prose. Optimism grounded in evidence.  
 **Contract:** [{boundary-doc}]({path}) · [{risk-doc-if-any}]({path})  
-**Method:** [stellar-roadmap skill]({SKILLS_ROOT}/stellar-roadmap/SKILL.md) · collab-finder blueprint style
+**Method:** [stellar-spacemap skill]({SKILLS_ROOT}/stellar-spacemap/SKILL.md) · collab-finder blueprint style
 
 *Last updated: {DATE}*
 
@@ -202,7 +202,7 @@ mindmap
 | [intuitive-shell-plan](https://github.com/p10ns11y/collab-finder/blob/main/reports/intuitive-shell-plan.md) | Blueprint cards |
 | [batch-2-blueprints](https://github.com/p10ns11y/collab-finder/blob/main/reports/batch-2-engineering-blueprints.md) | Scorecard, gantt |
 | [single-pr-intuitive-product](https://github.com/p10ns11y/collab-finder/blob/main/reports/single-pr-intuitive-product.md) | Musk 5-step, 2nd/3rd order |
-| [stellar-roadmap SKILL]({SKILLS_ROOT}/stellar-roadmap/SKILL.md) | This doc format |
+| [stellar-spacemap SKILL]({SKILLS_ROOT}/stellar-spacemap/SKILL.md) | This doc format |
 
 ---
 

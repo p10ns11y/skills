@@ -1,6 +1,6 @@
 # External references (§13 pattern)
 
-Copy into every stellar-roadmap document. Add project-specific rows at the top.
+Copy into every stellar-spacemap document. Add project-specific rows at the top.
 
 ## Project-specific (customize per repo)
 
@@ -33,7 +33,7 @@ Copy into every stellar-roadmap document. Add project-specific rows at the top.
 
 | Skill | Path |
 |-------|------|
-| stellar-roadmap | `{SKILLS_ROOT}/stellar-roadmap/SKILL.md` |
+| stellar-spacemap | `{SKILLS_ROOT}/stellar-spacemap/SKILL.md` |
 | ai-optimization | `{SKILLS_ROOT}/ai-optimization/SKILL.md` |
 | fusion-sage | `{SKILLS_ROOT}/fusion-sage/SKILL.md` |
 | higher-order-decision-architect | `{SKILLS_ROOT}/higher-order-decision-architect/SKILL.md` |

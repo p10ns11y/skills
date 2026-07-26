@@ -90,9 +90,9 @@ Pick a pack, symlink those skills, add more as needed.
 | **React / Next frontend**       | `react-client-expert`, `semantic-markup-css`, `project-editor-profile`                        | App Router, a11y, editor sync      |
 | **Opportunity finder platform** | `finder-reactor`, `agentic-reactor`, `x-agent-resources`, `cv-promote-guard`, `tauri-agentic` | Tauri + X + LLM autonomous loops   |
 | **C / CMake / MVU**             | `explore-repo-readonly`, `mvu-refactor-plan`, `src-tree-reorganize`                           | elomaxz-style refactors            |
-| **Strategy & decisions**        | `higher-order-decision-architect`, `bdd-strategizer`, `stellar-roadmap`                       | Architecture tradeoffs, backlog docs, blueprint cards |
+| **Strategy & decisions**        | `higher-order-decision-architect`, `bdd-strategizer`, `stellar-spacemap`                       | Architecture tradeoffs, backlog docs, blueprint cards |
 | **Master plan / skill packs**   | `master-planner` (+ pack it selects)                                                          | Pull/tweak skills for cwd; Orwell overlays; project ontology |
-| **Shell verify workflow**       | `verification-cockpit`, `shell-kernel-ontology`, `stellar-roadmap`, `ai-optimization`, `fusion-sage` | `av` tmux cockpits, kernel ontology graph, `coming-next.md` roadmaps |
+| **Shell verify workflow**       | `verification-cockpit`, `shell-kernel-ontology`, `stellar-spacemap`, `ai-optimization`, `fusion-sage` | `av` tmux cockpits, kernel ontology graph, `coming-next.md` roadmaps |
 
 
 ---
@@ -181,7 +181,8 @@ Pick a pack, symlink those skills, add more as needed.
 | [dual-copy-skill-publish](dual-copy-skill-publish/SKILL.md) | Sync skill trees between project and portable library (or symlink) |
 | [skill-rename-propagation](skill-rename-propagation/SKILL.md) | One-pass rename across folder, rules, packs, indexes, consumers |
 | [higher-order-decision-architect](higher-order-decision-architect/SKILL.md) | First-principles decision framework before material architecture/API/security choices |
-| [stellar-roadmap](stellar-roadmap/SKILL.md) | Evidence-driven architecture backlog docs: scorecards, SN-* blueprint cards, gantt order |
+| [stellar-spacemap](stellar-spacemap/SKILL.md) | Evidence-driven architecture backlog docs: scorecards, SN-* blueprint cards, gantt order (was `stellar-roadmap`) |
+| [stellar-roadmap](stellar-roadmap/SKILL.md) | **Deprecated redirect** → `stellar-spacemap` |
 
 
 ### Shell workflow & verification

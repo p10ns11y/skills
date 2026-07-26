@@ -60,7 +60,7 @@ let r2 = ();
 if want_roadmap {
     phase("Roadmap");
     let rp = "";
-    rp += "Follow stellar-roadmap if backlog docs exist. Topic: " + topic + ". ";
+    rp += "Follow stellar-spacemap if backlog docs exist. Topic: " + topic + ". ";
     rp += "Update or propose SN-style cards only if evidence supports. ";
     rp += "Report {done, notes, surplus}.";
     r2 = agent(rp, #{
@@ -73,7 +73,7 @@ if want_roadmap {
 
 complete(#{
     summary: "Finished context-ignite",
-    skill_chain: ["ai-optimization", "fusion-sage", "stellar-roadmap"],
+    skill_chain: ["ai-optimization", "fusion-sage", "stellar-spacemap"],
     fission: r0,
     fusion: r1,
     roadmap: r2,

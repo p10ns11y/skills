@@ -30,7 +30,7 @@ A3  Ontology only when complex (≥2 of: multi-crate, agent contracts, wrong-fil
 A4  Verify pack + project checks before "done"
 ```
 
-**Remote:** [p10ns11y/skills](https://github.com/p10ns11y/skills). **Companions:** [ai-optimization](../ai-optimization/SKILL.md) · [fusion-sage](../fusion-sage/SKILL.md) · [higher-order-decision-architect](../higher-order-decision-architect/SKILL.md) · [stellar-roadmap](../stellar-roadmap/SKILL.md) · [agent-orchestrator](../agent-orchestrator/SKILL.md)
+**Remote:** [p10ns11y/skills](https://github.com/p10ns11y/skills). **Companions:** [ai-optimization](../ai-optimization/SKILL.md) · [fusion-sage](../fusion-sage/SKILL.md) · [higher-order-decision-architect](../higher-order-decision-architect/SKILL.md) · [stellar-spacemap](../stellar-spacemap/SKILL.md) · [agent-orchestrator](../agent-orchestrator/SKILL.md)
 
 ---
 
@@ -104,7 +104,7 @@ Load [references/orwell-tweak.md](references/orwell-tweak.md). For each pulled s
 | Relevance / never-compress | `.agents/overlays/<project>-ai-optimization.md` |
 | Fused aggregates | `.agents/overlays/<project>-fusion-sage.md` |
 | Decision zones | `.agents/overlays/<project>-decision-hooks.md` |
-| Roadmap scout | `.agents/overlays/<project>-stellar-roadmap.md` |
+| Roadmap scout | `.agents/overlays/<project>-stellar-spacemap.md` |
 | Master pack map | `.agents/overlays/<project>-master-planner.md` |
 
 **Tweak law (non-negotiable):**
@@ -154,12 +154,12 @@ Update **Active skills** table: skill · path · when. Point overlays. Keep veri
 
 | Stack signals | Pack | Core skills |
 |---------------|------|-------------|
-| `install.sh` + profiles + maintenance + archy/TUI | **arch-guardian** | master-planner, eagle-*, ai-optimization, fusion-sage, HODA, stellar-roadmap, verification-cockpit, session-unit-order, agent-orchestrator, control-graph, git-worktrees |
-| `~/.config/shell` / path.contract | **shell-verify** | shell-kernel-ontology, verification-cockpit, stellar-roadmap, ai-optimization, fusion-sage |
+| `install.sh` + profiles + maintenance + archy/TUI | **arch-guardian** | master-planner, eagle-*, ai-optimization, fusion-sage, HODA, stellar-spacemap, verification-cockpit, session-unit-order, agent-orchestrator, control-graph, git-worktrees |
+| `~/.config/shell` / path.contract | **shell-verify** | shell-kernel-ontology, verification-cockpit, stellar-spacemap, ai-optimization, fusion-sage |
 | Next.js / React app | **web-app** | ai-optimization, fusion-sage, react-client-expert, semantic-markup-css, fix-dependency-security |
 | Tauri + agent loops | **agentic-desktop** | finder-reactor, tauri-agentic, agent-orchestrator, git-worktrees, control-graph |
 | Multi-agent delivery only | **multi-agent** | agent-orchestrator, control-graph, git-worktrees, concurrent-cli-agents, split-to-prs |
-| Strategy / backlog docs | **strategy** | HODA, stellar-roadmap, fusion-sage, master-planner |
+| Strategy / backlog docs | **strategy** | HODA, stellar-spacemap, fusion-sage, master-planner |
 
 Custom: compose from catalog; document in overlay.
 
@@ -186,7 +186,7 @@ flowchart LR
 **Next wave:** …
 ```
 
-Pair roadmap depth with [stellar-roadmap](../stellar-roadmap/SKILL.md). Pair material bets with [higher-order-decision-architect](../higher-order-decision-architect/SKILL.md).
+Pair roadmap depth with [stellar-spacemap](../stellar-spacemap/SKILL.md). Pair material bets with [higher-order-decision-architect](../higher-order-decision-architect/SKILL.md).
 
 ---
 

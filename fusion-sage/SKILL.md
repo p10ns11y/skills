@@ -30,7 +30,7 @@ A6  Prefer outputs that move project toward IronPeak
 A7  Evaluate(δ) ≔ (Correctness, Effectiveness, Efficiency)
 ```
 
-Pair: [ai-optimization](../ai-optimization/SKILL.md) · [higher-order-decision-architect](../higher-order-decision-architect/SKILL.md) · [stellar-roadmap](../stellar-roadmap/SKILL.md).
+Pair: [ai-optimization](../ai-optimization/SKILL.md) · [higher-order-decision-architect](../higher-order-decision-architect/SKILL.md) · [stellar-spacemap](../stellar-spacemap/SKILL.md).
 
 ---
 
