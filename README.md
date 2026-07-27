@@ -18,7 +18,7 @@ Most agent failures are not model failures. They are **context**, **coordination
 | Problem | What we lost | What the skill encodes |
 | ------- | ------------ | ---------------------- |
 | Context window bloat on large repos | Hours re-explaining the same codebase every turn | [ai-optimization](ai-optimization/SKILL.md) — relevance scoring, compression, strict budgets |
-| One-shot help that doesn't compound | Same architectural mistakes, session after session | [fusion-sage](fusion-sage/SKILL.md) — synthesis + surplus (Q > 1 improvements) |
+| One-shot help that doesn't compound | Same architectural mistakes, session after session | [architecture-synthesis](architecture-synthesis/SKILL.md) — synthesis + surplus (Q > 1); was `fusion-sage` |
 | Parallel agents overwriting each other | Merged garbage, lost work, `cp` disasters | [git-worktrees](git-worktrees/SKILL.md) + [agent-orchestrator](agent-orchestrator/SKILL.md) |
 | Unsafe autonomous actions | Near-misses on CV writes, runaway API spend | [finder-reactor](finder-reactor/SKILL.md) + [cv-promote-guard](cv-promote-guard/SKILL.md) |
 | npm supply-chain risk | "Audit clean" installs that still weren't safe | [fix-dependency-security](fix-dependency-security/SKILL.md) + [supply-chain-harden](supply-chain-harden/SKILL.md) |
@@ -43,7 +43,7 @@ cd ~/skills
 
 ```bash
 mkdir -p ~/.cursor/skills
-for skill in ai-optimization fusion-sage agent-orchestrator control-graph git-worktrees master-planner; do
+for skill in ai-optimization architecture-synthesis agent-orchestrator control-graph git-worktrees master-planner; do
   ln -sf "$(pwd)/$skill" ~/.cursor/skills/$skill
 done
 # optional rules (alwaysApply: false)
@@ -84,7 +84,7 @@ Pick a pack, symlink those skills, add more as needed.
 
 | Pack                            | Skills                                                                                        | Best for                           |
 | ------------------------------- | --------------------------------------------------------------------------------------------- | ---------------------------------- |
-| **Context & speed**             | `ai-optimization`, `fusion-sage`                                                              | Large codebases, expensive context |
+| **Context & speed**             | `ai-optimization`, `architecture-synthesis`                                                   | Large codebases, expensive context |
 | **Multi-agent delivery**        | `agent-orchestrator`, `control-graph`, `git-worktrees`, `concurrent-cli-agents`, `split-to-prs` | Parallel agents, SM+DAG control, PR hygiene |
 | **Node supply chain**           | `fix-dependency-security`, `upgrade-packages`, `audit-allow-builds`, `supply-chain-harden`    | pnpm monorepos, CI hardening       |
 | **React / Next frontend**       | `react-client-expert`, `semantic-markup-css`, `project-editor-profile`                        | App Router, a11y, editor sync      |
@@ -92,7 +92,7 @@ Pick a pack, symlink those skills, add more as needed.
 | **C / CMake / MVU**             | `explore-repo-readonly`, `mvu-refactor-plan`, `src-tree-reorganize`                           | elomaxz-style refactors            |
 | **Strategy & decisions**        | `higher-order-decision-architect`, `bdd-strategizer`, `stellar-spacemap`                       | Architecture tradeoffs, backlog docs, blueprint cards |
 | **Master plan / skill packs**   | `master-planner` (+ pack it selects)                                                          | Pull/tweak skills for cwd; Orwell overlays; project ontology |
-| **Shell verify workflow**       | `verification-cockpit`, `shell-kernel-ontology`, `stellar-spacemap`, `ai-optimization`, `fusion-sage` | `av` tmux cockpits, kernel ontology graph, `coming-next.md` roadmaps |
+| **Shell verify workflow**       | `verification-cockpit`, `shell-kernel-ontology`, `stellar-spacemap`, `ai-optimization`, `architecture-synthesis` | `av` tmux cockpits, kernel ontology graph, `coming-next.md` roadmaps |
 
 
 ---
@@ -123,7 +123,8 @@ Pick a pack, symlink those skills, add more as needed.
 | Skill                                       | One-liner                                                                               |
 | ------------------------------------------- | --------------------------------------------------------------------------------------- |
 | [ai-optimization](ai-optimization/SKILL.md) | Fission engine: relevance scoring, compression, token budgets, progressive disclosure   |
-| [fusion-sage](fusion-sage/SKILL.md)         | Fusion on fission: synthesis, surplus (Q>1), knowledge graph, self-amplification        |
+| [architecture-synthesis](architecture-synthesis/SKILL.md) | After fission: cross-file synthesis, surplus (Q>1), optional KG, iron-peak design (was `fusion-sage`) |
+| [fusion-sage](fusion-sage/SKILL.md)         | **Legacy name** — same procedure as `architecture-synthesis`; prefer the semantic name  |
 | [finder-reactor](finder-reactor/SKILL.md)   | Self-guarded opportunity engine: search → analyze → prep → promote with guards & pauses |
 | [agentic-reactor](agentic-reactor/SKILL.md) | Glue patterns for pause-aware autonomous platforms (finder + shell + MCP)               |
 
@@ -259,7 +260,7 @@ Author new skills with [author-workflow-skill](author-workflow-skill/SKILL.md).
 |----------|-------|-----|
 | [multi-agent-delivery](workflows/multi-agent-delivery.md) | orchestrator → control-graph → worktrees → split-to-prs | Multi-worker delivery |
 | [dependency-harden](workflows/dependency-harden.md) | fix-deps → supply-chain → upgrades → allowBuilds | Node supply chain |
-| [context-ignite](workflows/context-ignite.md) | ai-optimization → fusion-sage → optional stellar | Large-repo context |
+| [context-ignite](workflows/context-ignite.md) | ai-optimization → architecture-synthesis → optional stellar | Large-repo context |
 
 Copy `workflows/*.rhai` into `.grok/workflows/` or `~/.grok/workflows/`. Session-distilled drafts with broken skill chains live under [archive/distill/workflows/](archive/distill/README.md).
 

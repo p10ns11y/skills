@@ -45,7 +45,7 @@ if r0 == () || !r0.success { log("Fission failed"); }
 
 phase("Fusion");
 let f = "";
-f += "Follow fusion-sage. Topic: " + topic + ". ";
+f += "Follow architecture-synthesis. Topic: " + topic + ". ";
 f += "Synthesize higher-order abstractions from the pruned context. ";
 f += "Mandatory surplus: one concrete future-cheaper improvement. ";
 f += "Report {done, notes, surplus}.";
@@ -73,7 +73,7 @@ if want_roadmap {
 
 complete(#{
     summary: "Finished context-ignite",
-    skill_chain: ["ai-optimization", "fusion-sage", "stellar-spacemap"],
+    skill_chain: ["ai-optimization", "architecture-synthesis", "stellar-spacemap"],
     fission: r0,
     fusion: r1,
     roadmap: r2,
