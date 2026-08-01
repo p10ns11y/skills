@@ -7,12 +7,13 @@ description: >-
   Use for multi-step agent cycles, unbounded-ReAct risk, model routing,
   structured loops — not domain product logic. Formerly "looper". Composes
   with agent-orchestrator, subagent-delegation, fusion-sage, concurrent-cli-agents.
-  Triggers: control-graph, looper, state machine, SM+DAG, loop card, model routing.
+  Triggers: control-graph, looper, state machine, SM+DAG, loop card, model routing,
+  cognitive load, CLT, cognitive strain, load balance.
 ---
 
 # control-graph
 
-> **Load rule:** This file is the **formal SoT**. Expand [references/english-procedure.md](references/english-procedure.md) **only if** a symbol, phase, or transition is still ambiguous after this spec.
+> **Load rule:** This file is the **formal SoT**. Expand [references/english-procedure.md](references/english-procedure.md) **only if** a symbol, phase, or transition is still ambiguous after this spec. Expand [references/clt-load-balance.md](references/clt-load-balance.md) **only if** dual-actor load (human vs agent strain) is the decision under ambiguity.
 
 ```text
 // ── Signature ──────────────────────────────────────────────
@@ -28,6 +29,8 @@ HITL        : human-in-the-loop gate
 HOOTL       : human-out-of-the-loop (auto-clear only when safe)
 Budget      : { max_loop_iters, max_repair_rounds, max_step_retries,
                 max_tool_calls_per_step, no_progress, wall_clock? }
+Load        : { intrinsic, extraneous, germane } × Actor ∈ { human, agent }
+                // CLT dual-actor; see A8 + clt-load-balance.md
 
 // ── Axioms (never violate) ─────────────────────────────────
 A1  Outer is explicit on Card  — never only in chat memory
@@ -37,10 +40,14 @@ A4  Budget exhaust ∨ no_progress×2  →  STOP | HITL | re-PLAN  (never silent
 A5  Review ⊥ ImplementerContext     // fresh inputs: plan + diff + logs
 A6  Domain skills ⊨ data plane;  CG ⊨ control plane only
 A7  Evaluate(δ) ≔ (Correctness, Effectiveness, Efficiency)
+A8  DualLoad — minimize Extraneous for Human ∧ Agent; preserve Germane for both;
+    chunk Intrinsic by actor; Parallel/switch capacity: Agent ≥ Human
+    (do not serialize independent Inner steps solely to match human WM)
 
 // ── Mission ────────────────────────────────────────────────
 Keep agent creativity, wrap it in deterministic skeleton:
   Outer(phase, transition, HITL) + Inner(DAG|subloop, done_when, retry)
+  — with CLT budgets so neither actor burns capacity on waste
 ```
 
 ## Activate / Skip
@@ -49,6 +56,7 @@ Keep agent creativity, wrap it in deterministic skeleton:
 |--------|--------|
 | multi-step · thrash risk · “until done” · model routing · parallel re-entry | load CG; open **Card** |
 | “control-graph”, “looper”, “state machine”, “SM+DAG”, “loop card” | full skill |
+| cognitive load / CLT / strain / “remove load for AI+human” | full skill + diagnose Load on Card; expand clt-load-balance if needed |
 | domain autonomy (finder / CV / X) | domain skill owns domain; CG owns **shape only** |
 | ≤1–2 files, obvious fix | **Skip** → [agent-orchestrator](../agent-orchestrator/SKILL.md) triage only |
 
@@ -141,6 +149,19 @@ Keep agent creativity, wrap it in deterministic skeleton:
 | `max_tool_calls_per_step` | 25 | force step exit |
 | `no_progress` | 2 identical failure signatures | re-PLAN \| HITL |
 
+### Dual-actor load (CLT middle ground)
+
+Diagnose on Card before heavy EXECUTE. Formal detail: [references/clt-load-balance.md](references/clt-load-balance.md).
+
+| Load | Minimize / maximize | Human | Agent |
+|------|---------------------|-------|-------|
+| **Extraneous** | **minimize both** | clear HITL (approve/amend/abort + exact preview); no log dumps | Card + short handoffs; prune via ai-optimization; no mega-steps |
+| **Germane** | **preserve both** | judgment at gates; retrieve/decide before rubber-stamp | PLAN write-up; VERIFY/REVIEW ⊥ implementer |
+| **Intrinsic** | **chunk by actor** | ≤~4 new decision elements per gate; fade scaffolds for experts | active elements on Card only; progressive disclosure |
+| **Parallel / switch** | **asymmetric** | serialize human-facing asks | fan-out independent Inner (Agent capacity ≥ Human WM) |
+
+**Middle ground:** remove shared waste (extraneous strain for AI *and* human); keep productive struggle (germane); allow machine multitasking where steps are independent — do not impose human working-memory caps on agent fan-out.
+
 ---
 
 ## Inner graph (DAG | nested loop)
@@ -157,7 +178,7 @@ cancel_when, model_role, inputs (minimal), outputs (re-enter Outer)
 
 1. Bound first — write step list before tools; default ≤7 steps/batch  
 2. One primary outcome per step  
-3. Parallel ⇔ independent paths → [concurrent-cli-agents](../concurrent-cli-agents/SKILL.md) + [subagent-delegation](../subagent-delegation/SKILL.md)  
+3. Parallel ⇔ independent paths → [concurrent-cli-agents](../concurrent-cli-agents/SKILL.md) + [subagent-delegation](../subagent-delegation/SKILL.md) — prefer fan-out when safe (A8); never parallelize to dump concurrent asks on the human  
 4. Re-enter Outer with `{step_id, status, artifacts, errors, next_hint}` — not full transcript  
 5. Nested loop allowed only if it inherits budgets + `done_when` (no nested unbounded ReAct)  
 6. Cancel is first-class — leave tree consistent; reason on Card  
@@ -221,11 +242,12 @@ Domain guards stay in domain skills; CG requires honoring pause results as Outer
 | explore return format | [subagent-delegation](../subagent-delegation/SKILL.md) | explore Role + Inner steps |
 | worktrees / merge | [git-worktrees](../git-worktrees/SKILL.md) | INTEGRATE uses merge, not `cp` |
 | parallel agents | [concurrent-cli-agents](../concurrent-cli-agents/SKILL.md) | independent Inner only |
-| token prune | [ai-optimization](../ai-optimization/SKILL.md) | before deep/coding fill |
+| token prune | [ai-optimization](../ai-optimization/SKILL.md) | before deep/coding fill (agent extraneous ↓) |
 | surplus | [fusion-sage](../fusion-sage/SKILL.md) | PLAN/INTEGRATE surplus |
+| dual-actor CLT detail | [references/clt-load-balance.md](references/clt-load-balance.md) | diagnose Load; A8 middle ground |
 | product autonomy | finder-reactor / agentic-reactor | **shape only** |
 
-`CG = control plane` · domain = data plane · orchestrator = multi-worker logistics.
+`CG = control plane` · domain = data plane · orchestrator = multi-worker logistics · CLT = load diagnosis for Human∧Agent.
 
 ---
 
@@ -241,6 +263,9 @@ Domain guards stay in domain skills; CG requires honoring pause results as Outer
 | nested agents without parent ownership | parent owns transitions |
 | domain logic reimplemented here | link domain skills |
 | silent continue after budget exhaust | STOP + report |
+| minimize *all* human load (no germane) | protect judgment / retrieve-then-decide at HITL |
+| serialize agent work to match human WM | fan-out independent Inner; keep human gates serial |
+| HITL = full transcript dump | structured preview only (extraneous ↓) |
 
 ---
 
@@ -255,6 +280,7 @@ Copy [references/control-card.md](references/control-card.md) or:
 - plan (success criteria): …
 - verify commands: …
 - budgets: max_loop_iters=8 rem=_; max_repair_rounds=3 rem=_; max_step_retries=2
+- load_diag: actor=human|agent|both ; dominant=intrinsic|extraneous|germane ; intervene=…
 - steps (DAG|subloop): S1 … / depends / done_when / role
 - model_role now: fast | explore | coding | deep | review
 - last progress: …
@@ -270,9 +296,9 @@ Update Card on **every** phase transition. If phase unnameable → unbounded ReA
 
 ```text
 1. Triage (agent-orchestrator): single-shot? → do it; skip CG
-2. Open Card; phase=ORIENT; set budgets
-3. PLAN + verify cmds; HITL if high stakes
-4. Route Role; write Inner DAG|subloop
+2. Open Card; phase=ORIENT; set budgets; optional load_diag (A8)
+3. PLAN + verify cmds; HITL if high stakes (human gate: low extraneous, high germane)
+4. Route Role; write Inner DAG|subloop — parallel when independent
 5. EXECUTE bounded; handoffs only
 6. VERIFY real cmds; REPAIR gaps only (budgeted)
 7. REVIEW_GATE / HITL when required
@@ -295,8 +321,9 @@ Update Card on **every** phase transition. If phase unnameable → unbounded ReA
 ## Reference (progressive disclosure)
 
 - **English expansion (only if needed):** [references/english-procedure.md](references/english-procedure.md)
+- **CLT dual-actor load (only if needed):** [references/clt-load-balance.md](references/clt-load-balance.md)
 - **Card template:** [references/control-card.md](references/control-card.md)
 - **Library formal kernel:** [../formal/AppGenMathPhyLang.kernel.md](../formal/AppGenMathPhyLang.kernel.md)
 - **Thesis:** [@Peramanathan structured loops](https://x.com/Peramanathan/status/2067890630345494578)
 
-**Creativity inside the edges — never instead of them.**
+**Creativity inside the edges — never instead of them. Capacity for the work that builds capability — for both minds in the loop.**

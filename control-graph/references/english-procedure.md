@@ -34,9 +34,9 @@ Production agents wrap the creative loop in outer structure. Thesis: https://x.c
 ## How to run (narrative)
 
 1. **Triage** with agent-orchestrator: if single-shot, do not open a full control graph.
-2. Open a **Control Card** and set phase to ORIENT. Write goal, constraints, unknowns.
-3. **PLAN** with success criteria and exact verify commands. If high stakes or vague, pause at HITL_PLAN_GATE.
-4. Build the **inner** step list (DAG preferred). Assign model roles. Cap steps and tool calls.
+2. Open a **Control Card** and set phase to ORIENT. Write goal, constraints, unknowns. Optionally set `load_diag` (intrinsic / extraneous / germane × human / agent) — see [clt-load-balance.md](clt-load-balance.md) only if load tradeoffs are unclear.
+3. **PLAN** with success criteria and exact verify commands. If high stakes or vague, pause at HITL_PLAN_GATE — keep the ask short (low extraneous) but require a real decision (germane).
+4. Build the **inner** step list (DAG preferred). Assign model roles. Cap steps and tool calls. Fan out independent steps for the agent; keep human gates serial.
 5. **EXECUTE** only those steps. Each step returns a short handoff, not a novel.
 6. **VERIFY** by running the commands yourself. On failure, **REPAIR** only the gap while repair budget remains.
 7. **REVIEW_GATE** for safety/scope when needed (fresh context — do not self-review as implementer).
@@ -75,6 +75,8 @@ Do not copy domain guardrails into this skill.
 - One mega-step for the whole project  
 - Retrying the identical failure without changing the plan  
 - Continuing after budgets are exhausted without telling the user  
+- Cutting *all* human effort so nothing durable is learned (lost germane load)  
+- Forcing the agent to work strictly serially because “humans can only hold 4±1” when steps are independent  
 
 ---
 

@@ -14,6 +14,7 @@ Copy into the agent session (or a scratch note) at graph start. Update on every 
 | **success criteria** | (observable) |
 | **verify commands** | `…` |
 | **non-goals** | … |
+| **load_diag** | actor=human\|agent\|both ; dominant=intrinsic\|extraneous\|germane ; intervene=minimize_extraneous\|chunk_intrinsic\|protect_germane\|fan_out_parallel |
 
 ### Budgets
 | Budget | Max | Remaining |
@@ -22,6 +23,8 @@ Copy into the agent session (or a scratch note) at graph start. Update on every 
 | max_repair_rounds | 3 | |
 | max_step_retries | 2 | |
 | max_tool_calls_per_step | 25 | |
+
+> CLT middle ground (A8): cut extraneous for **both** actors; keep germane; fan-out agent Inner when independent — do not cap machine parallelism at human WM. Detail: [clt-load-balance.md](clt-load-balance.md).
 
 ### Inner steps (DAG or nested loop)
 | id | name | depends_on | done_when | role | status |

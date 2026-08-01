@@ -14,6 +14,7 @@ const skillMd = join(skillDir, "SKILL.md");
 const skillReadme = join(skillDir, "README.md");
 const controlCard = join(skillDir, "references", "control-card.md");
 const englishRef = join(skillDir, "references", "english-procedure.md");
+const cltRef = join(skillDir, "references", "clt-load-balance.md");
 const ruleMd = join(repoRoot, "rules", "control-graph.mdc");
 const readmeMd = join(repoRoot, "README.md");
 
@@ -59,6 +60,8 @@ const requiredPhrases = [
   { id: "hitl", any: ["human-in-the-loop", "hitl", "pause"] },
   { id: "review-gate", any: ["review_gate", "review gate"] },
   { id: "progressive", any: ["english-procedure", "only if"] },
+  { id: "dual-load", any: ["dualload", "dual-actor", "extraneous", "germane"] },
+  { id: "clt-ref", any: ["clt-load-balance"] },
 ];
 
 for (const req of requiredPhrases) {
@@ -92,6 +95,16 @@ must(card.toLowerCase().includes("phase"), "control-card mentions phase");
 must(existsSync(englishRef), "references/english-procedure.md exists");
 const eng = read(englishRef);
 must(eng.toLowerCase().includes("only if") || eng.toLowerCase().includes("progressive"), "english ref is progressive disclosure");
+
+must(existsSync(cltRef), "references/clt-load-balance.md exists");
+const clt = read(cltRef);
+must(clt.toLowerCase().includes("extraneous"), "clt ref mentions extraneous");
+must(clt.toLowerCase().includes("germane"), "clt ref mentions germane");
+must(
+  clt.toLowerCase().includes("asymmetric") || clt.toLowerCase().includes("parallel"),
+  "clt ref covers asymmetric/parallel agent capacity",
+);
+must(card.toLowerCase().includes("load_diag") || card.toLowerCase().includes("load"), "control-card mentions load_diag/load");
 
 const skillReadmeBody = read(skillReadme);
 must(skillReadmeBody.includes("SKILL.md"), "skill README points at SKILL.md");

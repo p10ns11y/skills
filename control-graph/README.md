@@ -31,9 +31,10 @@ node control-graph/scripts/validate-skill.mjs
 
 | Path | Purpose |
 |------|---------|
-| [SKILL.md](SKILL.md) | Formal SoT: phases, transitions, budgets, roles, HITL |
+| [SKILL.md](SKILL.md) | Formal SoT: phases, transitions, budgets, roles, HITL, A8 DualLoad |
 | [references/english-procedure.md](references/english-procedure.md) | Full English — load only if formal is ambiguous |
-| [references/control-card.md](references/control-card.md) | Session control surface |
+| [references/clt-load-balance.md](references/clt-load-balance.md) | CLT dual-actor middle ground — load only for strain/load decisions |
+| [references/control-card.md](references/control-card.md) | Session control surface (`load_diag` optional) |
 | [scripts/validate-skill.mjs](scripts/validate-skill.mjs) | Structural contract check |
 | [../rules/control-graph.mdc](../rules/control-graph.mdc) | Optional Cursor discovery rule |
 
