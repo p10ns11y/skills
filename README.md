@@ -21,6 +21,7 @@ Most agent failures are not model failures. They are **context**, **coordination
 | One-shot help that doesn't compound | Same architectural mistakes, session after session | [architecture-synthesis](architecture-synthesis/SKILL.md) — synthesis + surplus (Q > 1); was `fusion-sage` |
 | Parallel agents overwriting each other | Merged garbage, lost work, `cp` disasters | [git-worktrees](git-worktrees/SKILL.md) + [agent-orchestrator](agent-orchestrator/SKILL.md) |
 | Dual-actor cognitive strain (human + AI) | Transcript dumps at HITL, context thrash, serializing agents to human WM limits | [rules/clt-dual-load.mdc](rules/clt-dual-load.mdc) pre-filter + [control-graph](control-graph/SKILL.md) A8 / [clt-load-balance.md](control-graph/references/clt-load-balance.md) |
+| Blank-sheet / epistemic emptiness | Overconfident ReAct, auto-approve when unknown is auth | [eva-emptiness](eva-emptiness/SKILL.md) (+ Grok plugin in `../plugins/eva-emptiness`) |
 | Unsafe autonomous actions | Near-misses on CV writes, runaway API spend | [finder-reactor](finder-reactor/SKILL.md) + [cv-promote-guard](cv-promote-guard/SKILL.md) |
 | npm supply-chain risk | "Audit clean" installs that still weren't safe | [fix-dependency-security](fix-dependency-security/SKILL.md) + [supply-chain-harden](supply-chain-harden/SKILL.md) |
 | Leaving the agent to jot a note | Broken flow, forgotten captures | [premflow](premflow/SKILL.md) skill → full plugin at `https://github.com/p10ns11y/plugins` (premflow/) (`/note` `/focus` `/journal`) |
@@ -95,7 +96,7 @@ Pick a pack, symlink those skills, add more as needed.
 | **React / Next frontend**       | `react-client-expert`, `semantic-markup-css`, `project-editor-profile`                        | App Router, a11y, editor sync      |
 | **Opportunity finder platform** | `finder-reactor`, `agentic-reactor`, `x-agent-resources`, `cv-promote-guard`, `tauri-agentic` | Tauri + X + LLM autonomous loops   |
 | **C / CMake / MVU**             | `explore-repo-readonly`, `mvu-refactor-plan`, `src-tree-reorganize`                           | elomaxz-style refactors            |
-| **Strategy & decisions**        | `higher-order-decision-architect`, `bdd-strategizer`, `stellar-spacemap`                       | Architecture tradeoffs, backlog docs, blueprint cards |
+| **Strategy & decisions**        | `higher-order-decision-architect`, `bdd-strategizer`, `stellar-spacemap`, `eva-emptiness`      | Architecture tradeoffs, blank-sheet / epistemic emptiness, backlog docs |
 | **Master plan / skill packs**   | `master-planner` (+ pack it selects)                                                          | Pull/tweak skills for cwd; Orwell overlays; project ontology |
 | **Shell verify workflow**       | `verification-cockpit`, `shell-kernel-ontology`, `stellar-spacemap`, `ai-optimization`, `architecture-synthesis` | `av` tmux cockpits, kernel ontology graph, `coming-next.md` roadmaps |
 
@@ -119,6 +120,7 @@ Pick a pack, symlink those skills, add more as needed.
 | [subagent-delegation](subagent-delegation/SKILL.md)         | Delegate readonly exploration with a strict return format                                          |
 | [subagent-explore-report](subagent-explore-report/SKILL.md) | Structured readonly repo survey (CMake/MVU, etc.)                                                  |
 | [adversarial-audit](adversarial-audit/SKILL.md)             | Independent refute-first review of claimed work before merge                                       |
+| [eva-emptiness](eva-emptiness/SKILL.md)                     | Prior→Probe→Simulate→Score→ActOrAsk when the map is missing (EVA tether; Grok plugin optional)   |
 | [tidy-commit-push](tidy-commit-push/SKILL.md)               | Privacy-safe staging, conventional commit, optional push                                           |
 
 

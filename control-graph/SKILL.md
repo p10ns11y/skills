@@ -247,6 +247,7 @@ Domain guards stay in domain skills; CG requires honoring pause results as Outer
 | dual-actor CLT detail | [references/clt-load-balance.md](references/clt-load-balance.md) | diagnose Load; A8 middle ground |
 | on-the-fly CLT pre-filter | [../rules/clt-dual-load.mdc](../rules/clt-dual-load.mdc) (`alwaysApply: true`) | inject A8 before heavy skills; **no paste-duplication** into domain SKILL.md bodies |
 | product autonomy | finder-reactor / agentic-reactor | **shape only** |
+| epistemic emptiness (Prior→Probe→Simulate→Score→ActOrAsk) | [eva-emptiness](../eva-emptiness/SKILL.md) | Outer only; EVA owns Inner when emptiness gate fires — **do not inline** |
 
 `CG = control plane` · domain = data plane · orchestrator = multi-worker logistics · CLT pre-filter = DualLoad hygiene for Human∧Agent.
 
