@@ -291,8 +291,8 @@ cp workflows/*.rhai ~/.grok/workflows/
 | Situation | Reach for |
 |-----------|-----------|
 | Obvious ≤2-file fix | no EVA — just fix + verify |
-| Blank sheet, you want plan/Q&A approve | plugin `/eva` (interactive) |
-| Same emptiness ritual in background | `/workflow eva-emptiness {"goal":"…"}` |
+| Blank sheet, you want plan/Q&A approve | Grok `/eva` · Cursor `/eva` |
+| Same emptiness ritual in background | Grok `/workflow eva-emptiness` · Cursor `/eva-workflow` (Rhai is Grok-only) |
 | Act done, need parallel workers + PRs | `/workflow multi-agent-delivery` |
 | Cold huge repo before any Probe | `/workflow context-ignite` |
 | External claims need sources | `/deep-research …` (built-in) |
@@ -309,6 +309,7 @@ Some skills ship a thin **`.mdc` router** in [`rules/`](rules/) for `alwaysApply
 | [clt-dual-load.mdc](rules/clt-dual-load.mdc) | **true** | Pre-filter: minimize extraneous for human∧agent, preserve germane, asymmetric agent parallel (A8) |
 | [higher-order-decision-architect.mdc](rules/higher-order-decision-architect.mdc) | **true** | Material decision sequence router |
 | [control-graph.mdc](rules/control-graph.mdc) | false | Discover/load control-graph on multi-step / thrash risk |
+| [eva-emptiness.mdc](rules/eva-emptiness.mdc) | false | Discover/load EVA blank-sheet harness (Cursor: pair with `/eva` · `/eva-workflow`) |
 | [master-planner.mdc](rules/master-planner.mdc) | false | Discover/load master-planner on pack/plan work |
 
 ---
