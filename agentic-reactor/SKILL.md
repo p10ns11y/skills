@@ -5,6 +5,8 @@ description: Overarching patterns for self-guarded, pause-aware, agent-driven de
 
 # Agentic Reactor — The Living, Self-Improving Finder Platform
 
+> **CLT:** [../rules/clt-dual-load.mdc](../rules/clt-dual-load.mdc) — autonomy continues under guards; human pauses are short previews + real decisions (germane); do not spam concurrent pause dialogs.
+
 **Core Mission**: Make an opportunity-finder not just a tool, but an autonomous agent that runs with minimal human input, using self-guards and pauses to stay safe. It decides, acts (search, prep), learns, and improves — surfacing only when necessary (low fit, high cost, CV changes).
 
 ## Principles

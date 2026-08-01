@@ -9,7 +9,8 @@ description: >-
 
 # adversarial-audit
 
-> **Load rule:** Formal SoT. **Distinct from** re-running verify cmds alone ([agent-orchestrator](../agent-orchestrator/SKILL.md) VERIFY) and from Outer REVIEW_GATE shape ([control-graph](../control-graph/SKILL.md)) — this skill is **refute-first evidence pack** with independent reads.
+> **Load rule:** Formal SoT. **Distinct from** re-running verify cmds alone ([agent-orchestrator](../agent-orchestrator/SKILL.md) VERIFY) and from Outer REVIEW_GATE shape ([control-graph](../control-graph/SKILL.md)) — this skill is **refute-first evidence pack** with independent reads.  
+> **CLT:** [../rules/clt-dual-load.mdc](../rules/clt-dual-load.mdc) — review is protected **germane** load; never collapse to implementer self-summary.
 
 ```text
 // Role

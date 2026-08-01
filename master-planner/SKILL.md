@@ -11,7 +11,8 @@ description: >-
 
 # Master Planner
 
-> **Load rule:** Formal SoT below. Orwell/ontology depth → [references/](references/) only if needed.
+> **Load rule:** Formal SoT below. Orwell/ontology depth → [references/](references/) only if needed.  
+> **CLT:** install [../rules/clt-dual-load.mdc](../rules/clt-dual-load.mdc) with packs (A8 DualLoad pre-filter); ontology/overlays must reduce rediscovery load, not add second SoTs.
 
 ```text
 // Mission

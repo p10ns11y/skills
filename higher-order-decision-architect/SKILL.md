@@ -11,7 +11,8 @@ description: >-
 
 # Higher-Order Decision Architect
 
-> **Load rule:** Formal sequence is SoT. Thrive depth + provenance stay below; expand only if a step is unclear. Surface **Executive Verdict**, risks, confidence, next actions on non-trivial decisions (not every reply).
+> **Load rule:** Formal sequence is SoT. Thrive depth + provenance stay below; expand only if a step is unclear. Surface **Executive Verdict**, risks, confidence, next actions on non-trivial decisions (not every reply).  
+> **CLT:** [../rules/clt-dual-load.mdc](../rules/clt-dual-load.mdc) — keep human-facing verdicts short (extraneous ↓) while preserving judgment work (germane); do not skip the sequence to “save tokens.”
 
 ```text
 // Material decision ≔ architecture | deps | public API | security | data contracts | multi-module | hard-to-revert

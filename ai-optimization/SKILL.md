@@ -9,7 +9,8 @@ description: >-
 
 # ai-optimization (Context Sage)
 
-> **Load rule:** Formal SoT below. Lang playbooks → [references/](references/) only if needed. Expand [references/english-procedure.md](references/english-procedure.md) **only if** scoring/budget still ambiguous.
+> **Load rule:** Formal SoT below. Lang playbooks → [references/](references/) only if needed. Expand [references/english-procedure.md](references/english-procedure.md) **only if** scoring/budget still ambiguous.  
+> **CLT:** this skill is the primary **agent-extraneous** reducer under [../rules/clt-dual-load.mdc](../rules/clt-dual-load.mdc) — prune before deep/coding fill; do not strip germane VERIFY evidence.
 
 ```text
 // Signature

@@ -5,7 +5,8 @@ description: Core autonomous, self-guarded decision loop for opportunity-finder 
 
 # Finder Reactor — Self-Guarded Opportunity Engine
 
-> **Load rule:** Formal SoT. Fission loops → [ai-optimization](../ai-optimization/SKILL.md); architecture/surplus → [fusion-sage](../fusion-sage/SKILL.md); CV writes → [cv-promote-guard](../cv-promote-guard/SKILL.md).
+> **Load rule:** Formal SoT. Fission loops → [ai-optimization](../ai-optimization/SKILL.md); architecture/surplus → [fusion-sage](../fusion-sage/SKILL.md); CV writes → [cv-promote-guard](../cv-promote-guard/SKILL.md).  
+> **CLT:** [../rules/clt-dual-load.mdc](../rules/clt-dual-load.mdc) — HITL pauses stay short+decisive; agent loop may continue in parallel until a human gate fires.
 
 ```text
 // Mission

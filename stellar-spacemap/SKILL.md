@@ -13,7 +13,8 @@ description: >-
 # Stellar Spacemap — Architecture Backlog Blueprint
 
 > **Load rule:** Formal SoT (section map + card contract). Full template → [references/document-template.md](references/document-template.md) only if drafting a new § block.  
-> **Rename:** formerly `stellar-roadmap` — same contract.
+> **Rename:** formerly `stellar-roadmap` — same contract.  
+> **CLT:** [../rules/clt-dual-load.mdc](../rules/clt-dual-load.mdc) — tables/cards over prose walls (extraneous ↓); evidence columns are germane, not optional.
 
 ```text
 // Mission

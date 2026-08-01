@@ -9,7 +9,8 @@ description: >-
 
 # tidy-commit-push
 
-> **Load rule:** Formal SoT. Compose with [agent-orchestrator](../agent-orchestrator/SKILL.md) report and [split-to-prs](../split-to-prs/SKILL.md) for multi-PR ships.
+> **Load rule:** Formal SoT. Compose with [agent-orchestrator](../agent-orchestrator/SKILL.md) report and [split-to-prs](../split-to-prs/SKILL.md) for multi-PR ships.  
+> **CLT:** [../rules/clt-dual-load.mdc](../rules/clt-dual-load.mdc) — push HITL = exact preview (extraneous ↓) + real approval (germane).
 
 ```text
 // Axioms

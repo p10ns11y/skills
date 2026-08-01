@@ -13,7 +13,8 @@ description: >-
 
 > **Alias history:** portable rename of `fusion-sage` (procedure unchanged; human scanner notes in README).
 
-> **Load rule:** Formal SoT below. Depth (playbooks, surplus examples, state schema) → repo files linked here; expand English [references/english-procedure.md](references/english-procedure.md) **only if** fusion/surplus still ambiguous.
+> **Load rule:** Formal SoT below. Depth (playbooks, surplus examples, state schema) → repo files linked here; expand English [references/english-procedure.md](references/english-procedure.md) **only if** fusion/surplus still ambiguous.  
+> **CLT:** [../rules/clt-dual-load.mdc](../rules/clt-dual-load.mdc) — fission containment first (extraneous ↓); surplus must not inflate EXECUTE with optional walls of prose.
 
 ```text
 // Signature

@@ -10,7 +10,8 @@ description: >-
 
 # git-worktrees
 
-> **Load rule:** Formal SoT. Disk/Grok CLI detail → [references/disk-hygiene.md](references/disk-hygiene.md) only if needed.
+> **Load rule:** Formal SoT. Disk/Grok CLI detail → [references/disk-hygiene.md](references/disk-hygiene.md) only if needed.  
+> **CLT:** [../rules/clt-dual-load.mdc](../rules/clt-dual-load.mdc) — one agent per worktree enables safe fan-out (asymmetric parallel); never merge via `cp`.
 
 ```text
 // Signature

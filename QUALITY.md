@@ -58,6 +58,17 @@ references/english-*.md                        = expand only if formal insuffici
 
 Do **not** dual-load both by default.
 
+## Cross-cutting pre-filters (no paste-duplication)
+
+Library-wide hygiene that every heavy skill inherits **by rule**, not by copying tables:
+
+| Concern | On-the-fly rule | SoT depth (only if ambiguous) |
+|---------|-----------------|-------------------------------|
+| Dual-actor cognitive load (CLT A8) | [rules/clt-dual-load.mdc](rules/clt-dual-load.mdc) (`alwaysApply: true`) | [control-graph/references/clt-load-balance.md](control-graph/references/clt-load-balance.md) |
+| Material decision frameworks | [rules/higher-order-decision-architect.mdc](rules/higher-order-decision-architect.mdc) | [higher-order-decision-architect/SKILL.md](higher-order-decision-architect/SKILL.md) |
+
+Necessary orchestration/context skills may add a one-line **CLT:** pointer under Load rule. Domain skills rely on the always-on pre-filter — do **not** re-embed DualLoad tables.
+
 ## Not a skill (archive or one-liner)
 
 - Distill stubs: steps = `read_file` / `todo_write` with identical Done-when  

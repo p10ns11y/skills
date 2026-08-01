@@ -16,6 +16,7 @@ const controlCard = join(skillDir, "references", "control-card.md");
 const englishRef = join(skillDir, "references", "english-procedure.md");
 const cltRef = join(skillDir, "references", "clt-load-balance.md");
 const ruleMd = join(repoRoot, "rules", "control-graph.mdc");
+const cltRuleMd = join(repoRoot, "rules", "clt-dual-load.mdc");
 const readmeMd = join(repoRoot, "README.md");
 
 const failures = [];
@@ -117,6 +118,12 @@ const rule = read(ruleMd);
 must(rule.includes("---"), "control-graph.mdc has frontmatter");
 must(/alwaysApply:\s*false/i.test(rule), "rule alwaysApply false");
 must(rule.includes("control-graph"), "rule points at control-graph skill");
+
+const cltRule = read(cltRuleMd);
+must(cltRule.includes("---"), "clt-dual-load.mdc has frontmatter");
+must(/alwaysApply:\s*true/i.test(cltRule), "clt-dual-load alwaysApply true (on-the-fly pre-filter)");
+must(cltRule.toLowerCase().includes("dualload") || cltRule.toLowerCase().includes("dual-load") || cltRule.includes("A8"), "clt rule states DualLoad/A8");
+must(cltRule.includes("clt-load-balance"), "clt rule points at SoT depth");
 
 const readme = read(readmeMd);
 must(readme.includes("control-graph"), "README.md indexes control-graph");

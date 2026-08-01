@@ -20,10 +20,12 @@ Non-trivial multi-file or multi-worker delivery with thrash risk.
 
 ## Skill chain (all exist in this library)
 
+Pre-filter (when installed): `rules/clt-dual-load.mdc` — A8 DualLoad before heavy phases.
+
 1. `agent-orchestrator` — single-shot vs light vs full; briefs  
-2. `control-graph` — Outer SM/loop + Inner DAG; budgets; HITL  
+2. `control-graph` — Outer SM/loop + Inner DAG; budgets; HITL; `load_diag` optional  
 3. `git-worktrees` — isolate workers; merge not `cp`  
-4. `concurrent-cli-agents` — parallel only if independent  
+4. `concurrent-cli-agents` — parallel only if independent (asymmetric agent capacity)  
 5. `split-to-prs` — reviewable chunks  
 
 ## Phases

@@ -9,7 +9,8 @@ description: >-
 
 # agent-orchestrator
 
-> **Load rule:** Formal SoT below. Expand [references/english-procedure.md](references/english-procedure.md) **only if** a phase or handoff is still ambiguous.
+> **Load rule:** Formal SoT below. Expand [references/english-procedure.md](references/english-procedure.md) **only if** a phase or handoff is still ambiguous.  
+> **CLT:** on-the-fly pre-filter [../rules/clt-dual-load.mdc](../rules/clt-dual-load.mdc) (A8 DualLoad) — expand [../control-graph/references/clt-load-balance.md](../control-graph/references/clt-load-balance.md) only if human/agent load tradeoff is ambiguous.
 
 ```text
 // Signature

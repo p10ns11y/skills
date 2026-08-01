@@ -19,13 +19,16 @@ Thesis: [X @Peramanathan](https://x.com/Peramanathan/status/2067890630345494578)
 mkdir -p ~/.cursor/skills ~/.cursor/rules
 ln -sfn "$(pwd)/control-graph" ~/.cursor/skills/control-graph
 ln -sfn "$(pwd)/rules/control-graph.mdc" ~/.cursor/rules/control-graph.mdc
+# On-the-fly DualLoad pre-filter (alwaysApply: true)
+ln -sfn "$(pwd)/rules/clt-dual-load.mdc" ~/.cursor/rules/clt-dual-load.mdc
 
 node control-graph/scripts/validate-skill.mjs
 ```
 
 1. On multi-step work, open a **Control Card** from [references/control-card.md](references/control-card.md).
 2. Compose with [agent-orchestrator](../agent-orchestrator/SKILL.md) (triage/workers), not instead of it.
-3. Optional Cursor rule: [../rules/control-graph.mdc](../rules/control-graph.mdc).
+3. Optional Cursor discovery rule: [../rules/control-graph.mdc](../rules/control-graph.mdc).
+4. Always-on CLT pre-filter when installed: [../rules/clt-dual-load.mdc](../rules/clt-dual-load.mdc).
 
 ## Layout
 
@@ -37,6 +40,7 @@ node control-graph/scripts/validate-skill.mjs
 | [references/control-card.md](references/control-card.md) | Session control surface (`load_diag` optional) |
 | [scripts/validate-skill.mjs](scripts/validate-skill.mjs) | Structural contract check |
 | [../rules/control-graph.mdc](../rules/control-graph.mdc) | Optional Cursor discovery rule |
+| [../rules/clt-dual-load.mdc](../rules/clt-dual-load.mdc) | On-the-fly A8 DualLoad pre-filter (`alwaysApply: true`) |
 
 ## Is / is not
 
@@ -48,6 +52,7 @@ node control-graph/scripts/validate-skill.mjs
 
 ## Related
 
+- [clt-dual-load.mdc](../rules/clt-dual-load.mdc) — library-wide DualLoad injection; domain skills inherit via this rule (no paste-duplication)  
 - [agent-orchestrator](../agent-orchestrator/SKILL.md)  
 - [subagent-delegation](../subagent-delegation/SKILL.md)  
 - [fusion-sage](../fusion-sage/SKILL.md) / [ai-optimization](../ai-optimization/SKILL.md)  

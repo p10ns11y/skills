@@ -20,6 +20,7 @@ Most agent failures are not model failures. They are **context**, **coordination
 | Context window bloat on large repos | Hours re-explaining the same codebase every turn | [ai-optimization](ai-optimization/SKILL.md) — relevance scoring, compression, strict budgets |
 | One-shot help that doesn't compound | Same architectural mistakes, session after session | [architecture-synthesis](architecture-synthesis/SKILL.md) — synthesis + surplus (Q > 1); was `fusion-sage` |
 | Parallel agents overwriting each other | Merged garbage, lost work, `cp` disasters | [git-worktrees](git-worktrees/SKILL.md) + [agent-orchestrator](agent-orchestrator/SKILL.md) |
+| Dual-actor cognitive strain (human + AI) | Transcript dumps at HITL, context thrash, serializing agents to human WM limits | [rules/clt-dual-load.mdc](rules/clt-dual-load.mdc) pre-filter + [control-graph](control-graph/SKILL.md) A8 / [clt-load-balance.md](control-graph/references/clt-load-balance.md) |
 | Unsafe autonomous actions | Near-misses on CV writes, runaway API spend | [finder-reactor](finder-reactor/SKILL.md) + [cv-promote-guard](cv-promote-guard/SKILL.md) |
 | npm supply-chain risk | "Audit clean" installs that still weren't safe | [fix-dependency-security](fix-dependency-security/SKILL.md) + [supply-chain-harden](supply-chain-harden/SKILL.md) |
 | Leaving the agent to jot a note | Broken flow, forgotten captures | [premflow](premflow/SKILL.md) skill → full plugin at `https://github.com/p10ns11y/plugins` (premflow/) (`/note` `/focus` `/journal`) |
@@ -46,20 +47,24 @@ mkdir -p ~/.cursor/skills
 for skill in ai-optimization architecture-synthesis agent-orchestrator control-graph git-worktrees master-planner; do
   ln -sf "$(pwd)/$skill" ~/.cursor/skills/$skill
 done
-# optional rules (alwaysApply: false)
+# optional rules
 ln -sf "$(pwd)/rules/control-graph.mdc" ~/.cursor/rules/control-graph.mdc 2>/dev/null || true
 ln -sf "$(pwd)/rules/master-planner.mdc" ~/.cursor/rules/master-planner.mdc 2>/dev/null || true
+# CLT DualLoad pre-filter (alwaysApply: true) — injects A8 before heavy work
+ln -sf "$(pwd)/rules/clt-dual-load.mdc" ~/.cursor/rules/clt-dual-load.mdc 2>/dev/null || true
 # legacy alias (optional): ln -sf "$(pwd)/looper" ~/.cursor/skills/looper
 ```
 
 **Per-project** (share with teammates via repo):
 
 ```bash
-mkdir -p .cursor/skills
+mkdir -p .cursor/skills .cursor/rules
 ln -sf /path/to/skills/ai-optimization .cursor/skills/ai-optimization
+# CLT DualLoad pre-filter (recommended with any multi-agent / HITL pack)
+ln -sf /path/to/skills/rules/clt-dual-load.mdc .cursor/rules/clt-dual-load.mdc
 ```
 
-Cursor discovers skills from `~/.cursor/skills/` and `.cursor/skills/`. The agent loads them when the task matches the skill's `description`.
+Cursor discovers skills from `~/.cursor/skills/` and `.cursor/skills/`. The agent loads them when the task matches the skill's `description`. Rules under `.cursor/rules/` (or `~/.cursor/rules/`) inject always-on pre-filters such as CLT DualLoad.
 
 ### 3. Install for Grok / other agents
 
@@ -105,7 +110,7 @@ Pick a pack, symlink those skills, add more as needed.
 | Skill                                                       | One-liner                                                                                          |
 | ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
 | [agent-orchestrator](agent-orchestrator/SKILL.md)           | Triage single-shot vs full orchestration; briefs, worktrees, independent verification, clean merge |
-| [control-graph](control-graph/SKILL.md)                     | Outer state machine/loop + inner DAG or nested loops; budgets, HITL, multi-model routing (was `looper`) |
+| [control-graph](control-graph/SKILL.md)                     | Outer state machine/loop + inner DAG or nested loops; budgets, HITL, multi-model routing, CLT DualLoad SoT (was `looper`) |
 | [looper](looper/SKILL.md)                                   | **Deprecated redirect** → `control-graph` (keeps legacy discovery) |
 | [concurrent-cli-agents](concurrent-cli-agents/SKILL.md)     | Run multiple CLI agents safely on isolated worktrees or sandboxes                                  |
 | [git-worktrees](git-worktrees/SKILL.md)                     | Safe git worktree usage for agents; commit-then-merge; disk hygiene                                |
@@ -267,6 +272,13 @@ Copy `workflows/*.rhai` into `.grok/workflows/` or `~/.grok/workflows/`. Session
 ### Optional Cursor rules (`rules/`)
 
 Some skills ship a thin **`.mdc` router** in [`rules/`](rules/) for `alwaysApply: true` behavior — e.g. [higher-order-decision-architect.mdc](rules/higher-order-decision-architect.mdc) loads the full skill on material decisions without duplicating the framework in every project. Symlink into `.cursor/rules/` alongside skills.
+
+| Rule | alwaysApply | Job |
+|------|-------------|-----|
+| [clt-dual-load.mdc](rules/clt-dual-load.mdc) | **true** | Pre-filter: minimize extraneous for human∧agent, preserve germane, asymmetric agent parallel (A8) |
+| [higher-order-decision-architect.mdc](rules/higher-order-decision-architect.mdc) | **true** | Material decision sequence router |
+| [control-graph.mdc](rules/control-graph.mdc) | false | Discover/load control-graph on multi-step / thrash risk |
+| [master-planner.mdc](rules/master-planner.mdc) | false | Discover/load master-planner on pack/plan work |
 
 ---
 
