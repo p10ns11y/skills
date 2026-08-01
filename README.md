@@ -120,7 +120,7 @@ Pick a pack, symlink those skills, add more as needed.
 | [subagent-delegation](subagent-delegation/SKILL.md)         | Delegate readonly exploration with a strict return format                                          |
 | [subagent-explore-report](subagent-explore-report/SKILL.md) | Structured readonly repo survey (CMake/MVU, etc.)                                                  |
 | [adversarial-audit](adversarial-audit/SKILL.md)             | Independent refute-first review of claimed work before merge                                       |
-| [eva-emptiness](eva-emptiness/SKILL.md)                     | Prior→Probe→Simulate→Score→ActOrAsk when the map is missing (EVA tether; Grok plugin optional)   |
+| [eva-emptiness](eva-emptiness/SKILL.md)                     | Prior→Probe→Simulate→Score→ActOrAsk when the map is missing; plugin + optional `/workflow eva-emptiness` |
 | [tidy-commit-push](tidy-commit-push/SKILL.md)               | Privacy-safe staging, conventional commit, optional push                                           |
 
 
@@ -261,15 +261,44 @@ Descriptions must be **third-person**, **specific**, and include **trigger terms
 
 Author new skills with [author-workflow-skill](author-workflow-skill/SKILL.md).
 
-### Portable workflows
+### Portable workflows (Grok `.rhai`)
+
+Grok Build runs **background workflows** as Rhai scripts. They are **not** skills and **not** installed by `grok plugin install`.
+
+| | |
+|--|--|
+| **Discovery** | project `<repo>/.grok/workflows/*.rhai` · user `~/.grok/workflows/*.rhai` |
+| **Launch** | `/workflow <meta.name> {…args}` · live runs: `/workflows` |
+| **Disable** | `[workflows] enabled = false` or `GROK_WORKFLOWS=0` |
+| **vs skill** | skill = procedure text; workflow = host-scheduled `agent()` phases |
+| **vs plugin** | plugin may *ship* a `.rhai` under `plugin/.grok/workflows/` — you still **copy/symlink** into a discovery root |
 
 | Workflow | Chain | For |
 |----------|-------|-----|
+| [eva-emptiness](workflows/eva-emptiness.md) | eva-emptiness → control-graph | Blank sheet / epistemic emptiness (background) |
 | [multi-agent-delivery](workflows/multi-agent-delivery.md) | orchestrator → control-graph → worktrees → split-to-prs | Multi-worker delivery |
 | [dependency-harden](workflows/dependency-harden.md) | fix-deps → supply-chain → upgrades → allowBuilds | Node supply chain |
 | [context-ignite](workflows/context-ignite.md) | ai-optimization → architecture-synthesis → optional stellar | Large-repo context |
 
-Copy `workflows/*.rhai` into `.grok/workflows/` or `~/.grok/workflows/`. Session-distilled drafts with broken skill chains live under [archive/distill/workflows/](archive/distill/README.md).
+```bash
+cp workflows/*.rhai ~/.grok/workflows/
+# or project: .grok/workflows/
+# eva SoT also ships in https://github.com/p10ns11y/plugins (eva-emptiness/.grok/workflows/)
+```
+
+#### Scenario cheat-sheet (skill vs `/eva` vs workflow)
+
+| Situation | Reach for |
+|-----------|-----------|
+| Obvious ≤2-file fix | no EVA — just fix + verify |
+| Blank sheet, you want plan/Q&A approve | plugin `/eva` (interactive) |
+| Same emptiness ritual in background | `/workflow eva-emptiness {"goal":"…"}` |
+| Act done, need parallel workers + PRs | `/workflow multi-agent-delivery` |
+| Cold huge repo before any Probe | `/workflow context-ignite` |
+| External claims need sources | `/deep-research …` (built-in) |
+| Capture a thought mid-coding | premflow `/note` (plugin) |
+
+Session-distilled drafts with broken skill chains live under [archive/distill/workflows/](archive/distill/README.md).
 
 ### Optional Cursor rules (`rules/`)
 
