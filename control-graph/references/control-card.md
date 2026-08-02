@@ -15,6 +15,9 @@ Copy into the agent session (or a scratch note) at graph start. Update on every 
 | **verify commands** | `…` |
 | **non-goals** | … |
 | **load_diag** | actor=human\|agent\|both ; dominant=intrinsic\|extraneous\|germane ; intervene=minimize_extraneous\|chunk_intrinsic\|protect_germane\|fan_out_parallel |
+| **inner_mode** | standard \| eva |
+| **pathway_active** | (optional; set when inner_mode=eva) |
+| **token_envelope** | (optional; e.g. handoff_max_tokens — prune via ai-optimization before EXECUTE) |
 
 ### Budgets
 | Budget | Max | Remaining |
@@ -34,9 +37,9 @@ Copy into the agent session (or a scratch note) at graph start. Update on every 
 ### Now
 - **model_role:** …
 - **last progress:** (diff / test / decision — not “still reading”)
-- **pause reason:** none | …
+- **pause reason:** none \| signpost_fired \| pathway_switch \| …
 - **open_risks:** …
-- **handoff artifacts:** …
+- **handoff artifacts:** … (compact refs — not transcripts)
 ```
 
 ## Phase cheat sheet

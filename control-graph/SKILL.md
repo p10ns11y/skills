@@ -60,6 +60,8 @@ Keep agent creativity, wrap it in deterministic skeleton:
 | domain autonomy (finder / CV / X) | domain skill owns domain; CG owns **shape only** |
 | ≤1–2 files, obvious fix | **Skip** → [agent-orchestrator](../agent-orchestrator/SKILL.md) triage only |
 
+**Skill load (ORIENT):** match by skill `description` / explicit attach only — **never** enumerate the full available-skills catalog or grep the skills repo “just in case.” Prefer project-needed skills; prefix routing (`ai-*`, `web-*`, …) is harness-side when present.
+
 ---
 
 ## Outer graph (state machine / loop)
@@ -107,7 +109,7 @@ Keep agent creativity, wrap it in deterministic skeleton:
 | Phase | Purpose | Exit when | Default Role |
 |-------|---------|-----------|--------------|
 | IDLE | no active graph | goal accepted | — |
-| ORIENT | goal · constraints · risks · skills | 1-sentence goal + unknowns | fast \| explore |
+| ORIENT | goal · constraints · risks · **needed** skills (description-trigger) | 1-sentence goal + unknowns | fast \| explore |
 | PLAN | steps · verify cmds · budgets | written plan + success criteria | deep (or fast if light) |
 | HITL_PLAN_GATE | human on risky/vague plan | approve \| amend \| abort | human |
 | EXECUTE | run **only** Inner batch | batch done \| step retries exhausted | coding \| fast |
@@ -135,7 +137,8 @@ Keep agent creativity, wrap it in deterministic skeleton:
 | REPAIR → PLAN | plan wrong (remaining only) |
 | INTEGRATE → DONE | no remaining in-scope work |
 | INTEGRATE → PLAN | remaining gap only |
-| Any → HITL_* | cost/rate/fit/safety/confidence \| phase requires human |
+| EXECUTE \| VERIFY → ORIENT | EVA/inner `act_or_ask=switch` ∧ pathway change (gap-only re-orient) |
+| Any → HITL_* | cost/rate/fit/safety/confidence \| phase requires human \| pathway switch needs ack |
 | Any → CANCELLED | user cancel \| hard policy \| max_loop_iters ∧ ¬progress |
 | Any → BLOCKED | credentials/network/permissions after ≥2 attempts |
 
@@ -227,6 +230,7 @@ Pause (no further EXECUTE side effects) when any:
 | Review | security, external mutate, irreversible git, CV/live | confirm |
 | Budget | max_* exhausted \| cost limit | raise budget / cancel |
 | Confidence | low confidence / contradiction | decide / re-ORIENT |
+| Pathway | `signpost_fired` \| `pathway_switch` (from EVA Inner) | ack switch / amend / Ask |
 | Policy | secrets, destructive, shared remote push | confirm |
 | Blocker | missing creds/permissions | fix env / CANCELLED |
 
@@ -248,6 +252,7 @@ Domain guards stay in domain skills; CG requires honoring pause results as Outer
 | on-the-fly CLT pre-filter | [../rules/clt-dual-load.mdc](../rules/clt-dual-load.mdc) (`alwaysApply: true`) | inject A8 before heavy skills; **no paste-duplication** into domain SKILL.md bodies |
 | product autonomy | finder-reactor / agentic-reactor | **shape only** |
 | epistemic emptiness (Prior→Probe→Simulate→Score→ActOrAsk) | [eva-emptiness](../eva-emptiness/SKILL.md) | Outer only; EVA owns Inner when emptiness gate fires — **do not inline** |
+| pathway switch / signposts | [eva-emptiness](../eva-emptiness/SKILL.md) | honor `continue\|switch\|Ask`; Outer owns re-ORIENT on switch |
 
 `CG = control plane` · domain = data plane · orchestrator = multi-worker logistics · CLT pre-filter = DualLoad hygiene for Human∧Agent.
 
@@ -283,11 +288,14 @@ Copy [references/control-card.md](references/control-card.md) or:
 - verify commands: …
 - budgets: max_loop_iters=8 rem=_; max_repair_rounds=3 rem=_; max_step_retries=2
 - load_diag: actor=human|agent|both ; dominant=intrinsic|extraneous|germane ; intervene=…
+- inner_mode: standard | eva
+- pathway_active: (optional; when inner_mode=eva)
+- token_envelope: (optional; handoff_max_tokens / prefer ai-optimization before EXECUTE)
 - steps (DAG|subloop): S1 … / depends / done_when / role
 - model_role now: fast | explore | coding | deep | review
 - last progress: …
-- pause reason: (none | …)
-- handoff: artifacts / open_risks
+- pause reason: (none | signpost_fired | pathway_switch | …)
+- handoff: artifacts / open_risks (compact — not transcripts)
 ```
 
 Update Card on **every** phase transition. If phase unnameable → unbounded ReAct → stop → ORIENT.
