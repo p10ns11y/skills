@@ -11,8 +11,8 @@ alwaysApply: false
 When the task is a **blank sheet**, unknowns dominate knowns, requirements are rumor-thin, or authorization/irreversibility is unclear:
 
 1. Read and follow `eva-emptiness` skill (`~/.cursor/skills/eva-emptiness/SKILL.md` or library symlink).
-2. Open Card fields: `emptiness_score`, `knowns`/`unknowns`, `idk`, `probe_budget`, `evidence_gain`, `bias_map`.
-3. Run Inner: Prior → Probe → Simulate (prior-diverse) → Score (⊥ implementer) → ActOrAsk.
+2. Open Card fields: `emptiness_score`, `knowns`/`unknowns`, `idk`, `probe_budget`, `disprove_with`, `evidence_gain`, `bias_map`.
+3. Run Inner: Prior → Probe → Simulate (prior-diverse) → Score (⊥ implementer) → ActOrAsk (`continue` \| `switch` \| `Ask`).
 4. Never `--always-approve` / yolo under EVA. Prefer structured HITL Ask on auth horizon.
 5. **Suggest** next steps by name only (do not silent-launch): multi-agent delivery, context-ignite, or stay interactive.
 
