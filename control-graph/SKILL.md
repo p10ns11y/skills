@@ -60,7 +60,11 @@ Keep agent creativity, wrap it in deterministic skeleton:
 | domain autonomy (finder / CV / X) | domain skill owns domain; CG owns **shape only** |
 | ≤1–2 files, obvious fix | **Skip** → [agent-orchestrator](../agent-orchestrator/SKILL.md) triage only |
 
-**Skill load (ORIENT):** match by skill `description` / explicit attach only — **never** enumerate the full available-skills catalog or grep the skills repo “just in case.” Prefer project-needed skills; prefix routing (`ai-*`, `web-*`, …) is harness-side when present.
+```text
+SkillLoad(ORIENT) ≔ description-match ∨ explicit-attach
+                  ¬ catalog-dump ¬ skills-repo-grep
+// Prefix filters (ai-*, web-*, …) = harness-side when present
+```
 
 ---
 
