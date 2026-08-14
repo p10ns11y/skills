@@ -91,7 +91,7 @@ Pick a pack, symlink those skills, add more as needed.
 | Pack                            | Skills                                                                                        | Best for                           |
 | ------------------------------- | --------------------------------------------------------------------------------------------- | ---------------------------------- |
 | **Context & speed**             | `ai-optimization`, `architecture-synthesis`                                                   | Large codebases, expensive context |
-| **Multi-agent delivery**        | `agent-orchestrator`, `control-graph`, `git-worktrees`, `concurrent-cli-agents`, `split-to-prs` | Parallel agents, SM+DAG control, PR hygiene |
+| **Multi-agent delivery**        | `control-feeder`, `agent-orchestrator`, `control-graph`, `git-worktrees`, `concurrent-cli-agents`, `split-to-prs` | Prompt feed, parallel agents, SM+DAG control, PR hygiene |
 | **Node supply chain**           | `fix-dependency-security`, `upgrade-packages`, `audit-allow-builds`, `supply-chain-harden`    | pnpm monorepos, CI hardening       |
 | **React / Next frontend**       | `react-client-expert`, `semantic-markup-css`, `project-editor-profile`                        | App Router, a11y, editor sync      |
 | **Opportunity finder platform** | `finder-reactor`, `agentic-reactor`, `x-agent-resources`, `cv-promote-guard`, `tauri-agentic` | Tauri + X + LLM autonomous loops   |
@@ -112,6 +112,8 @@ Pick a pack, symlink those skills, add more as needed.
 | ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
 | [agent-orchestrator](agent-orchestrator/SKILL.md)           | Triage single-shot vs full orchestration; briefs, worktrees, independent verification, clean merge |
 | [control-graph](control-graph/SKILL.md)                     | Outer state machine/loop + inner DAG or nested loops; budgets, HITL, multi-model routing, CLT DualLoad SoT (was `looper`) |
+| [control-feeder](control-feeder/SKILL.md)                   | Pre-graph: rewrite dump → route light / CG Outer / EVA Inner; emit Feed |
+| [grok-host-prep](grok-host-prep/SKILL.md)                   | Check/apply Grok Build host knobs (`lsp.json`, `lsp_tools`, MCP commands) |
 | [looper](looper/SKILL.md)                                   | **Deprecated redirect** → `control-graph` (keeps legacy discovery) |
 | [concurrent-cli-agents](concurrent-cli-agents/SKILL.md)     | Run multiple CLI agents safely on isolated worktrees or sandboxes                                  |
 | [git-worktrees](git-worktrees/SKILL.md)                     | Safe git worktree usage for agents; commit-then-merge; disk hygiene                                |
