@@ -47,8 +47,8 @@ A8  Never romanticize cleverness; never encourage hubris
 | Signal | Action |
 |--------|--------|
 | architecture / plan / advisory · hubris · wandering · overbuild · shiny rewrite · big-bang · missing telemetry · “Odysseus”, “Ithaca”, “navigator” | load ON; emit **Navigator** |
-| `/odysseus-core` · “nail the core” · faster intelli | one bottleneck, **at most one** Mistake, one `next` — [plugin/commands/odysseus-core.md](plugin/commands/odysseus-core.md) |
-| `/odysseus` · several smells | full Navigator table — [plugin/commands/odysseus.md](plugin/commands/odysseus.md) |
+| `/odysseus-core` · “nail the core” · faster intelli | one bottleneck, **at most one** Mistake, one `next` — plugin [odysseus-core](https://github.com/p10ns11y/plugins/blob/main/odysseus-navigator/commands/odysseus-core.md) |
+| `/odysseus` · several smells | full Navigator table — plugin [odysseus](https://github.com/p10ns11y/plugins/blob/main/odysseus-navigator/commands/odysseus.md) |
 | CG ORIENT / PLAN / REVIEW_GATE on multi-step work | diagnose on Card; do not replace Outer |
 | EVA Score / ActOrAsk when emptiness high | default Ask if auth/irreversible unclear; no Act-from-hubris |
 | ≤2-file obvious fix, mistakes=none | **Skip lecture** → affirm Ithaca + one next step |
@@ -137,7 +137,7 @@ Spirit\{Ithaca}  ⇏  skip Antidote   // cunning never replaces opacity, budgets
 | surplus / iron-peak | [architecture-synthesis](../architecture-synthesis/SKILL.md) | Circe vs iron-peak: surplus must serve Ithaca |
 | refute-first review | [adversarial-audit](../adversarial-audit/SKILL.md) | Prophecy + Cyclops evidence pack |
 | DualLoad | [../rules/clt-dual-load.mdc](../rules/clt-dual-load.mdc) | Navigator is short (extraneous ↓); judgment is germane |
-| Grok/Cursor slash harness | [plugin/](plugin/README.md) | `/odysseus-core` fast path; **no** C tether, Rhai, priors, or hooks |
+| Grok/Cursor slash harness | [p10ns11y/plugins odysseus-navigator](https://github.com/p10ns11y/plugins/tree/main/odysseus-navigator) | `/odysseus-core` fast path; **no** C tether, Rhai, priors, or hooks |
 
 `ON = judgment plane` · `CG = control plane` · `EVA = epistemic Inner` · HODA = material decision sequence.
 

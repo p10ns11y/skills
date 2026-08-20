@@ -194,7 +194,7 @@ Pick a pack, symlink those skills, add more as needed.
 | [higher-order-decision-architect](higher-order-decision-architect/SKILL.md) | First-principles decision framework before material architecture/API/security choices |
 | [stellar-spacemap](stellar-spacemap/SKILL.md) | Evidence-driven architecture backlog docs: scorecards, SN-* blueprint cards, gantt order (was `stellar-roadmap`) |
 | [stellar-roadmap](stellar-roadmap/SKILL.md) | **Deprecated redirect** → `stellar-spacemap` |
-| [odysseus-navigator](odysseus-navigator/SKILL.md) | Engineering judgment overlay: Odysseus mistakes ↔ CG/EVA hooks; `/odysseus-core` fast plugin; copy-paste system prompt in English ref |
+| [odysseus-navigator](odysseus-navigator/SKILL.md) | Engineering judgment overlay: Odysseus mistakes ↔ CG/EVA hooks; slash plugin in [p10ns11y/plugins](https://github.com/p10ns11y/plugins/tree/main/odysseus-navigator); copy-paste system prompt in English ref |
 
 
 ### Shell workflow & verification
@@ -276,7 +276,7 @@ Grok Build runs **background workflows** as Rhai scripts. They are **not** skill
 | **Disable** | `[workflows] enabled = false` or `GROK_WORKFLOWS=0` |
 | **vs skill** | skill = procedure text; workflow = host-scheduled `agent()` phases |
 | **vs plugin** | plugin may *ship* a `.rhai` under `plugin/.grok/workflows/` — you still **copy/symlink** into a discovery root |
-| **odysseus plugin** | [odysseus-navigator/plugin/](odysseus-navigator/plugin/README.md) — slash only (`/odysseus-core`, `/odysseus`); **no** Rhai; copy into [p10ns11y/plugins](https://github.com/p10ns11y/plugins) |
+| **odysseus plugin** | [p10ns11y/plugins odysseus-navigator](https://github.com/p10ns11y/plugins/tree/main/odysseus-navigator) — slash only (`/odysseus-core`, `/odysseus`); skill SoT stays in this library; **no** Rhai |
 
 | Workflow | Chain | For |
 |----------|-------|-----|
@@ -297,7 +297,7 @@ cp workflows/*.rhai ~/.grok/workflows/
 |-----------|-----------|
 | Obvious ≤2-file fix | no EVA — just fix + verify |
 | Blank sheet, you want plan/Q&A approve | Grok `/eva` · Cursor `/eva` |
-| Architecture/plan smells like hubris, fashion rewrite, big-bang, or missing VERIFY | [odysseus-navigator](odysseus-navigator/SKILL.md) · Grok `/odysseus-core` (one bottleneck) or `/odysseus` (full table) — copy [plugin/](odysseus-navigator/plugin/README.md) into p10ns11y/plugins |
+| Architecture/plan smells like hubris, fashion rewrite, big-bang, or missing VERIFY | [odysseus-navigator](odysseus-navigator/SKILL.md) · Grok `/odysseus-core` or `/odysseus` from [p10ns11y/plugins](https://github.com/p10ns11y/plugins/tree/main/odysseus-navigator) |
 | Same emptiness ritual in background | Grok `/workflow eva-emptiness` · Cursor `/eva-workflow` (Rhai is Grok-only) |
 | Act done, need parallel workers + PRs | `/workflow multi-agent-delivery` |
 | Cold huge repo before any Probe | `/workflow context-ignite` |

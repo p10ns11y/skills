@@ -58,16 +58,16 @@ Never invoke the wandering spirits in calm, well-understood waters.
 
 ---
 
-## Plugin fast path (copy into p10ns11y/plugins)
+## Plugin fast path (other repo)
 
-The skills library is SoT. A **thin** Grok/Cursor harness lives in [../plugin/](../plugin/README.md) for copy into [p10ns11y/plugins](https://github.com/p10ns11y/plugins).
+The skills library is SoT. The thin Grok/Cursor harness lives in [p10ns11y/plugins odysseus-navigator](https://github.com/p10ns11y/plugins/tree/main/odysseus-navigator) — **not** in this tree.
 
 | Invoke | When |
 |--------|------|
 | `/odysseus-core` | One bottleneck, at most one mistake, one next — faster than `/eva` |
 | `/odysseus` | Several smells; full Navigator table |
 
-Refuse in that tree: C tether, Rhai, three prior agents, always-on hooks (EVA / mission-map / arch-machine already own those). After copy, symlink `skills/odysseus-navigator` → this library skill. Slash commands still work without the symlink.
+Refuse in that plugin: C tether, Rhai, three prior agents, always-on hooks (EVA / mission-map / arch-machine already own those). After plugin install, symlink `skills/odysseus-navigator` → this library skill. Slash commands still work without the symlink.
 
 ---
 

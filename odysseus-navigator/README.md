@@ -23,7 +23,7 @@ node odysseus-navigator/scripts/validate-skill.mjs
 1. On architecture / plan / advisory work, emit a **Navigator** block (Ithaca, mistakes, waters, spirit, cg_hook, eva_hook, next).
 2. Compose with control-graph and eva-emptiness — **do not** inline their bodies.
 3. Optional Cursor discovery rule: [../rules/odysseus-navigator.mdc](../rules/odysseus-navigator.mdc).
-4. Faster intelli slash: copy [plugin/](plugin/README.md) into [p10ns11y/plugins](https://github.com/p10ns11y/plugins) as `odysseus-navigator/` — `/odysseus-core` (one bottleneck) · `/odysseus` (full table). No C, no Rhai, no priors.
+4. Faster intelli slash lives in the **plugins** repo: [p10ns11y/plugins odysseus-navigator](https://github.com/p10ns11y/plugins/tree/main/odysseus-navigator) — `/odysseus-core` (one bottleneck) · `/odysseus` (full table). This library keeps the skill only.
 
 ## Layout
 
@@ -31,9 +31,9 @@ node odysseus-navigator/scripts/validate-skill.mjs
 |------|---------|
 | [SKILL.md](SKILL.md) | Formal SoT: axioms, diagnose→prescribe, mistake table, spirits, Navigator emit |
 | [references/english-procedure.md](references/english-procedure.md) | Full English + copy-paste system prompt — load only if formal is ambiguous |
-| [plugin/](plugin/README.md) | Grok/Cursor harness to copy into `p10ns11y/plugins` (`/odysseus-core`, `/odysseus`) |
 | [scripts/validate-skill.mjs](scripts/validate-skill.mjs) | Structural contract check |
 | [../rules/odysseus-navigator.mdc](../rules/odysseus-navigator.mdc) | Optional Cursor discovery rule |
+| [PLUGIN.md](PLUGIN.md) | Pointer to slash harness in p10ns11y/plugins (not vendored here) |
 
 ## Is / is not
 
