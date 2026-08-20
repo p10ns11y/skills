@@ -115,6 +115,29 @@ must(cg.includes("odysseus-navigator"), "control-graph composition points at ody
 const eva = read(evaRule);
 must(eva.toLowerCase().includes("odysseus"), "eva-emptiness.mdc composes with odysseus-navigator");
 
+const pluginDir = join(skillDir, "plugin");
+const pluginJson = join(pluginDir, "plugin.json");
+const pluginReadme = join(pluginDir, "README.md");
+const coreCmd = join(pluginDir, "commands", "odysseus-core.md");
+const fullCmd = join(pluginDir, "commands", "odysseus.md");
+const thinTest = join(pluginDir, "test", "test-thin.sh");
+must(existsSync(pluginJson), "plugin/plugin.json exists");
+const pj = read(pluginJson);
+must(pj.includes('"name": "odysseus-navigator"'), "plugin.json name is odysseus-navigator");
+must(!existsSync(join(pluginDir, "c")), "plugin has no c/ (EVA owns tether)");
+must(!existsSync(join(pluginDir, "hooks")), "plugin has no hooks/ (Winds)");
+must(existsSync(coreCmd), "plugin/commands/odysseus-core.md exists");
+const coreBody = read(coreCmd).toLowerCase();
+must(coreBody.includes("at most one"), "odysseus-core limits to at most one mistake");
+must(coreBody.includes("no subagents"), "odysseus-core forbids subagents");
+must(coreBody.includes("eva_hook") && coreBody.includes("cg_hook"), "odysseus-core emits hooks");
+must(existsSync(fullCmd), "plugin/commands/odysseus.md exists");
+must(read(fullCmd).toLowerCase().includes("do not inline"), "full /odysseus says do not inline");
+must(existsSync(pluginReadme), "plugin/README.md exists");
+must(read(pluginReadme).includes("p10ns11y/plugins"), "plugin README points at plugins repo");
+must(existsSync(thinTest), "plugin/test/test-thin.sh exists");
+must(bodyLower.includes("/odysseus-core") || bodyLower.includes("odysseus-core"), "SKILL.md routes /odysseus-core");
+
 console.log("=== odysseus-navigator validate-skill (skills library) ===");
 for (const n of notes) console.log(`  ${n}`);
 if (failures.length) {

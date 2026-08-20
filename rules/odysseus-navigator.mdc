@@ -16,7 +16,8 @@ When the task is **architecture / plan / engineering advisory**, risk of hubris 
 3. Emit a **Navigator** block: Ithaca, mistakes (or none), waters, spirit, `cg_hook`, `eva_hook`, one next action.
 4. Compose with `control-graph` (Outer) and `eva-emptiness` (Inner). Name hooks — **do not** inline those skills.
 5. Calm, well-understood waters: Spirit = Ithaca only. No cleverness for its own sake.
-6. If mistakes=none: affirm the path and sharpen the next step. Do not lecture the myth.
+6. If `mistakes=none`: affirm the path and sharpen the next step. Do not lecture the myth.
+7. Faster intelli: `/odysseus-core` (one bottleneck) or `/odysseus` (full table). Copy `odysseus-navigator/plugin/` into `p10ns11y/plugins`. No C tether, no Rhai, no prior forks.
 
 Skip the lecture on obvious ≤2-file fixes. Cyclops still applies if the small fix would leak secrets or verbose internals.
 

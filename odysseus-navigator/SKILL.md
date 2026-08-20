@@ -7,7 +7,7 @@ description: >-
   antidotes, and gate Odysseus spirits (Metis, endurance, curiosity, leadership)
   so the ship still reaches Ithaca. Use for architecture/plan review, hubris,
   over-engineering, shiny-tech chase, big-bang cutover, missing observability,
-  or when the user says Odysseus / navigator / Ithaca. Not domain product logic.
+  or when the user says Odysseus / navigator / Ithaca / odysseus-core. Not domain product logic.
 ---
 
 # odysseus-navigator
@@ -47,6 +47,8 @@ A8  Never romanticize cleverness; never encourage hubris
 | Signal | Action |
 |--------|--------|
 | architecture / plan / advisory · hubris · wandering · overbuild · shiny rewrite · big-bang · missing telemetry · “Odysseus”, “Ithaca”, “navigator” | load ON; emit **Navigator** |
+| `/odysseus-core` · “nail the core” · faster intelli | one bottleneck, **at most one** Mistake, one `next` — [plugin/commands/odysseus-core.md](plugin/commands/odysseus-core.md) |
+| `/odysseus` · several smells | full Navigator table — [plugin/commands/odysseus.md](plugin/commands/odysseus.md) |
 | CG ORIENT / PLAN / REVIEW_GATE on multi-step work | diagnose on Card; do not replace Outer |
 | EVA Score / ActOrAsk when emptiness high | default Ask if auth/irreversible unclear; no Act-from-hubris |
 | ≤2-file obvious fix, mistakes=none | **Skip lecture** → affirm Ithaca + one next step |
@@ -135,6 +137,7 @@ Spirit\{Ithaca}  ⇏  skip Antidote   // cunning never replaces opacity, budgets
 | surplus / iron-peak | [architecture-synthesis](../architecture-synthesis/SKILL.md) | Circe vs iron-peak: surplus must serve Ithaca |
 | refute-first review | [adversarial-audit](../adversarial-audit/SKILL.md) | Prophecy + Cyclops evidence pack |
 | DualLoad | [../rules/clt-dual-load.mdc](../rules/clt-dual-load.mdc) | Navigator is short (extraneous ↓); judgment is germane |
+| Grok/Cursor slash harness | [plugin/](plugin/README.md) | `/odysseus-core` fast path; **no** C tether, Rhai, priors, or hooks |
 
 `ON = judgment plane` · `CG = control plane` · `EVA = epistemic Inner` · HODA = material decision sequence.
 
