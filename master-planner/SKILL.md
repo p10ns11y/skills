@@ -160,7 +160,7 @@ Update **Active skills** table: skill · path · when. Point overlays. Keep veri
 | Next.js / React app | **web-app** | ai-optimization, fusion-sage, react-client-expert, semantic-markup-css, fix-dependency-security |
 | Tauri + agent loops | **agentic-desktop** | finder-reactor, tauri-agentic, agent-orchestrator, git-worktrees, control-graph |
 | Multi-agent delivery only | **multi-agent** | agent-orchestrator, control-graph, git-worktrees, concurrent-cli-agents, split-to-prs |
-| Strategy / backlog docs | **strategy** | HODA, stellar-spacemap, fusion-sage, master-planner |
+| Strategy / backlog docs | **strategy** | HODA, stellar-spacemap, fusion-sage, master-planner, odysseus-navigator |
 
 Custom: compose from catalog; document in overlay.
 

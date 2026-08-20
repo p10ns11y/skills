@@ -22,6 +22,7 @@ Most agent failures are not model failures. They are **context**, **coordination
 | Parallel agents overwriting each other | Merged garbage, lost work, `cp` disasters | [git-worktrees](git-worktrees/SKILL.md) + [agent-orchestrator](agent-orchestrator/SKILL.md) |
 | Dual-actor cognitive strain (human + AI) | Transcript dumps at HITL, context thrash, serializing agents to human WM limits | [rules/clt-dual-load.mdc](rules/clt-dual-load.mdc) pre-filter + [control-graph](control-graph/SKILL.md) A8 / [clt-load-balance.md](control-graph/references/clt-load-balance.md) |
 | Blank-sheet / epistemic emptiness | Overconfident ReAct, auto-approve when unknown is auth | [eva-emptiness](eva-emptiness/SKILL.md) (+ Grok plugin in `../plugins/eva-emptiness`) |
+| Hubris / decade-long wandering / over-clever loops | Fashion rewrites, golden cages, prod scars, ships that never reach Ithaca | [odysseus-navigator](odysseus-navigator/SKILL.md) — judgment plane; CG Outer + EVA Inner stay owners |
 | Unsafe autonomous actions | Near-misses on CV writes, runaway API spend | [finder-reactor](finder-reactor/SKILL.md) + [cv-promote-guard](cv-promote-guard/SKILL.md) |
 | npm supply-chain risk | "Audit clean" installs that still weren't safe | [fix-dependency-security](fix-dependency-security/SKILL.md) + [supply-chain-harden](supply-chain-harden/SKILL.md) |
 | Leaving the agent to jot a note | Broken flow, forgotten captures | [premflow](premflow/SKILL.md) skill → full plugin at `https://github.com/p10ns11y/plugins` (premflow/) (`/note` `/focus` `/journal`) |
@@ -96,7 +97,7 @@ Pick a pack, symlink those skills, add more as needed.
 | **React / Next frontend**       | `react-client-expert`, `semantic-markup-css`, `project-editor-profile`                        | App Router, a11y, editor sync      |
 | **Opportunity finder platform** | `finder-reactor`, `agentic-reactor`, `x-agent-resources`, `cv-promote-guard`, `tauri-agentic` | Tauri + X + LLM autonomous loops   |
 | **C / CMake / MVU**             | `explore-repo-readonly`, `mvu-refactor-plan`, `src-tree-reorganize`                           | elomaxz-style refactors            |
-| **Strategy & decisions**        | `higher-order-decision-architect`, `bdd-strategizer`, `stellar-spacemap`, `eva-emptiness`      | Architecture tradeoffs, blank-sheet / epistemic emptiness, backlog docs |
+| **Strategy & decisions**        | `higher-order-decision-architect`, `bdd-strategizer`, `stellar-spacemap`, `eva-emptiness`, `odysseus-navigator`      | Architecture tradeoffs, blank-sheet / epistemic emptiness, hubris/Ithaca judgment, backlog docs |
 | **Master plan / skill packs**   | `master-planner` (+ pack it selects)                                                          | Pull/tweak skills for cwd; Orwell overlays; project ontology |
 | **Shell verify workflow**       | `verification-cockpit`, `shell-kernel-ontology`, `stellar-spacemap`, `ai-optimization`, `architecture-synthesis` | `av` tmux cockpits, kernel ontology graph, `coming-next.md` roadmaps |
 
@@ -193,6 +194,7 @@ Pick a pack, symlink those skills, add more as needed.
 | [higher-order-decision-architect](higher-order-decision-architect/SKILL.md) | First-principles decision framework before material architecture/API/security choices |
 | [stellar-spacemap](stellar-spacemap/SKILL.md) | Evidence-driven architecture backlog docs: scorecards, SN-* blueprint cards, gantt order (was `stellar-roadmap`) |
 | [stellar-roadmap](stellar-roadmap/SKILL.md) | **Deprecated redirect** → `stellar-spacemap` |
+| [odysseus-navigator](odysseus-navigator/SKILL.md) | Engineering judgment overlay: Odysseus mistakes ↔ CG/EVA hooks; slash plugin in [p10ns11y/plugins](https://github.com/p10ns11y/plugins/tree/main/odysseus-navigator); copy-paste system prompt in English ref |
 
 
 ### Shell workflow & verification
@@ -274,6 +276,7 @@ Grok Build runs **background workflows** as Rhai scripts. They are **not** skill
 | **Disable** | `[workflows] enabled = false` or `GROK_WORKFLOWS=0` |
 | **vs skill** | skill = procedure text; workflow = host-scheduled `agent()` phases |
 | **vs plugin** | plugin may *ship* a `.rhai` under `plugin/.grok/workflows/` — you still **copy/symlink** into a discovery root |
+| **odysseus plugin** | [p10ns11y/plugins odysseus-navigator](https://github.com/p10ns11y/plugins/tree/main/odysseus-navigator) — slash only (`/odysseus-core`, `/odysseus`); skill SoT stays in this library; **no** Rhai |
 
 | Workflow | Chain | For |
 |----------|-------|-----|
@@ -294,6 +297,7 @@ cp workflows/*.rhai ~/.grok/workflows/
 |-----------|-----------|
 | Obvious ≤2-file fix | no EVA — just fix + verify |
 | Blank sheet, you want plan/Q&A approve | Grok `/eva` · Cursor `/eva` |
+| Architecture/plan smells like hubris, fashion rewrite, big-bang, or missing VERIFY | [odysseus-navigator](odysseus-navigator/SKILL.md) · Grok `/odysseus-core` or `/odysseus` from [p10ns11y/plugins](https://github.com/p10ns11y/plugins/tree/main/odysseus-navigator) |
 | Same emptiness ritual in background | Grok `/workflow eva-emptiness` · Cursor `/eva-workflow` (Rhai is Grok-only) |
 | Act done, need parallel workers + PRs | `/workflow multi-agent-delivery` |
 | Cold huge repo before any Probe | `/workflow context-ignite` |
@@ -312,6 +316,7 @@ Some skills ship a thin **`.mdc` router** in [`rules/`](rules/) for `alwaysApply
 | [higher-order-decision-architect.mdc](rules/higher-order-decision-architect.mdc) | **true** | Material decision sequence router |
 | [control-graph.mdc](rules/control-graph.mdc) | false | Discover/load control-graph on multi-step / thrash risk |
 | [eva-emptiness.mdc](rules/eva-emptiness.mdc) | false | Discover/load EVA blank-sheet harness (Cursor: pair with `/eva` · `/eva-workflow`) |
+| [odysseus-navigator.mdc](rules/odysseus-navigator.mdc) | false | Discover/load Odysseus judgment overlay on architecture/plan/hubris (compose with CG + EVA) |
 | [master-planner.mdc](rules/master-planner.mdc) | false | Discover/load master-planner on pack/plan work |
 
 ---

@@ -53,6 +53,7 @@ node control-graph/scripts/validate-skill.mjs
 ## Related
 
 - [clt-dual-load.mdc](../rules/clt-dual-load.mdc) — library-wide DualLoad injection; domain skills inherit via this rule (no paste-duplication)  
+- [odysseus-navigator](../odysseus-navigator/SKILL.md) — judgment plane (hubris / Ithaca); CG still owns Outer  
 - [agent-orchestrator](../agent-orchestrator/SKILL.md)  
 - [subagent-delegation](../subagent-delegation/SKILL.md)  
 - [fusion-sage](../fusion-sage/SKILL.md) / [ai-optimization](../ai-optimization/SKILL.md)  

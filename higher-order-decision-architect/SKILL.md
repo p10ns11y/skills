@@ -117,7 +117,7 @@ Applied in `~/.config/shell`:
 
 - User asks for tradeoffs, architecture choice, “what could go wrong”, pre-mortem, second-order effects, or thrive/2036 vision.
 - Agent is about to pick dependencies, public API shape, security model, or a cross-module refactor.
-- Pair with domain skills ([bdd-strategizer](../bdd-strategizer/SKILL.md) for test-first decomposition; [fusion-sage](../fusion-sage/SKILL.md) for long-term surplus; [stellar-spacemap](../stellar-spacemap/SKILL.md) for §0b/§5/§6 in backlog docs; [ai-optimization](../ai-optimization/SKILL.md) for evidence-first scouting).
+- Pair with domain skills ([bdd-strategizer](../bdd-strategizer/SKILL.md) for test-first decomposition; [fusion-sage](../fusion-sage/SKILL.md) for long-term surplus; [stellar-spacemap](../stellar-spacemap/SKILL.md) for §0b/§5/§6 in backlog docs; [ai-optimization](../ai-optimization/SKILL.md) for evidence-first scouting; [odysseus-navigator](../odysseus-navigator/SKILL.md) for hubris labels — HODA still owns this sequence).
 - **Shellyxz shell:** load `arch-design/overlays/shell-kernel-decision-hooks.md` before kernel/plugin/PATH/ontology splits; pair with `.agents/ontology/GRAPH.md` for boundary context.
 
 ## Cursor rule (optional)

@@ -50,7 +50,7 @@ declare -A PACKS=(
   [web-app]="master-planner ai-optimization fusion-sage react-client-expert semantic-markup-css fix-dependency-security higher-order-decision-architect"
   [agentic-desktop]="master-planner finder-reactor tauri-agentic agent-orchestrator git-worktrees control-graph fusion-sage"
   [multi-agent]="master-planner agent-orchestrator control-graph git-worktrees concurrent-cli-agents split-to-prs"
-  [strategy]="master-planner higher-order-decision-architect stellar-spacemap fusion-sage ai-optimization"
+  [strategy]="master-planner higher-order-decision-architect stellar-spacemap fusion-sage ai-optimization odysseus-navigator"
 )
 
 skills=()
