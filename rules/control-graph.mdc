@@ -18,6 +18,6 @@ When the task is a **multi-step agent cycle**, long autonomous run, model-routin
 6. Route **fast / explore / coding / deep / review** per the skill matrix; separate review from implementer context.
 7. Honor HITL pause gates and hard exits (`max_loop_iters`, `no_progress`, cancel). Apply **A8 DualLoad**: minimize extraneous for both actors; preserve germane; fan-out independent agent work (do not cap AI parallelism at human WM).
 
-Compose with `agent-orchestrator` (triage + workers), `subagent-delegation` (explore), `fusion-sage` / `ai-optimization` (synthesis / prune). Do **not** put domain finder/CV/X logic here — only control-graph shape.
+Compose with `agent-orchestrator` (triage + workers), `subagent-delegation` (explore), `fusion-sage` / `ai-optimization` (synthesis / prune), `odysseus-navigator` (judgment / hubris / Ithaca). Do **not** put domain finder/CV/X logic here — only control-graph shape.
 
 Activation: “control-graph”, “looper”, “structured loop”, “state machine”, “SM+DAG”, “model routing”, “cognitive load”, “CLT”, infinite-loop risk.

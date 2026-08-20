@@ -1,0 +1,23 @@
+---
+description: >-
+  Odysseus Navigator judgment overlay for control-graph + EVA: diagnose hubris
+  patterns (Cyclops leak, Sirens rewrite, Helios prod, Circe overbuild, Winds
+  unbounded, Scylla big-bang, ignored prophecy) and keep Ithaca. Load for
+  architecture/plan review, over-engineering, shiny-tech chase, or “Odysseus”.
+alwaysApply: false
+---
+
+# odysseus-navigator
+
+When the task is **architecture / plan / engineering advisory**, risk of hubris or wandering, or the user says Odysseus / Ithaca / navigator:
+
+1. Read [odysseus-navigator/SKILL.md](../odysseus-navigator/SKILL.md) (formal SoT).
+2. Expand [odysseus-navigator/references/english-procedure.md](../odysseus-navigator/references/english-procedure.md) **only if** a mistake, spirit, or hook is ambiguous.
+3. Emit a **Navigator** block: Ithaca, mistakes (or none), waters, spirit, `cg_hook`, `eva_hook`, one next action.
+4. Compose with `control-graph` (Outer) and `eva-emptiness` (Inner). Name hooks — **do not** inline those skills.
+5. Calm, well-understood waters: Spirit = Ithaca only. No cleverness for its own sake.
+6. If mistakes=none: affirm the path and sharpen the next step. Do not lecture the myth.
+
+Skip the lecture on obvious ≤2-file fixes. Cyclops still applies if the small fix would leak secrets or verbose internals.
+
+Activation: “odysseus”, “navigator”, “Ithaca”, hubris, over-engineering, shiny rewrite, big-bang, missing observability, golden cage, bag of winds.

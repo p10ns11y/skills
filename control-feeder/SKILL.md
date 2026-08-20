@@ -126,7 +126,7 @@ Print the Feed block. Then load **one** next owner. If `cg-outer` or `eva-inner`
 
 ## Related
 
-Skills: [control-graph](../control-graph/SKILL.md) · [eva-emptiness](../eva-emptiness/SKILL.md) · [agent-orchestrator](../agent-orchestrator/SKILL.md) · [grok-host-prep](../grok-host-prep/SKILL.md)  
+Skills: [control-graph](../control-graph/SKILL.md) · [eva-emptiness](../eva-emptiness/SKILL.md) · [odysseus-navigator](../odysseus-navigator/SKILL.md) (judgment after Feed; hooks only) · [agent-orchestrator](../agent-orchestrator/SKILL.md) · [grok-host-prep](../grok-host-prep/SKILL.md)  
 Plugin: `eva-emptiness` (Grok marketplace / `../plugins/eva-emptiness`) — Inner only; never paste into this file.
 
 Notes in grok-build `intelli-arch-designs/` (why, not copies):

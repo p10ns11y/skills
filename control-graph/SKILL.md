@@ -257,6 +257,7 @@ Domain guards stay in domain skills; CG requires honoring pause results as Outer
 | product autonomy | finder-reactor / agentic-reactor | **shape only** |
 | epistemic emptiness (Prior→Probe→Simulate→Score→ActOrAsk) | [eva-emptiness](../eva-emptiness/SKILL.md) | Outer only; EVA owns Inner when emptiness gate fires — **do not inline** |
 | pathway switch / signposts | [eva-emptiness](../eva-emptiness/SKILL.md) | honor `continue\|switch\|Ask`; Outer owns re-ORIENT on switch |
+| hubris / wandering / over-clever (Cyclops…Prophecy) | [odysseus-navigator](../odysseus-navigator/SKILL.md) | ORIENT/PLAN/REVIEW: Navigator labels + `cg_hook`; **do not inline** myth essay |
 
 `CG = control plane` · domain = data plane · orchestrator = multi-worker logistics · CLT pre-filter = DualLoad hygiene for Human∧Agent.
 

@@ -18,4 +18,4 @@ When the task is a **blank sheet**, unknowns dominate knowns, requirements are r
 
 Skip for obvious ≤2-file fixes with clear verify cmds.
 
-Cursor note: Grok’s `/workflow …rhai` engine does **not** run here — use `/eva` or `/eva-workflow` slash commands + this skill. Compose with `control-graph` for Outer phases.
+Cursor note: Grok’s `/workflow …rhai` engine does **not** run here — use `/eva` or `/eva-workflow` slash commands + this skill. Compose with `control-graph` for Outer phases. Compose with `odysseus-navigator` when Act-too-soon / hubris / shiny rewrite: emit `eva_hook` (`continue` \| `switch` \| `Ask`) — do not inline the myth essay.
