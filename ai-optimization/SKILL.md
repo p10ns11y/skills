@@ -1,25 +1,41 @@
 ---
 name: ai-optimization
-description: >-
-  Fission engine for token-efficient coding (JS, TS, Node, Rust, Python, ML/AI):
-  relevance scoring, hierarchical compression, strict token budgets, progressive
-  disclosure, accuracy guardrails. Pair with fusion-sage for synthesis/surplus.
-  Triggers: tokens, context window, prune, compress, Context Sage, large repo.
+version: 0.1.0
+description: >
+  Prune and compress code context with relevance scores and token budgets.
+  Use for large-repo edits, debug, and Context Sage.
+metadata:
+  author: p10ns11y <9104920+p10ns11y@users.noreply.github.com>
+  tags:
+    - context
+    - tokens
+    - compression
+    - fission
 ---
 
 # ai-optimization (Context Sage)
 
-> **Load rule:** Formal SoT below. Lang playbooks → [references/](references/) only if needed. Expand [references/english-procedure.md](references/english-procedure.md) **only if** scoring/budget still ambiguous.  
+> **Load rule:** Formal SoT below. Lang playbooks → [references/](references/) only if needed. Expand [references/english-procedure.md](references/english-procedure.md) **only if** scoring/budget still ambiguous.
 > **CLT:** this skill is the primary **agent-extraneous** reducer under [../rules/clt-dual-load.mdc](../rules/clt-dual-load.mdc) — prune before deep/coding fill; do not strip germane VERIFY evidence.
 
+## Purpose
+
+Cut input-code tokens without trading correctness. Pair with [fusion-sage](../fusion-sage/SKILL.md) for synthesis/surplus. Skip for a one-file typo or when the full file is already pasted.
+
+## Prerequisites
+
+- Repo on disk; verify cmds from target `AGENTS.md`.
+- Optional packer: `python` 3 for [scripts/context-sage.py](scripts/context-sage.py).
+- Hosts that support `run_script` should invoke that script rather than paraphrasing a pack.
+
+## Instructions
+
 ```text
-// Signature
 Fission  ≔ prune + compress + budget   // this skill
 Fusion   ≔ synthesis + surplus         // [fusion-sage](../fusion-sage/SKILL.md)
 Score    ∈ 0..100                      // relevance
 Budget   ≔ context cap for *input* code/docs (not model CoT)
 
-// Axioms
 A1  Relevance ≻ Completeness     // ~80% value from ~5–15% of code
 A2  Hierarchy first              // structure before bodies
 A3  Language-native compression  // AST/API idioms per lang
@@ -30,21 +46,6 @@ A7  Evaluate(δ) ≔ (C, E, η)      // keep tactics with Δ>0
 ```
 
 Pair: [fusion-sage](../fusion-sage/SKILL.md) · [master-planner](../master-planner/SKILL.md) overlays · [examples/overlays/](../examples/overlays/).
-
----
-
-## Use / skip
-
-| Use when | Skip when |
-|----------|-----------|
-| repo ≳10k LOC · multi-file change | 1-file typo, full file already pasted |
-| "tokens", "context", "Cursor slow/expensive" | pure design chat with no code load |
-| implement / debug / refactor with code context | architecture-only → start fusion-sage |
-| pasting partial code + "implement X" | |
-
----
-
-## Flow (internal — do not dump as essay)
 
 ```text
 intent → map (modules/API surface) → score → compress form → budget trim → act
@@ -80,16 +81,14 @@ intent → map (modules/API surface) → score → compress form → budget trim
 
 ### Cross-lang strip rules
 
-- Drop: licenses, generated markers, excess blank lines, repetitive getters  
-- Collapse standard validation/error-map to one sentence  
-- Use `...` when name+signature+context makes body obvious  
-- ≤2 full function bodies per file unless score >90  
+- Drop: licenses, generated markers, excess blank lines, repetitive getters
+- Collapse standard validation/error-map to one sentence
+- Use `...` when name+signature+context makes body obvious
+- ≤2 full function bodies per file unless score >90
 
-Lang detail: [references/typescript-optimizer.md](references/typescript-optimizer.md) · [references/python-optimizer.md](references/python-optimizer.md) · [references/rust-optimizer.md](references/rust-optimizer.md). Optional project overlay under `.agents/skills/ai-optimization/references/` or [examples/overlays/](../examples/overlays/).
+Lang detail: [references/typescript-optimizer.md](references/typescript-optimizer.md) · [references/python-optimizer.md](references/python-optimizer.md) · [references/rust-optimizer.md](references/rust-optimizer.md).
 
----
-
-## Accuracy guardrails (never violate)
+### Accuracy guardrails (never violate)
 
 | Rule | Detail |
 |------|--------|
@@ -99,30 +98,9 @@ Lang detail: [references/typescript-optimizer.md](references/typescript-optimize
 | **No invention** | never invent APIs/patterns not seen |
 | **Done** | state assumptions; run verify (`type-check`, `lint`, tests) |
 
-### Task overrides
+Auto-expand (do not wait): edge cases in summarized body; user `expand <symbol>` / `show full <file>`; you would write "assuming standard pattern" without having read it.
 
-| Task | Compression |
-|------|-------------|
-| explain / scout | summaries OK |
-| implement | full types + full bodies for files edited |
-| debug (esp. flaky/CI) | full suspects + config + tests |
-| refactor / rename | full call graph for touched symbols |
-
-### Auto-expand (do not wait)
-
-- Edge cases in summarized body (errors, auth, async/effect deps)  
-- User: `expand <symbol>` · `show full <file>` · `use whole project`  
-- You would write "assuming standard pattern" without having read it  
-
-### Red flags — stop summarizing
-
-- Diff with no callers/tests noted  
-- Skip files required by `AGENTS.md` / project rules  
-- One-line summary of complex control flow (`useEffect`, retries, transactions)  
-
----
-
-## Output protocol
+Output:
 
 ```text
 🧠 Context Sage | Budget: Xk / Yk (Z%) | Relevance: R/100 | Files: N (forms…)
@@ -133,25 +111,44 @@ Lang detail: [references/typescript-optimizer.md](references/typescript-optimize
 ## Token note (expand <name> to deepen)
 ```
 
-**Hand off to fusion-sage when:** architecture / long-term design · "make it better for the future" · 3+ related queries → suggest fusion pass.
+Hand off to fusion-sage for architecture / long-term design.
 
----
+## Available Scripts
 
-## IDE
+| Script | What | Invoke |
+|--------|------|--------|
+| [scripts/context-sage.py](scripts/context-sage.py) | Token-optimized context pack | `python scripts/context-sage.py analyze --project DIR --query Q --budget N --lang LANG` then `pack --output context-pack.md` |
 
-| Host | Action |
-|------|--------|
-| Cursor | symlink skill; optional [assets/cursorrules-template.md](assets/cursorrules-template.md) → `.cursor/rules/ai-optimization.mdc` |
-| Grok / others | install skill dir; description routing |
+When the host supports `run_script`, call `scripts/context-sage.py` instead of reconstructing the pack in prose. Proof notes: [references/tested.md](references/tested.md).
 
----
+## Examples
 
-## Self-improve (session)
+User: "Huge repo. Add password reset. Don't dump the tree."
 
-After success: boost scores of symbols actually used; if user expanded a summary → lower compression next time for similar queries.
+Agent: score by symbol/path; keep auth + files you will edit at full body; compress `<30` names only; if packing, `run_script` on `scripts/context-sage.py analyze --query "password reset"`. Run project verify cmds.
+
+User: "Context window is full, explain the queue module."
+
+Agent: map public API, emit 30–60 tier summaries, offer `expand <symbol>`.
+
+## Limitations
+
+- Does not replace fusion-sage for architecture.
+- Compression never applies to auth/secrets/edit targets.
+- `context-sage.py` is a helper, not a substitute for reading files you will change.
+- Overlay paths under `.agents/skills/ai-optimization/references/` are optional.
+
+## Troubleshooting
+
+| Error / symptom | Cause | Fix |
+|-----------------|-------|-----|
+| Invented API in the patch | Compressed a file you needed to edit | Read full file; never compress edit targets |
+| Verify skipped "to save tokens" | Budget ate the verify step | Reserve ~25% for answer+verify; run cmds |
+| Pack misses the bug | Debug path used summaries | Full suspects + config + tests |
+| `context-sage.py` missing | Script not run from skill dir | `run_script` with skill-relative path |
 
 **Done when:** intent+scores applied; budget respected; guardrails held; verify cmds run for multi-file edits; fusion handoff noted when architecture.
 
 **Anti-patterns:** dump whole repo "just in case" · compress auth/edit targets · invent unseen APIs · skip verify because "context was tight" · dual-load full English playbooks every turn.
 
-Script helper: [scripts/context-sage.py](scripts/context-sage.py). English expansion: [references/english-procedure.md](references/english-procedure.md).
+English expansion: [references/english-procedure.md](references/english-procedure.md).
