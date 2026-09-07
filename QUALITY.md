@@ -101,3 +101,7 @@ When renaming (e.g. `looper` → `control-graph`): folder, frontmatter `name`, r
 ## Packs (starter)
 
 See root [README.md](README.md). Prefer packs + workflows over “symlink everything.”
+
+## Latest SkillEvaluator snapshot
+
+See [docs/eval/2026-09-08/](docs/eval/2026-09-08/) (Tier1 scores + method + improvement backlog).

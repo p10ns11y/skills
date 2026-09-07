@@ -1,0 +1,51 @@
+=== docker? ===
+DOCKER_MISSING
+Usage: skillevaluator tier3 evaluate [OPTIONS] SKILL_PATH
+Try 'skillevaluator tier3 evaluate --help' for help.
+
+Error: No such option '--agent'. (Did you mean one of: '--agent-model', '--agents', '--max-agents'?)
+Usage: skillevaluator tier3 evaluate [OPTIONS] SKILL_PATH
+Try 'skillevaluator tier3 evaluate --help' for help.
+
+Error: No such option '--agent'. (Did you mean one of: '--agent-model', '--agents', '--max-agents'?)
+  Using public provider: openai / gpt-5.6-sol
+╭──────────────────────────────────────────────────────────────────────────────╮
+│  skillevaluator validate --tier3                 skill: agent-orchestrator   │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+        ●══════════ ✗ ╌╌╌╌╌╌╌╌╌╌╌●══════════ ✗ ╌╌╌╌╌╌╌╌╌╌╌○
+        static & security        deduplication            live agent eval
+
+╭─ Tier 1 · Static & Security ─────────────────────────────────────────────────╮
+│    checks      ✗ schema · ✓ version · ✗ security · ✓ pii · ✓ license · ✗     │
+│  code-integrity · ✓ unicode · ✓ quality · ✓ lint                             │
+│    summary     8/11 passed  ·  3 failed  ·  5 warnings                       │
+│  ✗ failed      Schema & Repository Governance — Author not specified in      │
+│  metadata                                                                    │
+│  ✗ failed      Security Scan                                                 │
+│  ✗ failed      Secrets Detection                                             │
+│    advisories  9  quality 9                                                  │
+│    quality     B  87.0 / 100                                                 │
+╰────────────────────────────────────────────────────────────── ✗ fail · 0.0s ─╯
+╭─ Tier 2 · Deduplication ─────────────────────────────────────────────────────╮
+│    context     scan failed                                                   │
+│  ✗ error       Context Deduplication failed: Error code: 401 - {'error':     │
+│  {'message': 'Incorrect API key provided: [REDACTED]                        │
+╰────────────────────────────────────────────────────────────── ✗ fail · 3.9s ─╯
+╭─ Tier 3 · Live Agent Eval ───────────────────────────────────────────────────╮
+│    skipped     Tier 3 live evaluation did not complete: staging tree has     │
+│  unexpected or missing entries                                               │
+╰────────────────────────────────────────────────────────────────── · skipped ─╯
+╭──────────────────────────────────────────────────────────────────────────────╮
+│   ✗ FAIL   Schema & Repository Governance (+3 more) failed in Tier 1  ·      │
+│  exit 1                                                                      │
+│                                                                              │
+│  fix     Add 'metadata.author' field with format 'Name <email@example.com>'  │
+│          skillevaluator validate                                             │
+│  /home/sustainableabundance/dev/agentic-reactor/skills/agent-orchestrator    │
+│  --full                                                                      │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+      report      reports/skillevaluator-output-20260907205745.html
+      json        reports/skillevaluator-output-20260907205745.json
+Error: validation failed

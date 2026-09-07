@@ -1,0 +1,247 @@
+                       SkillEvaluator Validation Results                        
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Validator                      ┃   Status   ┃ Details                        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ Schema & Repository Governance │    FAIL    │ 1 errors, 3 warnings           │
+│ Semantic Version Validation    │    PASS    │ 1 checks passed                │
+│ Security Scan                  │ INCOMPLETE │ skillspector did not complete  │
+│                                │            │ (1 warnings)                   │
+│ PII Scan                       │    PASS    │ 2 checks passed                │
+│ License Compliance             │    PASS    │ OK                             │
+│ Code Risk Analysis             │ INCOMPLETE │ semgrep did not complete (1    │
+│                                │            │ warnings)                      │
+│ Secrets Detection              │ INCOMPLETE │ gitleaks did not complete (1   │
+│                                │            │ warnings)                      │
+│ Code Integrity & Hygiene       │    PASS    │ No standard Python test-file   │
+│                                │            │ candidates found; target tests │
+│                                │            │ were not executed and coverage │
+│                                │            │ was not measured. Consider     │
+│                                │            │ adding tests.                  │
+│ Unicode Smuggling Detection    │    PASS    │ 1 checks passed                │
+│ QUALITY                        │    PASS    │ 1 checks passed                │
+│ SCRIPT_LINT                    │    PASS    │ OK                             │
+└────────────────────────────────┴────────────┴────────────────────────────────┘
+
+╭─────────────────╮
+│ Failure Details │
+╰─────────────────╯
+
+[Schema & Repository Governance]
+Validate SKILL.md frontmatter and repository structure
+[FAIL] Validation failed
+
+Summary:
+  • Checks performed: 8
+  • Errors: 1 (1 high)
+  • Warnings: 3
+
+Issues:
+  1. [SCHEMA-MEDIUM] Missing recommended section: '## Instructions'
+     File:    
+/home/sustainableabundance/dev/agentic-reactor/skills/ai-optimization/SKILL.md
+     Check:   body_recommended_section
+     Fix:     Consider adding a '## Instructions' or '## Usage' section. Per 
+agentskills.io the body format is unrestricted, so this is a convention nudge — 
+it also gives the quality scorer a stable anchor for instruction-quality 
+heuristics.
+
+  2. [SCHEMA-MEDIUM] Missing recommended section: '## Examples'
+     File:    
+/home/sustainableabundance/dev/agentic-reactor/skills/ai-optimization/SKILL.md
+     Check:   body_recommended_section
+     Fix:     Consider adding a '## Examples' section. If examples are already 
+inline under instructions, this can be skipped.
+
+  3. [SCHEMA-LOW] Unexpected 'tested.md' in skill root
+     File:    
+/home/sustainableabundance/dev/agentic-reactor/skills/ai-optimization/tested.md
+     Check:   unexpected_file
+     Fix:     Consider moving to one of: agents/, assets/, config/, evals/, 
+references/, scripts/, tests/, tools/. To allow additional directories, set 
+$SKILLEVALUATOR_SCHEMA_ALLOWED_DIRS.
+
+  4. [SCHEMA-HIGH] Author not specified in metadata
+     File:    
+/home/sustainableabundance/dev/agentic-reactor/skills/ai-optimization/SKILL.md
+     Check:   author_missing
+     Fix:     Add 'metadata.author' field with format 'Name <email@example.com>'
+
+
+[Security Scan]
+Detect security vulnerabilities and PII/secrets
+[INCOMPLETE] skillspector did not complete
+
+Summary:
+  • Errors: 0
+  • Warnings: 1
+
+Warnings:
+  [WARN] skillspector not installed - skipping security scan. Install with: uv 
+tool install git+https://github.com/NVIDIA/SkillSpector.git
+
+[Code Risk Analysis]
+Static code analysis using Bandit and packaged Semgrep rules
+[INCOMPLETE] semgrep did not complete
+
+Summary:
+  • Errors: 0
+  • Warnings: 1
+
+Warnings:
+  [WARN] semgrep not installed. Install Semgrep separately with: brew install 
+semgrep (macOS) or uv tool install semgrep
+
+[Secrets Detection]
+Detect hardcoded secrets, API keys, and credentials using Gitleaks
+[INCOMPLETE] gitleaks did not complete
+
+Summary:
+  • Errors: 0
+  • Warnings: 1
+
+Warnings:
+  [WARN] gitleaks not installed - secrets scanning skipped. Install with: brew 
+install gitleaks (macOS) or go install github.com/gitleaks/gitleaks/v8@latest
+╭───────────────────────╮
+│ Non-blocking Findings │
+╰───────────────────────╯
+
+[QUALITY]
+Skill quality scoring across Correctness (35%), Discoverability (25%), 
+Reliability (25%), and Efficiency (15%)
+
+  Overall: 80.0/100 (Grade: B)
+  Skill Type: hybrid
+
+                            Quality Scores by Skill                             
+┏━━━━━━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━┓
+┃ Skill      ┃ Grade ┃ Score ┃ Correctne… ┃ Discover… ┃ Reliabili… ┃ Efficien… ┃
+┡━━━━━━━━━━━━╇━━━━━━━╇━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━┩
+│ ai-optimi… │   B   │  80.0 │         65 │        90 │         85 │        90 │
+└────────────┴───────┴───────┴────────────┴───────────┴────────────┴───────────┘
+
+[PASS] Validation passed
+
+Summary:
+  • Checks performed: 1
+
+Details:
+  [OK] quality_score: Score: 80.0/100 (Grade: B) (overall_score=80.0, grade=B, 
+skill_type=hybrid)
+Issues:
+  1. [QUALITY-MEDIUM] No documented scripts in table format
+     File:    
+/home/sustainableabundance/dev/agentic-reactor/skills/ai-optimization/SKILL.md
+     Check:   quality_correctness
+     Fix:     Add '## Available Scripts' with table: | Script | Purpose | 
+Arguments |
+
+  2. [QUALITY-MEDIUM] Instructions don't mention 'run_script'
+     File:    
+/home/sustainableabundance/dev/agentic-reactor/skills/ai-optimization/SKILL.md
+     Check:   quality_correctness
+     Fix:     Add explicit run_script() call examples
+
+  3. [QUALITY-MEDIUM] SKILL_SPEC recommended field missing: 'version'
+     File:    
+/home/sustainableabundance/dev/agentic-reactor/skills/ai-optimization/SKILL.md
+     Check:   quality_correctness
+     Fix:     Add 'version' to frontmatter — Semantic version (e.g., "1.0.0")
+
+  4. [QUALITY-MEDIUM] SKILL_SPEC recommended field missing: 'metadata.author'
+     File:    
+/home/sustainableabundance/dev/agentic-reactor/skills/ai-optimization/SKILL.md
+     Check:   quality_correctness
+     Fix:     Add 'author' under metadata: — Author name or team (under 
+metadata:)
+
+  5. [QUALITY-MEDIUM] SKILL_SPEC recommended field missing: 'metadata.tags'
+     File:    
+/home/sustainableabundance/dev/agentic-reactor/skills/ai-optimization/SKILL.md
+     Check:   quality_correctness
+     Fix:     Add 'tags' under metadata: — Categorization tags (under metadata:,
+list of 1-5 items)
+
+  6. [QUALITY-LOW] Description very long (312 chars, recommend 50-150)
+     File:    
+/home/sustainableabundance/dev/agentic-reactor/skills/ai-optimization/SKILL.md
+     Check:   quality_discoverability
+     Fix:     Keep descriptions concise for progressive disclosure
+
+  7. [QUALITY-LOW] No '## Purpose' section
+     File:    
+/home/sustainableabundance/dev/agentic-reactor/skills/ai-optimization/SKILL.md
+     Check:   quality_discoverability
+     Fix:     Add purpose section to clarify use cases
+
+  8. [QUALITY-LOW] No prerequisites/requirements documented
+     File:    
+/home/sustainableabundance/dev/agentic-reactor/skills/ai-optimization/SKILL.md
+     Check:   quality_reliability
+     Fix:     Document dependencies, API keys, or setup needed
+
+  9. [QUALITY-LOW] No limitations documented
+     File:    
+/home/sustainableabundance/dev/agentic-reactor/skills/ai-optimization/SKILL.md
+     Check:   quality_reliability
+     Fix:     Add '## Limitations' section with known issues/constraints
+
+  10. [QUALITY-LOW] No troubleshooting section documented
+     File:    
+/home/sustainableabundance/dev/agentic-reactor/skills/ai-optimization/SKILL.md
+     Check:   quality_reliability
+     Fix:     Add '## Troubleshooting' with Error/Cause/Solution patterns
+
+  11. [QUALITY-MEDIUM] Deeply nested references in typescript-optimizer.md
+     File:    
+/home/sustainableabundance/dev/agentic-reactor/skills/ai-optimization/SKILL.md
+     Check:   quality_efficiency
+     Fix:     Keep references one level deep from SKILL.md
+
+
+[SCRIPT_LINT]
+AST-based code quality checks for skill scripts
+[PASS] Validation passed
+
+Summary:
+
+Issues:
+  1. [SCRIPT_LINT-LOW] context-sage.py contains magic numbers
+     File:    
+/home/sustainableabundance/dev/agentic-reactor/skills/ai-optimization/scripts/co
+ntext-sage.py
+     Check:   magic_numbers
+     Fix:     Extract magic numbers to named constants
+
+
+[INCOMPLETE] Validation evidence is incomplete
+
+╭──────────────────────────────────────────────────────────────────────────────╮
+│  skillevaluator validate                            skill: ai-optimization   │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+╭─ Tier 1 · Static & Security ─────────────────────────────────────────────────╮
+│    checks      ✗ schema · ✓ version · ✗ security · ✓ pii · ✓ license · ✗     │
+│  code-integrity · ✓ unicode · ✓ quality · ✓ lint                             │
+│    summary     7/11 passed  ·  4 failed  ·  6 warnings                       │
+│  ✗ failed      Schema & Repository Governance — Author not specified in      │
+│  metadata                                                                    │
+│  ✗ failed      Security Scan                                                 │
+│  ✗ failed      Code Risk Analysis                                            │
+│  ✗ failed      Secrets Detection                                             │
+│    advisories  12  quality 11 · lint 1                                       │
+│    quality     B  80.0 / 100                                                 │
+╰────────────────────────────────────────────────────────────── ✗ fail · 0.3s ─╯
+╭──────────────────────────────────────────────────────────────────────────────╮
+│   ✗ FAIL   Schema & Repository Governance (+3 more) failed in Tier 1  ·      │
+│  exit 1                                                                      │
+│                                                                              │
+│  fix     Add 'metadata.author' field with format 'Name <email@example.com>'  │
+│          skillevaluator validate                                             │
+│  /home/sustainableabundance/dev/agentic-reactor/skills/ai-optimization       │
+│  --no-dedup -r cli -o                                                        │
+│  /home/sustainableabundance/Work/archive/home-2026-09-07/skill-eval-2026-09  │
+│  -08/reports                                                                 │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Error: validation failed
