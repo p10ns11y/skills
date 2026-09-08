@@ -1,25 +1,41 @@
 ---
 name: agent-orchestrator
-description: >-
-  Triage every non-trivial task first: single-shot when safe, full orchestration when
-  multi-step, multi-agent, or high-risk. Covers briefs, verification before "done",
-  iterative waves, and resume. Use when coordinating workers, delegating, or reviewing
-  agent output — not for one-file typo fixes.
+version: 0.1.0
+description: >
+  Triage then orchestrate workers with briefs and verify-before-done.
+  Use when coordinating, delegating, or reviewing agent output.
+metadata:
+  author: p10ns11y <9104920+p10ns11y@users.noreply.github.com>
+  tags:
+    - orchestration
+    - agents
+    - verification
+    - worktrees
 ---
 
 # agent-orchestrator
 
-> **Load rule:** Formal SoT below. Expand [references/english-procedure.md](references/english-procedure.md) **only if** a phase or handoff is still ambiguous.  
+> **Load rule:** Formal SoT below. Expand [references/english-procedure.md](references/english-procedure.md) **only if** a phase or handoff is still ambiguous.
 > **CLT:** on-the-fly pre-filter [../rules/clt-dual-load.mdc](../rules/clt-dual-load.mdc) (A8 DualLoad) — expand [../control-graph/references/clt-load-balance.md](../control-graph/references/clt-load-balance.md) only if human/agent load tradeoff is ambiguous.
 
+## Purpose
+
+Coordinate non-trivial work so workers implement and the orchestrator **re-runs verify**. Skip for one-file typo fixes.
+
+## Prerequisites
+
+- Target repo `AGENTS.md` for verify cmds.
+- Git worktrees for concurrent workers ([git-worktrees](../git-worktrees/SKILL.md)).
+- Brief template: [references/task-brief.md](references/task-brief.md).
+
+## Instructions
+
 ```text
-// Signature
 Orch ≔ coordinator   // you
 W    ≔ workers        // one brief, one workspace, one DoD each
 Triage ∈ { single_shot, light, full }
 Wave  ∈ { spike, foundation, feature, hygiene }
 
-// Axioms
 A1  Workers never self-verify as final truth — Orch re-runs verify cmds
 A2  Brief before delegate; commit in workspace before "done"
 A3  Merge ≻ cp   // integration via git only ([git-worktrees](../git-worktrees/SKILL.md))
@@ -30,9 +46,7 @@ A6  Compose control shape with [control-graph](../control-graph/SKILL.md); this 
 
 Pair: [git-worktrees](../git-worktrees/SKILL.md) · [concurrent-cli-agents](../concurrent-cli-agents/SKILL.md) · [split-to-prs](../split-to-prs/SKILL.md) · domain skills per worker.
 
----
-
-## Triage (~10s)
+### Triage (~10s)
 
 | Mode | When | Do |
 |------|------|-----|
@@ -45,9 +59,7 @@ request → triage → single_shot | light | full
 escalate: single_shot grows past ~2 files / new unknowns → stop → light|full
 ```
 
----
-
-## Full path (graph)
+### Full path
 
 ```text
 ORIENT → DECOMPOSE → SPIKE? → BRIEF → DELEGATE → VERIFY ⇄ fix-brief → INTEGRATE → REPORT
@@ -58,13 +70,11 @@ ORIENT → DECOMPOSE → SPIKE? → BRIEF → DELEGATE → VERIFY ⇄ fix-brief 
 | ORIENT | 1-sentence goal · base ref · constraints · unknowns · risk |
 | DECOMPOSE | waves with **disjoint** ownership where possible |
 | SPIKE | risky unknown proved or rejected (≤1–2 files / readonly + rec) |
-| BRIEF | [templates/task-brief.md](templates/task-brief.md) complete |
+| BRIEF | [references/task-brief.md](references/task-brief.md) complete |
 | DELEGATE | one prompt/W; workspace recorded |
 | VERIFY | Orch ran **every** verify cmd; scope matches brief |
 | INTEGRATE | merge one branch at a time; re-verify; no `cp` |
 | REPORT | summary to user |
-
-### Roles
 
 | Role | Owns |
 |------|------|
@@ -74,18 +84,14 @@ ORIENT → DECOMPOSE → SPIKE? → BRIEF → DELEGATE → VERIFY ⇄ fix-brief 
 
 Orch may implement only if trivial or verify failed twice and inline fix is faster — say so.
 
----
+### Brief minimum
 
-## Brief minimum
-
-1. Problem · 2. Outcome (observable) · 3. Non-goals · 4. Standards (skills)  
+1. Problem · 2. Outcome (observable) · 3. Non-goals · 4. Standards (skills)
 5. Files may/must-not · 6. **Verify cmds** (exact) · 7. Workspace · 8. Done artifact (commit)
 
 Worker handback: SHA · cmds+exit · 2-sentence approach · limits.
 
----
-
-## Verify (Orch-owned)
+### Verify (Orch-owned)
 
 | Check | Action |
 |-------|--------|
@@ -97,52 +103,42 @@ Worker handback: SHA · cmds+exit · 2-sentence approach · limits.
 
 **Fail** → fix brief (gap only), same workspace if possible. **Never merge on testimony alone.**
 
----
-
-## Resume
+### Resume
 
 ```text
 read last brief → git log/diff/worktree list → remaining gap (1¶) → "Resume: …" brief only
 ```
 
----
+Defaults (override from target `AGENTS.md`): frozen lockfile when deps change; `type-check` + `lint`; React → [react-client-expert](../react-client-expert/SKILL.md); deps → [fix-dependency-security](../fix-dependency-security/SKILL.md); minimal diff.
 
-## Defaults (override from target `AGENTS.md`)
+Stack handoff: leave a pushed linear branch + per-PR SHAs. Confirm the final branch name with the user. Detail: [references/english-procedure.md](references/english-procedure.md#stack-handoff).
 
-- Frozen lockfile when deps change  
-- `type-check` + `lint`  
-- React → [react-client-expert](../react-client-expert/SKILL.md)  
-- Deps → [fix-dependency-security](../fix-dependency-security/SKILL.md)  
-- Minimal diff  
+## Examples
 
----
+User: "Split this refactor across two agents. Do not merge on their word."
 
-## Anti-patterns
+Agent: triage **full**. Write two disjoint briefs with exact verify cmds. Each worker gets one worktree. Orch re-runs every verify cmd, then merges via git (never `cp`). Report SHAs + leftover gaps.
 
-| ¬ | Do |
-|---|-----|
-| vague brief | observable outcome + verify cmds |
-| skip spike on unknown integration | spike first |
-| accept "done" without re-run | Orch verifies |
-| `cp` from worktree | merge / cherry-pick |
-| mega-prompt unrelated files | disjoint briefs |
-| re-delegate full scope on resume | gap-only |
-| Orch implements + "verifies" same large feature | separate review |
-| natural feature name for final stack branch | artificial/`-stack`/plan-id (collision risk) |
+User: "Fix the typo in README."
 
----
+Agent: triage **single_shot**. Edit + verify. No worktree, no brief.
 
-## Stack handoff (execute-plan / Graphite)
+## Limitations
 
-```text
-Agent session often ≠ user's authenticated gt shell
-→ leave: pushed linear branch + per-PR branch SHAs + fetch/submit instructions
-→ confirm final branch name with user; never steal plausible feature/* names
-```
+- Not for one-file typo fixes (single_shot is the skip path).
+- Orch must not both implement and "verify" the same large feature.
+- Does not replace domain skills; workers load those.
+- Graphite/`gt` session of the agent may not be the user's authenticated shell.
 
-Detail: [references/english-procedure.md](references/english-procedure.md#stack-handoff).
+## Troubleshooting
 
----
+| Error / symptom | Cause | Fix |
+|-----------------|-------|-----|
+| Worker says done, tests fail | Testimony without Orch re-run | Re-run brief verify cmds; gap-only fix brief |
+| Diff outside allowed files | Vague brief | Tighten files may/must-not; same workspace |
+| Merge conflict storm | Overlapping waves | Decompose disjoint; merge one branch at a time |
+| Resume redoes the whole task | Full original brief reused | Gap-only resume brief |
+| `cp` from worktree | Integration shortcut | merge / cherry-pick only |
 
 ## Report template
 
