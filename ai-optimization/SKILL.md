@@ -115,21 +115,55 @@ Hand off to fusion-sage for architecture / long-term design.
 
 ## Available Scripts
 
-| Script | What | Invoke |
-|--------|------|--------|
-| [scripts/context-sage.py](scripts/context-sage.py) | Token-optimized context pack | `python scripts/context-sage.py analyze --project DIR --query Q --budget N --lang LANG` then `pack --output context-pack.md` |
+| Script | Purpose | Arguments |
+|--------|---------|-----------|
+| [scripts/context-sage.py](scripts/context-sage.py) | Build a token-budgeted context pack (analyze → pack) for large-repo edits without dumping the tree | `analyze --project DIR --query Q --budget N --lang LANG`; then `pack --output context-pack.md` |
 
-When the host supports `run_script`, call `scripts/context-sage.py` instead of reconstructing the pack in prose. Proof notes: [references/tested.md](references/tested.md).
+Hosts with `run_script` **must** call the script — do not paraphrase a pack in prose.
+
+```text
+run_script("scripts/context-sage.py", ["analyze", "--project", DIR, "--query", Q, "--budget", "45000", "--lang", LANG])
+run_script("scripts/context-sage.py", ["pack", "--output", "context-pack.md"])
+```
+
+Shell equivalent (Grok Build / local cursor-agent on mzapan):
+
+```bash
+python scripts/context-sage.py analyze --project "$REPO" --query "$GOAL" --budget 45000 --lang rust
+python scripts/context-sage.py pack --output context-pack.md
+```
+
+Collab-finder / Tauri large surface: set `--project` to the app root, `--query` to the hunt or IPC slice (e.g. `finder-reactor promote pack`), `--lang` to `typescript` or `rust` as needed. Keep auth, DB paths, and files you will edit at full body after the pack.
+
+Proof notes: [references/tested.md](references/tested.md).
 
 ## Examples
 
 User: "Huge repo. Add password reset. Don't dump the tree."
 
-Agent: score by symbol/path; keep auth + files you will edit at full body; compress `<30` names only; if packing, `run_script` on `scripts/context-sage.py analyze --query "password reset"`. Run project verify cmds.
+Agent: score by symbol/path; keep auth + files you will edit at full body; compress `<30` names only. Pack with:
+
+```text
+run_script("scripts/context-sage.py", ["analyze", "--project", ".", "--query", "password reset", "--budget", "45000", "--lang", "typescript"])
+run_script("scripts/context-sage.py", ["pack", "--output", "context-pack.md"])
+```
+
+Then run project verify cmds.
 
 User: "Context window is full, explain the queue module."
 
 Agent: map public API, emit 30–60 tier summaries, offer `expand <symbol>`.
+
+User: "Grok Build is thrashing on collab-finder — pack the reactor before editing."
+
+Agent: from the skill dir (or skill-relative path):
+
+```text
+run_script("scripts/context-sage.py", ["analyze", "--project", "/path/to/collab-finder", "--query", "finder-reactor promote", "--budget", "45000", "--lang", "typescript"])
+run_script("scripts/context-sage.py", ["pack", "--output", "context-pack.md"])
+```
+
+Never compress SQLite paths, application packs, or files you will edit.
 
 ## Limitations
 
