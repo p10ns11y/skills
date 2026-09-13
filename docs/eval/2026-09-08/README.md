@@ -16,13 +16,13 @@ Gate: quality-check **PASS** (≥70) for both.
 | Tier | Status | Why |
 |------|--------|-----|
 | Tier2 dedup | **FAIL** | Provider 401 — `OPENAI_API_KEY` in the shell was not a valid OpenAI key (wrong provider material). |
-| Tier3 live Skill Lift | **SKIPPED** | Docker missing on mzapan; staging tree incomplete; no completed with/without-skill arms. |
+| Tier3 live Skill Lift | **SKIPPED** | Docker missing on laptop-1; staging tree incomplete; no completed with/without-skill arms. |
 
 Raw CLI transcripts (redacted): [artifacts/](artifacts/).
 
 ## How we ran it (tools → tasks)
 
-Pipeline used on laptop **mzapan** under CoS token lock (no Cursor cloud agents):
+Pipeline used on laptop **laptop-1** under CoS token lock (no Cursor cloud agents):
 
 ```text
 tools
@@ -50,7 +50,7 @@ tasks
 | cursor worker | worktree `skill-eval-cursor`, agent `cursor` | Failed `dispatch_input` / `agent_prompt_stalled` |
 | Fallback | host shell SkillEvaluator | Ensured Tier1 scores landed even if TUIs stalled |
 
-Brief used by workers: archived at `~/Work/archive/home-2026-09-07/skill-eval-2026-09-08/BRIEF.md` on mzapan.
+Brief used by workers: archived at `~/Work/archive/home-2026-09-07/skill-eval-2026-09-08/BRIEF.md` on laptop-1.
 
 ## Suggestions to improve
 
@@ -66,13 +66,13 @@ Brief used by workers: archived at `~/Work/archive/home-2026-09-07/skill-eval-20
 
 6. **Provider hygiene** — set `SKILL_EVAL_LLM_PROVIDER` explicitly; ensure `OPENAI_API_KEY` is a real OpenAI key (or use `NVIDIA_API_KEY` + `nv_build`). Do not rely on auto-detect when multiple AI keys exist.
 7. **Install scanners** for complete Tier1 `--full`: Semgrep, Gitleaks, SkillSpector (quality-check alone skips those gates).
-8. **Docker or Harbor** on mzapan for Tier3 with/without-skill arms; until then Skill Lift stays incomplete.
+8. **Docker or Harbor** on laptop-1 for Tier3 with/without-skill arms; until then Skill Lift stays incomplete.
 9. **Orca cursor worker** — open/focus the agent TUI before `worker-start`, or `terminal send` after `tui-idle`; headless `--agent cursor` stalled on prompt injection.
 10. **Keep Orca serve warm** — `orca serve` dropped between long gaps; compound scripts that create Run + workers in one session are more reliable than separate Shell turns.
 11. **Automate** — add a `docs/eval/run-tier1.sh` that loops `quality-check` over a allowlist and writes markdown tables (this pass was hand-orchestrated once).
 
 ## Owner / rerun
 
-- Owner: Steward (EM), mzapan-local Orca / Grok / cursor-agent.
+- Owner: Steward (EM), laptop-1-local Orca / Grok / cursor-agent.
 - Reminder ops note: Steward box `/workspace/ops/skill-eval/REMINDER.md`.
 - Rerun Tier3 only after provider + Docker (or Harbor) are green.

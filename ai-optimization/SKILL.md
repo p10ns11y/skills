@@ -126,7 +126,7 @@ run_script("scripts/context-sage.py", ["analyze", "--project", DIR, "--query", Q
 run_script("scripts/context-sage.py", ["pack", "--output", "context-pack.md"])
 ```
 
-Shell equivalent (Grok Build / local cursor-agent on mzapan):
+Shell equivalent (Grok Build / local cursor-agent on laptop-1):
 
 ```bash
 python scripts/context-sage.py analyze --project "$REPO" --query "$GOAL" --budget 45000 --lang rust
