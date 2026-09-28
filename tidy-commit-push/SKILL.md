@@ -80,13 +80,13 @@ git push -u origin HEAD
 # never --force to main/master unless explicit disaster recovery + approval
 ```
 
-### 6. PR — only if requested: `gh pr create …`
+### 6. PR — only if requested. Default `gh pr create`. If the user says the repo is cursor-origin, use the origin CLI. Do not create a GitHub repo unless asked.
 
 ---
 
 ## Done when
 
-- [ ] `git status` clean or only intentional leftovers listed  
+- [ ] `git status` clean. Do not leave unrelated files unstaged: gitignore them or delete them when the user says leftovers are not allowed.  
 - [ ] Commit exists with accurate message  
 - [ ] Push/PR **only** per user request  
 
@@ -96,7 +96,7 @@ git push -u origin HEAD
 |---|-----|
 | commit + push secrets | scrub; rotate if leaked |
 | "WIP" on main without ask | feature branch |
-| amend published commit | new commit |
+| amend published commit | new commit, unless that commit still contains a secret, hostname, device username, or other non-public identifier — then amend or rewrite it so the identifier leaves history before further push |
 | force-push shared branch | recover with user plan |
 | silent agent push | wait for HITL |
 
