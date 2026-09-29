@@ -189,6 +189,7 @@ Pick a pack, symlink those skills, add more as needed.
 | [master-planner](master-planner/SKILL.md)               | Master plan = friction-removing automation web; scan library, pull pack, Orwell-tweak overlays, ontology for complex repos |
 | [bdd-strategizer](bdd-strategizer/SKILL.md)             | Core-first BDD/TDD decomposition for large refactors |
 | [author-workflow-skill](author-workflow-skill/SKILL.md) | Author new well-formed `SKILL.md` files              |
+| [semantic-name](semantic-name/SKILL.md) | Name the thing for its job in this context; Gate is not a default label |
 | [dual-copy-skill-publish](dual-copy-skill-publish/SKILL.md) | Sync skill trees between project and portable library (or symlink) |
 | [skill-rename-propagation](skill-rename-propagation/SKILL.md) | One-pass rename across folder, rules, packs, indexes, consumers |
 | [higher-order-decision-architect](higher-order-decision-architect/SKILL.md) | First-principles decision framework before material architecture/API/security choices |
