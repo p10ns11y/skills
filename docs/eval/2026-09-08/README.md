@@ -73,6 +73,6 @@ Brief used by workers: archived at `~/Work/archive/home-2026-09-07/skill-eval-20
 
 ## Owner / rerun
 
-- Owner: Steward (EM), laptop-1-local Orca / Grok / cursor-agent.
-- Reminder ops note: Steward box `/workspace/ops/skill-eval/REMINDER.md`.
+- Owner: the maintainer, laptop-1-local Orca / Grok / cursor-agent.
+- Reminder ops note: a private scratch machine.
 - Rerun Tier3 only after provider + Docker (or Harbor) are green.
