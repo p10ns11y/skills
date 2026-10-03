@@ -1,6 +1,6 @@
 # AGENTS.md — skills library
 
-**Owner:** Steward / Fleet coordination for this skill library — keep skills portable, composable, and canonical here.
+**Owner:** the maintainer for this skill library — keep skills portable, composable, and canonical here.
 
 **Canonical remote:** https://github.com/p10ns11y/skills
 

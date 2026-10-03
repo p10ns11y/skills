@@ -35,70 +35,70 @@ skill_type=hybrid)
 Issues:
   1. [QUALITY-MEDIUM] No documented scripts in table format
      File:    
-/home/sustainableabundance/dev/agentic-reactor/skills/ai-optimization/SKILL.md
+~/dev/agentic-reactor/skills/ai-optimization/SKILL.md
      Check:   quality_correctness
      Fix:     Add '## Available Scripts' with table: | Script | Purpose | 
 Arguments |
 
   2. [QUALITY-MEDIUM] Instructions don't mention 'run_script'
      File:    
-/home/sustainableabundance/dev/agentic-reactor/skills/ai-optimization/SKILL.md
+~/dev/agentic-reactor/skills/ai-optimization/SKILL.md
      Check:   quality_correctness
      Fix:     Add explicit run_script() call examples
 
   3. [QUALITY-MEDIUM] SKILL_SPEC recommended field missing: 'version'
      File:    
-/home/sustainableabundance/dev/agentic-reactor/skills/ai-optimization/SKILL.md
+~/dev/agentic-reactor/skills/ai-optimization/SKILL.md
      Check:   quality_correctness
      Fix:     Add 'version' to frontmatter — Semantic version (e.g., "1.0.0")
 
   4. [QUALITY-MEDIUM] SKILL_SPEC recommended field missing: 'metadata.author'
      File:    
-/home/sustainableabundance/dev/agentic-reactor/skills/ai-optimization/SKILL.md
+~/dev/agentic-reactor/skills/ai-optimization/SKILL.md
      Check:   quality_correctness
      Fix:     Add 'author' under metadata: — Author name or team (under 
 metadata:)
 
   5. [QUALITY-MEDIUM] SKILL_SPEC recommended field missing: 'metadata.tags'
      File:    
-/home/sustainableabundance/dev/agentic-reactor/skills/ai-optimization/SKILL.md
+~/dev/agentic-reactor/skills/ai-optimization/SKILL.md
      Check:   quality_correctness
      Fix:     Add 'tags' under metadata: — Categorization tags (under metadata:,
 list of 1-5 items)
 
   6. [QUALITY-LOW] Description very long (312 chars, recommend 50-150)
      File:    
-/home/sustainableabundance/dev/agentic-reactor/skills/ai-optimization/SKILL.md
+~/dev/agentic-reactor/skills/ai-optimization/SKILL.md
      Check:   quality_discoverability
      Fix:     Keep descriptions concise for progressive disclosure
 
   7. [QUALITY-LOW] No '## Purpose' section
      File:    
-/home/sustainableabundance/dev/agentic-reactor/skills/ai-optimization/SKILL.md
+~/dev/agentic-reactor/skills/ai-optimization/SKILL.md
      Check:   quality_discoverability
      Fix:     Add purpose section to clarify use cases
 
   8. [QUALITY-LOW] No prerequisites/requirements documented
      File:    
-/home/sustainableabundance/dev/agentic-reactor/skills/ai-optimization/SKILL.md
+~/dev/agentic-reactor/skills/ai-optimization/SKILL.md
      Check:   quality_reliability
      Fix:     Document dependencies, API keys, or setup needed
 
   9. [QUALITY-LOW] No limitations documented
      File:    
-/home/sustainableabundance/dev/agentic-reactor/skills/ai-optimization/SKILL.md
+~/dev/agentic-reactor/skills/ai-optimization/SKILL.md
      Check:   quality_reliability
      Fix:     Add '## Limitations' section with known issues/constraints
 
   10. [QUALITY-LOW] No troubleshooting section documented
      File:    
-/home/sustainableabundance/dev/agentic-reactor/skills/ai-optimization/SKILL.md
+~/dev/agentic-reactor/skills/ai-optimization/SKILL.md
      Check:   quality_reliability
      Fix:     Add '## Troubleshooting' with Error/Cause/Solution patterns
 
   11. [QUALITY-MEDIUM] Deeply nested references in typescript-optimizer.md
      File:    
-/home/sustainableabundance/dev/agentic-reactor/skills/ai-optimization/SKILL.md
+~/dev/agentic-reactor/skills/ai-optimization/SKILL.md
      Check:   quality_efficiency
      Fix:     Keep references one level deep from SKILL.md
 

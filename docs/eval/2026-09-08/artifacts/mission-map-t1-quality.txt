@@ -35,14 +35,14 @@ skill_type=guide-only)
 Issues:
   1. [QUALITY-MEDIUM] SKILL_SPEC recommended field missing: 'version'
      File:    
-/home/sustainableabundance/dev/agentic-reactor/plugins/mission-map/skills/missio
+~/dev/agentic-reactor/plugins/mission-map/skills/missio
 n-map/SKILL.md
      Check:   quality_correctness
      Fix:     Add 'version' to frontmatter — Semantic version (e.g., "1.0.0")
 
   2. [QUALITY-MEDIUM] SKILL_SPEC recommended field missing: 'metadata.author'
      File:    
-/home/sustainableabundance/dev/agentic-reactor/plugins/mission-map/skills/missio
+~/dev/agentic-reactor/plugins/mission-map/skills/missio
 n-map/SKILL.md
      Check:   quality_correctness
      Fix:     Add 'author' under metadata: — Author name or team (under 
@@ -50,7 +50,7 @@ metadata:)
 
   3. [QUALITY-MEDIUM] SKILL_SPEC recommended field missing: 'metadata.tags'
      File:    
-/home/sustainableabundance/dev/agentic-reactor/plugins/mission-map/skills/missio
+~/dev/agentic-reactor/plugins/mission-map/skills/missio
 n-map/SKILL.md
      Check:   quality_correctness
      Fix:     Add 'tags' under metadata: — Categorization tags (under metadata:,
@@ -58,42 +58,42 @@ list of 1-5 items)
 
   4. [QUALITY-LOW] Description very long (341 chars, recommend 50-150)
      File:    
-/home/sustainableabundance/dev/agentic-reactor/plugins/mission-map/skills/missio
+~/dev/agentic-reactor/plugins/mission-map/skills/missio
 n-map/SKILL.md
      Check:   quality_discoverability
      Fix:     Keep descriptions concise for progressive disclosure
 
   5. [QUALITY-LOW] No '## Purpose' section
      File:    
-/home/sustainableabundance/dev/agentic-reactor/plugins/mission-map/skills/missio
+~/dev/agentic-reactor/plugins/mission-map/skills/missio
 n-map/SKILL.md
      Check:   quality_discoverability
      Fix:     Add purpose section to clarify use cases
 
   6. [QUALITY-LOW] No mention of error handling or validation
      File:    
-/home/sustainableabundance/dev/agentic-reactor/plugins/mission-map/skills/missio
+~/dev/agentic-reactor/plugins/mission-map/skills/missio
 n-map/SKILL.md
      Check:   quality_reliability
      Fix:     Document expected errors and how to handle them
 
   7. [QUALITY-LOW] No prerequisites/requirements documented
      File:    
-/home/sustainableabundance/dev/agentic-reactor/plugins/mission-map/skills/missio
+~/dev/agentic-reactor/plugins/mission-map/skills/missio
 n-map/SKILL.md
      Check:   quality_reliability
      Fix:     Document dependencies, API keys, or setup needed
 
   8. [QUALITY-LOW] No limitations documented
      File:    
-/home/sustainableabundance/dev/agentic-reactor/plugins/mission-map/skills/missio
+~/dev/agentic-reactor/plugins/mission-map/skills/missio
 n-map/SKILL.md
      Check:   quality_reliability
      Fix:     Add '## Limitations' section with known issues/constraints
 
   9. [QUALITY-LOW] No troubleshooting section documented
      File:    
-/home/sustainableabundance/dev/agentic-reactor/plugins/mission-map/skills/missio
+~/dev/agentic-reactor/plugins/mission-map/skills/missio
 n-map/SKILL.md
      Check:   quality_reliability
      Fix:     Add '## Troubleshooting' with Error/Cause/Solution patterns

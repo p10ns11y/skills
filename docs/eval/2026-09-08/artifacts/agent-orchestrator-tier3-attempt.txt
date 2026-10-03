@@ -42,7 +42,7 @@ Error: No such option '--agent'. (Did you mean one of: '--agent-model', '--agent
 │                                                                              │
 │  fix     Add 'metadata.author' field with format 'Name <email@example.com>'  │
 │          skillevaluator validate                                             │
-│  /home/sustainableabundance/dev/agentic-reactor/skills/agent-orchestrator    │
+│  ~/dev/agentic-reactor/skills/agent-orchestrator                             │
 │  --full                                                                      │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 
