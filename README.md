@@ -100,6 +100,7 @@ Pick a pack, symlink those skills, add more as needed.
 | **Strategy & decisions**        | `higher-order-decision-architect`, `bdd-strategizer`, `stellar-spacemap`, `eva-emptiness`, `odysseus-navigator`      | Architecture tradeoffs, blank-sheet / epistemic emptiness, hubris/Ithaca judgment, backlog docs |
 | **Master plan / skill packs**   | `master-planner` (+ pack it selects)                                                          | Pull/tweak skills for cwd; Orwell overlays; project ontology |
 | **Shell verify workflow**       | `verification-cockpit`, `shell-kernel-ontology`, `stellar-spacemap`, `ai-optimization`, `architecture-synthesis` | `av` tmux cockpits, kernel ontology graph, `coming-next.md` roadmaps |
+| **Durable product surfaces**    | `peram_senior_mlai_engineer`, `peram_data_workflows`, `peram_si_native_workflows`, `peram_si_service_harness`, `peram_deterministic_saas`, `peram_infra`, `peram_devex` | Data, SI-native flows, SI service, deterministic SaaS, careful infra, devex. Load the spine plus one profile |
 
 
 ---
@@ -206,6 +207,22 @@ Pick a pack, symlink those skills, add more as needed.
 | [verification-cockpit](verification-cockpit/SKILL.md)       | Generate per-project `.agents/verification/` tmux cockpits for `av`-style verify workflows       |
 | [shell-kernel-ontology](shell-kernel-ontology/SKILL.md)       | Route edits across shellyxz kernel ontology subgraphs (PATH, boundary, verify bridge, drift gate) |
 | [session-unit-order](session-unit-order/SKILL.md)             | UWSM / graphical-session unit-order guard (project-born; dual-copy from arch-machine) |
+
+
+### Durable product surfaces
+
+Load [peram_senior_mlai_engineer](peram_senior_mlai_engineer/SKILL.md) plus **one** profile. SI is the system workflow that owns the write. The model may draft. Bodies are installed from the `si` plugin; these directories symlink to that plugin.
+
+
+| Skill                                                       | One-liner                                                                                          |
+| ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| [peram_senior_mlai_engineer](peram_senior_mlai_engineer/SKILL.md) | Spine: first principles, Machine First, presentation layer, profile router                    |
+| [peram_data_workflows](peram_data_workflows/SKILL.md)       | Contract, gate, lineage, and replay for data that outlives the model                              |
+| [peram_si_native_workflows](peram_si_native_workflows/SKILL.md) | Intent, draft, review, commit — SI-native elements as a screen workflow                       |
+| [peram_si_service_harness](peram_si_service_harness/SKILL.md) | Admit, versioned route, eval, fallback, trace — the harness is the SI service                 |
+| [peram_deterministic_saas](peram_deterministic_saas/SKILL.md) | Invariant, state machine, idempotent write, audit for classical SaaS                          |
+| [peram_infra](peram_infra/SKILL.md)                         | One service the product needs; cost named; security scales; complexity stays with the product |
+| [peram_devex](peram_devex/SKILL.md)                         | Reproduce, verify, review, ship — the fast path stays the secure path                         |
 
 
 ### Specialized
