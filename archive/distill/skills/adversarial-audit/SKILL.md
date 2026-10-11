@@ -1,6 +1,7 @@
 ---
 name: adversarial-audit
 description: Systematically read modules, grep for mappings, run tests, and capture evidence of bugs or leaks before verdict
+disable-model-invocation: true
 ---
 
 # adversarial-audit

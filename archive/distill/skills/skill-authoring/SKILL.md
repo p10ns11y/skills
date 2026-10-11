@@ -1,6 +1,7 @@
 ---
 name: skill-authoring
 description: when creating a new portable skill: read plan, write SKILL.md + rule + validation, update indexes and todos
+disable-model-invocation: true
 ---
 
 # skill-authoring

@@ -1,6 +1,7 @@
 ---
 name: apply-plan-review
 description: Incorporate user review comments on plan.md by editing anti-refs and adding SN cards
+disable-model-invocation: true
 ---
 
 # apply-plan-review

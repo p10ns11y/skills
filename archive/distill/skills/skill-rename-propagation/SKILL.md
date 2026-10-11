@@ -1,6 +1,7 @@
 ---
 name: skill-rename-propagation
 description: rename skill folder/rule/index everywhere then update both library and consuming repo
+disable-model-invocation: true
 ---
 
 # skill-rename-propagation
