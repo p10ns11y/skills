@@ -1,6 +1,7 @@
 ---
 name: dual-copy-skill-publish
 description: Keep git-tracked project copy under .agents/skills/ while maintaining identical copy under {REPO_ROOT} and pushing both to skills remote
+disable-model-invocation: true
 ---
 
 # dual-copy-skill-publish

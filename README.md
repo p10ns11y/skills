@@ -24,7 +24,7 @@ Most agent failures are not model failures. They are **context**, **coordination
 | Blank-sheet / epistemic emptiness | Overconfident ReAct, auto-approve when unknown is auth | [eva-emptiness](eva-emptiness/SKILL.md) (+ Grok plugin in `../plugins/eva-emptiness`) |
 | Hubris / decade-long wandering / over-clever loops | Fashion rewrites, golden cages, prod scars, ships that never reach Ithaca | [odysseus-navigator](odysseus-navigator/SKILL.md) — judgment plane; CG Outer + EVA Inner stay owners |
 | Unsafe autonomous actions | Near-misses on CV writes, runaway API spend | [finder-reactor](finder-reactor/SKILL.md) + [cv-promote-guard](cv-promote-guard/SKILL.md) |
-| npm supply-chain risk | "Audit clean" installs that still weren't safe | [fix-dependency-security](fix-dependency-security/SKILL.md) + [supply-chain-harden](supply-chain-harden/SKILL.md) |
+| npm supply-chain risk | "Audit clean" installs that still weren't safe | [fix-dependency-security](fix-dependency-security/SKILL.md) |
 | Leaving the agent to jot a note | Broken flow, forgotten captures | [premflow](premflow/SKILL.md) skill → full plugin at `https://github.com/p10ns11y/plugins` (premflow/) (`/note` `/focus` `/journal`) |
 
 **Philosophy:** Fission keeps you fast. Fusion makes you unstoppable. Guards are what you add after you almost didn't need them.
@@ -54,7 +54,6 @@ ln -sf "$(pwd)/rules/control-graph.mdc" ~/.cursor/rules/control-graph.mdc 2>/dev
 ln -sf "$(pwd)/rules/master-planner.mdc" ~/.cursor/rules/master-planner.mdc 2>/dev/null || true
 # CLT DualLoad pre-filter (alwaysApply: true) — injects A8 before heavy work
 ln -sf "$(pwd)/rules/clt-dual-load.mdc" ~/.cursor/rules/clt-dual-load.mdc 2>/dev/null || true
-# legacy alias (optional): ln -sf "$(pwd)/looper" ~/.cursor/skills/looper
 ```
 
 **Per-project** (share with teammates via repo):
@@ -93,7 +92,7 @@ Pick a pack, symlink those skills, add more as needed.
 | ------------------------------- | --------------------------------------------------------------------------------------------- | ---------------------------------- |
 | **Context & speed**             | `ai-optimization`, `architecture-synthesis`                                                   | Large codebases, expensive context |
 | **Multi-agent delivery**        | `control-feeder`, `agent-orchestrator`, `control-graph`, `git-worktrees`, `concurrent-cli-agents`, `split-to-prs` | Prompt feed, parallel agents, SM+DAG control, PR hygiene |
-| **Node supply chain**           | `fix-dependency-security`, `upgrade-packages`, `audit-allow-builds`, `supply-chain-harden`    | pnpm monorepos, CI hardening       |
+| **Node supply chain**           | `fix-dependency-security`, `upgrade-packages`, `audit-allow-builds`    | pnpm monorepos, CI hardening       |
 | **React / Next frontend**       | `react-client-expert`, `semantic-markup-css`, `project-editor-profile`                        | App Router, a11y, editor sync      |
 | **Opportunity finder platform** | `finder-reactor`, `agentic-reactor`, `x-agent-resources`, `cv-promote-guard`, `tauri-agentic` | Tauri + X + LLM autonomous loops   |
 | **C / CMake / MVU**             | `explore-repo-readonly`, `mvu-refactor-plan`, `src-tree-reorganize`                           | elomaxz-style refactors            |
@@ -107,6 +106,17 @@ Pick a pack, symlink those skills, add more as needed.
 
 ## Skill catalog
 
+These aliases stay on disk with discovery off (`disable-model-invocation: true`). Do not symlink them into `~/.cursor/skills`. The live catalog follows.
+
+| Directory | Open this instead |
+| --- | --- |
+| `looper` | `control-graph` |
+| `stellar-roadmap` | `stellar-spacemap` |
+| `fusion-sage` | `architecture-synthesis` |
+| `supply-chain-harden` | `fix-dependency-security` |
+| `archive/distill` | leave archived; do not reinstall |
+
+
 ### Agent orchestration & execution
 
 
@@ -116,7 +126,6 @@ Pick a pack, symlink those skills, add more as needed.
 | [control-graph](control-graph/SKILL.md)                     | Outer state machine/loop + inner DAG or nested loops; budgets, HITL, multi-model routing, CLT DualLoad SoT (was `looper`) |
 | [control-feeder](control-feeder/SKILL.md)                   | Pre-graph: rewrite dump → route light / CG Outer / EVA Inner; emit Feed |
 | [grok-host-prep](grok-host-prep/SKILL.md)                   | Check/apply Grok Build host knobs (`lsp.json`, `lsp_tools`, MCP commands) |
-| [looper](looper/SKILL.md)                                   | **Deprecated redirect** → `control-graph` (keeps legacy discovery) |
 | [concurrent-cli-agents](concurrent-cli-agents/SKILL.md)     | Run multiple CLI agents safely on isolated worktrees or sandboxes                                  |
 | [git-worktrees](git-worktrees/SKILL.md)                     | Safe git worktree usage for agents; commit-then-merge; disk hygiene                                |
 | [gt-flow](gt-flow/SKILL.md)                                 | When to use Graphite (`gt`) vs plain branches with agent worktrees                                 |
@@ -135,7 +144,6 @@ Pick a pack, symlink those skills, add more as needed.
 | ------------------------------------------- | --------------------------------------------------------------------------------------- |
 | [ai-optimization](ai-optimization/SKILL.md) | Fission engine: relevance scoring, compression, token budgets, progressive disclosure   |
 | [architecture-synthesis](architecture-synthesis/SKILL.md) | After fission: cross-file synthesis, surplus (Q>1), optional KG, iron-peak design (was `fusion-sage`) |
-| [fusion-sage](fusion-sage/SKILL.md)         | **Legacy name** — same procedure as `architecture-synthesis`; prefer the semantic name  |
 | [finder-reactor](finder-reactor/SKILL.md)   | Self-guarded opportunity engine: search → analyze → prep → promote with guards & pauses |
 | [agentic-reactor](agentic-reactor/SKILL.md) | Glue patterns for pause-aware autonomous platforms (finder + shell + MCP)               |
 
@@ -175,7 +183,6 @@ Pick a pack, symlink those skills, add more as needed.
 
 | Skill                                                       | One-liner                                                 |
 | ----------------------------------------------------------- | --------------------------------------------------------- |
-| [supply-chain-harden](supply-chain-harden/SKILL.md)         | pnpm workspace hardening, audits, Socket Firewall (`sfw`) |
 | [fix-dependency-security](fix-dependency-security/SKILL.md) | Fix vulns/deprecations with safe upgrade patterns         |
 | [upgrade-packages](upgrade-packages/SKILL.md)               | Safe major/minor/patch upgrades with codemods             |
 | [audit-allow-builds](audit-allow-builds/SKILL.md)           | Audit `allowBuilds` / lifecycle scripts in pnpm lockfile  |
@@ -195,7 +202,6 @@ Pick a pack, symlink those skills, add more as needed.
 | [skill-rename-propagation](skill-rename-propagation/SKILL.md) | One-pass rename across folder, rules, packs, indexes, consumers |
 | [higher-order-decision-architect](higher-order-decision-architect/SKILL.md) | First-principles decision framework before material architecture/API/security choices |
 | [stellar-spacemap](stellar-spacemap/SKILL.md) | Evidence-driven architecture backlog docs: scorecards, SN-* blueprint cards, gantt order (was `stellar-roadmap`) |
-| [stellar-roadmap](stellar-roadmap/SKILL.md) | **Deprecated redirect** → `stellar-spacemap` |
 | [odysseus-navigator](odysseus-navigator/SKILL.md) | Engineering judgment overlay: Odysseus mistakes ↔ CG/EVA hooks; slash plugin in [p10ns11y/plugins](https://github.com/p10ns11y/plugins/tree/main/odysseus-navigator); copy-paste system prompt in English ref |
 
 

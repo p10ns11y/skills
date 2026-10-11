@@ -1,11 +1,7 @@
 ---
 name: fusion-sage
-description: >-
-  Fusion on fission: after ai-optimization pruning, synthesize cross-file
-  abstractions, emit ⚡ surplus (Q>1), maintain a session knowledge graph, and
-  score binding energy toward iron-peak design. Use for architecture, domain
-  models, compounding maintainability — not pure one-file typos. Triggers:
-  fusion, surplus, Q>1, architecture, self-improving, long-term, Fusion Sage.
+description: Redirect file for architecture-synthesis. Discovery is off. Open architecture-synthesis.
+disable-model-invocation: true
 ---
 
 # fusion-sage

@@ -1,6 +1,7 @@
 ---
 name: tidy-commit-push
 description: Inspect, clean legacy files, verify privacy, then commit and push with conventional message
+disable-model-invocation: true
 ---
 
 # tidy-commit-push

@@ -1,9 +1,7 @@
 ---
 name: looper
-description: >-
-  DEPRECATED alias for control-graph. Outer state machine/loop + inner DAG or
-  nested loops, budgets, HITL, multi-model routing. Prefer control-graph;
-  this file only redirects. Triggers: looper (legacy).
+description: Redirect file for control-graph. Discovery is off. Open control-graph.
+disable-model-invocation: true
 ---
 
 # looper → control-graph

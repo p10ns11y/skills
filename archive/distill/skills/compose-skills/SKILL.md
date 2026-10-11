@@ -1,6 +1,7 @@
 ---
 name: compose-skills
 description: load multiple skills via system reminders then drive a goal using their combined rules
+disable-model-invocation: true
 ---
 
 # compose-skills

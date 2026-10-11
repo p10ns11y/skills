@@ -1,6 +1,7 @@
 ---
 name: dependency-security
 description: when performing pnpm audit fixes, deprecation removal, supply-chain hardening with sfw; agent-agnostic under .agents/skills/
+disable-model-invocation: true
 ---
 
 # dependency-security

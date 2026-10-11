@@ -1,6 +1,7 @@
 ---
 name: goal-to-todo-seed
 description: Read goal plan then immediately call todo_write before any code changes
+disable-model-invocation: true
 ---
 
 # goal-to-todo-seed

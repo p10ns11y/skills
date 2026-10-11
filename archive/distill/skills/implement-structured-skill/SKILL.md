@@ -1,6 +1,7 @@
 ---
 name: implement-structured-skill
 description: when authoring a new agent skill: read plan, seed todos, write SKILL.md + rule + validation script then update indexes
+disable-model-invocation: true
 ---
 
 # implement-structured-skill

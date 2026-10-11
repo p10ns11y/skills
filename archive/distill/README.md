@@ -23,7 +23,7 @@ They polluted agent discovery without improving Correctness / Effectiveness / Ef
 
 ## Reuse policy
 
-Do **not** reinstall wholesale. Mine for:
+Do **not** reinstall wholesale. Each stub sets `disable-model-invocation: true`. Mine for:
 
 1. A real recurring procedure → rewrite as a proper skill under repo root  
 2. A portable multi-phase DAG → rewrite under `workflows/` with **existing** skills  

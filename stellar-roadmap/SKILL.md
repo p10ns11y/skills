@@ -1,9 +1,7 @@
 ---
 name: stellar-roadmap
-description: >-
-  DEPRECATED alias for stellar-spacemap. Architecture backlog docs: scorecards,
-  SN-* cards, thrive vision, gantt. Prefer stellar-spacemap; this file only
-  redirects. Triggers: stellar-roadmap (legacy).
+description: Redirect file for stellar-spacemap. Discovery is off. Open stellar-spacemap.
+disable-model-invocation: true
 ---
 
 # stellar-roadmap → stellar-spacemap

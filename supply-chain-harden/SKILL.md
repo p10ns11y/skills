@@ -1,6 +1,7 @@
 ---
 name: supply-chain-harden
-description: Harden pnpm workspace and fix vulnerabilities. Use when user asks for pnpm audit, deprecations, supply-chain security, workspace hardening, or sfw/firewall checks.
+description: Duplicate of fix-dependency-security. Discovery is off. Open fix-dependency-security.
+disable-model-invocation: true
 ---
 
 # Supply-chain harden
